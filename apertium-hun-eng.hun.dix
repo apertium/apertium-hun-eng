@@ -1,5 +1,5 @@
 <dictionary>
-  <alphabet>AÁBCDEÉFGHIJKLMNOÓÖŐPQRSTUÚÜŰVWXYZaábcdeéfghijklmnoóöőpqrstuúüűvwxyz</alphabet>
+  <alphabet>AÁBCDEÉFGHIÍJKLMNOÓÖŐPQRSTUÚÜŰVWXYZaábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz</alphabet>
  
   <sdefs>
     <sdef n="n"              c="Noun"/>
@@ -77,6 +77,10 @@
 
     <pardef n="macsk/a__n">
       <e><p><l>a</l><r>a<s n="n"/></r></p></e>
+    </pardef>
+
+    <pardef n="v/íz__n">
+      <e><p><l>íz</l><r>íz<s n="n"/></r></p></e>
     </pardef>
 
     <!-- SECTION: Proper nouns -->
@@ -160,6 +164,7 @@
     <e lm="macska"><i>macsk</i><par n="macsk/a__n"/></e>
     <e lm="kutya"><i>kuty</i><par n="macsk/a__n"/></e>
     <e lm="idő"><i>idő</i><par n="idő__n"/></e>
+    <e lm="víz"><i>v</i><par n="v/íz__n"/></e>
 
     <!-- SECTION: Proper nouns -->
 
