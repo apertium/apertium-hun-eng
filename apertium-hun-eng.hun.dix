@@ -7,6 +7,7 @@
     <sdef n="np"             c="Proper noun"/>
     <sdef n="adj"            c="Adjective"/>
     <sdef n="adv"            c="Adverb"/>
+    <sdef n="post"           c="Postposition"/>
     <sdef n="det"            c="Determiner"/>
     <sdef n="cnjcoo"         c="Coordinating conjunction"/>
 
@@ -42,12 +43,22 @@
       <e><p><l></l><r><s n="cnjcoo"/></r></p></e>
     </pardef>
 
+    <!-- SECTION: Postpositions -->
+
+    <pardef n="előtt__post">
+      <e><p><l></l><r><s n="post"/></r></p></e>
+    </pardef>
+
     <!-- SECTION: Determiners -->
 
     <pardef n="/a__det">
       <e r="LR"><p><l>a</l><r>a<s n="det"/><s n="def"/></r></p></e>
       <e r="LR"><p><l>az</l><r>a<s n="det"/><s n="def"/></r></p></e>
       <e r="RL"><p><l><a/>a</l><r>a<s n="det"/><s n="def"/></r></p></e>
+    </pardef>
+
+    <pardef n="egy__det">
+      <e><p><l></l><r><s n="det"/><s n="ind"/></r></p></e>
     </pardef>
 
     <!-- SECTION: Nouns -->
@@ -79,6 +90,11 @@
     </pardef>
 
     <!-- SECTION: Adjectives -->
+
+    <pardef n="nagy__adj">
+      <e><p><l></l><r><s n="adj"/></r></p></e>
+      <e><p><l>obb</l><r><s n="adj"/><s n="comp"/></r></p></e>
+    </pardef>
 
     <pardef n="szé/p__adj">
       <e><p><l>p</l><r>p<s n="adj"/></r></p></e>
@@ -127,15 +143,21 @@
 
     <e lm="és"><i>és</i><par n="és__cnjcoo"/></e>
 
+    <!-- SECTION: Postpositions -->
+
+    <e lm="előtt"><i>előtt</i><par n="előtt__post"/></e>
+
     <!-- SECTION: Determiners -->
 
     <e lm="a"><i></i><par n="/a__det"/></e>
+    <e lm="egy"><i>egy</i><par n="egy__det"/></e>
 
     <!-- SECTION: Nouns -->
    
     <e lm="ház"><i>ház</i><par n="ház__n"/></e>
     <e lm="kert"><i>kert</i><par n="kert__n"/></e>
     <e lm="macska"><i>macsk</i><par n="macsk/a__n"/></e>
+    <e lm="kutya"><i>kuty</i><par n="macsk/a__n"/></e>
     <e lm="idő"><i>idő</i><par n="idő__n"/></e>
 
     <!-- SECTION: Proper nouns -->
@@ -145,6 +167,7 @@
 
     <!-- SECTION: Adjectives -->
 
+    <e lm="nagy"><i>nagy</i><par n="nagy__adj"/></e>
     <e lm="szép"><i>szé</i><par n="szé/p__adj"/></e>
     <e lm="jó"><i>j</i><par n="j/ó__adj"/></e>
 
