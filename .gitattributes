@@ -1,2 +1,4 @@
 * text=auto !eol
-/apertium-hu-en.hu-en.dix -text
+/apertium-hun-eng.hun-eng.dix -text
+texts/rasskaz.eng.txt -text
+texts/rasskaz.hun.txt -text
