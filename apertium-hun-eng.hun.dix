@@ -33,6 +33,7 @@
     <sdef n="def"            c="Definite"/>
 
     <sdef n="comp"           c="Comparative"/>
+    <sdef n="sup"            c="Superlative"/>
   </sdefs>
 
   <pardefs>
@@ -116,6 +117,12 @@
       <e><p><l></l><r><s n="adv"/><s n="itg"/></r></p></e>
     </pardef>
 
+    <pardef n="/nagyon__adv">
+      <e><p><l>nagyon</l><r>nagyon<s n="adv"/></r></p></e>
+      <e><p><l>jobban</l><r>nagyon<s n="adv"/><s n="comp"/></r></p></e>
+      <e><p><l>legjobban</l><r>nagyon<s n="adv"/><s n="sup"/></r></p></e>
+    </pardef>
+
     <pardef n="tegnap__adv">
       <e><p><l></l><r><s n="adv"/></r></p></e>
     </pardef>
@@ -181,10 +188,15 @@
 
     <e lm="hol"><i>hol</i><par n="hol__adv"/></e>
 
+    <e lm="nagyon"><i></i><par n="/nagyon__adv"/></e>
+
     <e lm="tegnap"><i>tegnap</i><par n="tegnap__adv"/></e>
+    <e lm="is"><i>is</i><par n="tegnap__adv"/></e>
     <e lm="most"><i>most</i><par n="tegnap__adv"/></e>
     <e lm="ma"><i>ma</i><par n="tegnap__adv"/></e>
     <e lm="akkor"><i>akkor</i><par n="tegnap__adv"/></e>
+    <e lm="ott"><i>ott</i><par n="tegnap__adv"/></e>
+    <e lm="itt"><i>itt</i><par n="tegnap__adv"/></e>
 
     <!-- SECTION: Verbs -->
 
