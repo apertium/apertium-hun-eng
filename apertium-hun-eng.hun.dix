@@ -21,6 +21,19 @@
     <sdef n="p2"             c="2. person"/>
     <sdef n="p3"             c="3. person"/>
 
+    <sdef n="px1ss"          c="1. person singular possessive (singular)"/>
+    <sdef n="px2ss"          c="2. person singular possessive (singular)"/>
+    <sdef n="px3ss"          c="3. person singular possessive (singular)"/>
+    <sdef n="px1sp"          c="1. person singular possessive (plural)"/>
+    <sdef n="px2sp"          c="2. person singular possessive (plural)"/>
+    <sdef n="px3sp"          c="3. person singular possessive (plural)"/>
+    <sdef n="px1ps"          c="1. person plural possessive (singular)"/>
+    <sdef n="px2ps"          c="2. person plural possessive (singular)"/>
+    <sdef n="px3ps"          c="3. person plural possessive (singular)"/>
+    <sdef n="px1pp"          c="1. person plural possessive (plural)"/>
+    <sdef n="px2pp"          c="2. person plural possessive (plural)"/>
+    <sdef n="px3pp"          c="3. person plural possessive (plural)"/>
+
     <sdef n="inf"            c="Infinitive"/>
     <sdef n="pp"             c="Past participle"/>
     <sdef n="pres"           c="Present tense"/>
@@ -31,6 +44,12 @@
     <sdef n="itg"            c="Interrogative"/>
     <sdef n="ind"            c="Indefinite"/>
     <sdef n="def"            c="Definite"/>
+
+    <sdef n="nom"            c="Nominative"/>
+    <sdef n="ins"            c="Instrumental"/>
+    <sdef n="ine"            c="Inessive"/>
+    <sdef n="ill"            c="Illative"/>
+    <sdef n="ses"            c="Superessive"/>
 
     <sdef n="comp"           c="Comparative"/>
     <sdef n="sup"            c="Superlative"/>
@@ -64,12 +83,61 @@
 
     <!-- SECTION: Nouns -->
 
+    <pardef n="case-ház">
+      <e><p><l></l><r><s n="nom"/></r></p></e>
+      <e><p><l>val</l><r><s n="ins"/></r></p></e>
+      <e><p><l>ban</l><r><s n="ine"/></r></p></e>
+      <e><p><l>ba</l><r><s n="ill"/></r></p></e>
+    </pardef>
+
+    <pardef n="case-kert">
+      <e><p><l></l><r><s n="nom"/></r></p></e>
+      <e><p><l>ben</l><r><s n="ine"/></r></p></e>
+      <e><p><l>be</l><r><s n="ill"/></r></p></e>
+    </pardef>
+
+    <pardef n="poss-123ss">
+      <e><p><l>m</l><r><s n="px1ss"/></r></p></e>
+      <e><p><l>d</l><r><s n="px2ss"/></r></p></e>
+      <e><p><l>tok</l><r><s n="px2ps"/></r></p></e>
+    </pardef>
+
+    <pardef n="poss-123sp">
+      <e><p><l>im</l><r><s n="px1sp"/></r></p></e>
+      <e><p><l>id</l><r><s n="px2sp"/></r></p></e>
+      <e><p><l>i</l><r><s n="px3sp"/></r></p></e>
+      <e><p><l>ink</l><r><s n="px1pp"/></r></p></e>
+      <e><p><l>itok</l><r><s n="px2pp"/></r></p></e>
+      <e><p><l>ik</l><r><s n="px3pp"/></r></p></e>
+    </pardef>
+
+    <pardef n="poss-ház">
+      <e><p><l>a</l><r></r></p><par n="poss-123ss"/><par n="case-ház"/></e>
+      <e><p><l>a</l><r><s n="px3ss"/></r></p><par n="case-ház"/></e>
+      <e><p><l>unk</l><r><s n="px1ps"/></r></p><par n="case-ház"/></e>
+      <e><p><l>uk</l><r><s n="px3ps"/></r></p><par n="case-ház"/></e>
+      <e><p><l>a</l><r></r></p><par n="poss-123sp"/><par n="case-ház"/></e>
+    </pardef>
+
+    <pardef n="poss-macska">
+      <e><p><l>á</l><r></r></p><par n="poss-123ss"/><par n="case-ház"/></e>
+      <e><p><l>ája</l><r><s n="px3ss"/></r></p><par n="case-ház"/></e>
+      <e><p><l>ánk</l><r><s n="px1ps"/></r></p><par n="case-ház"/></e>
+      <e><p><l>ájuk</l><r><s n="px3ps"/></r></p><par n="case-ház"/></e>
+      <e><p><l>á</l><r></r></p><par n="poss-123sp"/><par n="case-ház"/></e>
+    </pardef>
+
     <pardef n="ház__n">
       <e><p><l></l><r><s n="n"/></r></p></e>
+      <e><p><l>on</l><r><s n="n"/><s n="ses"/></r></p></e>
+      <e><p><l></l><r><s n="n"/></r></p><par n="poss-ház"/></e>
+      <e><p><l></l><r><s n="n"/></r></p><par n="case-ház"/></e>
     </pardef>
 
     <pardef n="kert__n">
       <e><p><l></l><r><s n="n"/></r></p></e>
+      <e><p><l>en</l><r><s n="n"/><s n="ses"/></r></p></e>
+      <e><p><l></l><r><s n="n"/></r></p><par n="case-kert"/></e>
     </pardef>
 
     <pardef n="idő__n">
@@ -78,6 +146,9 @@
 
     <pardef n="macsk/a__n">
       <e><p><l>a</l><r>a<s n="n"/></r></p></e>
+      <e><p><l>a</l><r>a<s n="n"/></r></p></e>
+      <e><p><l></l><r>a<s n="n"/></r></p><par n="poss-macska"/></e>
+      <e><p><l>á</l><r>а<s n="n"/></r></p><par n="case-ház"/></e>
     </pardef>
 
     <pardef n="v/íz__n">
