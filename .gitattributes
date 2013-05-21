@@ -1,4 +1,5 @@
 * text=auto !eol
+/apertium-hun-eng.hun-eng-WIP.dix -text
 /apertium-hun-eng.hun-eng.dix -text
 /apertium-hun-eng.hun-eng.lrx -text
 /apertium-hun-eng.hun.dix -text

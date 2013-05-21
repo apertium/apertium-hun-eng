@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<dictionary>
+	<alphabet>AÁBCDEÉFGHIÍJKLMNOÓÖŐPQRSTUÚÜŰVWXYZaábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz</alphabet>
+	<sdefs>
+		<sdef n="noun"/>
+		<sdef n="art" />
+		<sdef n="con" />
+		<sdef n="nom" />
+		<sdef n="int" />
+		<sdef n="vblex"/>
+		<sdef n="sg"/>
+		<sdef n="pl"/>
+		<sdef n="pri"/>
+		<sdef n="def"/>
+		<sdef n="indef"/>
+		<sdef n="prn"/>
+		<sdef n="pers"/>
+		<sdef n="adv"/>
+		<sdef n="adj"/>
+	</sdefs>
+	<section id="main" type="standard">
+		<e><p><l>a<s n="art"/><s n="def"/></l><r>the<s n="art"><s n="def"/></r></p></e>
+		<e><p><l>az<s n="art"/><s n="def"/></l><r>the<s n="art"><s n="def"/></r></p></e>
+		<e><p><l>egy<s n="art"/><s n="indef"/></l><r>a<s n="art"><s n="indef"/></r></p></e>
+		<e><p><l>egy<s n="art"/><s n="indef"/></l><r>an<s n="art"><s n="indef"/></r></p></e>
+		<e><p><l>és<s n="con"/></l><r>and<s n="con"></r></p></e>
+		<e><p><l>Mari<s n="noun"></l><r>Mary<s n="noun"></r></p></e>
+		<e><p><l>Jancsi<s n="noun"></l><r>James<s n="noun"></r></p></e>
+		<e><p><l>kutya<s n="noun"></l><r>dog<s n="noun"></r></p></e>
+		<e><p><l>macska<s n="noun"></l><r>cat<s n="noun"></r></p></e>
+		<e><p><l>ház<s n="noun"></l><r>house<s n="noun"></r></p></e>
+		<e><p><l>kert<s n="noun"></l><r>garden<s n="noun"></r></p></e>
+		<e><p><l>van<s n="vblex"></l><r>is<s n="vblex"></r></p></e>
+		<e><p><l>nincs<s n="vblex"></l><r>isn't<s n="vblex"></r></p></e>
+		<e><p><l>játszik<s n="vblex"></l><r>play<s n="vblex"></r></p></e>
+		<e><p><l>lát<s n="vblex"></l><r>see<s n="vblex"></r></p></e>
+		<e><p><l>kap<s n="vblex"></l><r>get<s n="vblex"></r></p></e>
+		<e><p><l>választ<s n="vblex"></l><r>choose<s n="vblex"></r></p></e>
+		<e><p><l>ment<s n="vblex"></l><r>save<s n="vblex"></r></p></e>
+		<e><p><l>mond<s n="vblex"></l><r>say<s n="vblex"></r></p></e>
+		<e><p><l>tud<s n="vblex"></l><r>know<s n="vblex"></r></p></e>
+		<e><p><l>nem<s n="int"></l><r>not<s n="int"></r></p></e>
+		<e><p><l>is<s n="int"></l><r>also<s n="int"></r></p></e>
+		<e><p><l>de<s n="int"></l><r>but<s n="int"></r></p></e>
+		<e><p><l>ő<s n="prn"><s n="pers"/></l><r>he<s n="prn"><s n="pers"/></r></p></e><!-- fixme: gender? -->
+		<e><p><l>hol<s n="prn"></l><r>where<s n="prn"></r></p></e>
+		<e><p><l>ez<s n="prn"></l><r>this<s n="prn"></r></p></e>
+		<e><p><l>nagyon<s n="adv"></l><r>very<s n="adv"></r></p></e>
+		<e><p><l>nagy<s n="adj"></l><r>big<s n="adj"></r></p></e>
+		<e><p><l>kis<s n="adj"></l><r>small<s n="adj"></r></p></e>
+		<e><p><l>vén<s n="adj"></l><r>old<s n="adj"></r></p></e>
+	</section>
+</dictionary>
+      2 most
+      2 mindig
+      2 meg
+      2 lát
+      2 házban
+      2 hangot
+      2 előtt
+      2 azt
+      1 volt
+      1 vizet
+      1 végigsétál
+      1 vannak
+      1 valószínűleg
+      1 válaszolja
+      1 valamit
+      1 vagy
+      1 ül
+      1 Tudod
+      1 tud
+      1 tegnap
+      1 tartja
+      1 találja
+      1 szeret
+      1 szép
+      1 szeme
+      1 székek
+      1 számolást
+      1 számol
+      1 szalad
+      1 soha
+      1 semmit
+      1 próbálja
+      1 persze
+      1 ott
+      1 ötéves
+      1 odakint
+      1 néz
+      1 Nevet
+      1 nevet
+      1 Most
+      1 mondhatom
+      1 Mondd
+      1 mögül
+      1 mögött
+      1 mit
+      1 Mindketten
+      1 Mindenhová
+      1 Mikor
+      1 mikor
+      1 Miért
+      1 miért
+      1 merre
+      1 mennek
+      1 meleg
+      1 megy
+      1 Megvagy
+      1 megtalálni
+      1 megmondani
+      1 Megkérdezi
+      1 Megint
+      1 Még
+      1 más
+      1 madár
+      1 Ma
+      1 Lehet
+      1 lehet
+      1 látta
+      1 lassan
+      1 közelebb
+      1 körülnéz
+      1 kislány
+      1 kisfiú
+      1 kinéz
+      1 kicsi
+      1 kezét
+      1 kezet
+      1 két
+      1 kerten
+      1 Keresi
+      1 kérdésére
+      1 jön
+      1 jól
+      1 játék
+      1 inni
+      1 imádnak
+      1 Így
+      1 idő
+      1 ideje
+      1 húga
+      1 hova
+      1 Hol
+      1 hiszi
+      1 hideg
+      1 hatéves
+      1 hallja
+      1 hallgatózik
+      1 hallani
+      1 hall
+      1 ha
+      1 gyorsan
+      1 gyerekkel
+      1 fiú
+      1 Figyelmesen
+      1 fejét
+      1 fánál
+      1 fához
+      1 fa
+      1 ezt
+      1 És
+      1 enni
+      1 ember
+      1 elől
+      1 elbújik
+      1 Ekkor
+      1 együtt
+      1 e
+      1 csinálja
+      1 csinál
+      1 csak
+      1 boldogok
+      1 boldog
+      1 beszélni
+      1 beszél
+      1 Benéz
+      1 benéz
+      1 befejezte
+      1 Bár
+      1 Aztán
+      1 asztal
+      1 anyjuk
+      1 anyjára
+      1 anyjának
+      1 anyja
+      1 alszik
+      1 állat
+      1 alám
+      1 alá
+      1 Akkor
+      1 akarja
+      1 ablakon
+      1 ablak
