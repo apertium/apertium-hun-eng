@@ -142,6 +142,7 @@
     <!-- SECTION: Conjunctions -->
 
     <e lm="és"><i>és</i><par n="és__cnjcoo"/></e>
+    <e lm="de"><i>de</i><par n="és__cnjcoo"/></e>
 
     <!-- SECTION: Postpositions -->
 
