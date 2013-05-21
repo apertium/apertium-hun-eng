@@ -1,5 +1,8 @@
 * text=auto !eol
 /apertium-hun-eng.hun-eng.dix -text
+/apertium-hun-eng.hun-eng.lrx -text
 /apertium-hun-eng.hun.dix -text
+/hun-eng.prob -text svneol=unset#unset
+/modes.xml -text
 texts/rasskaz.eng.txt -text
 texts/rasskaz.hun.txt -text
