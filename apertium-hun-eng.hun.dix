@@ -1,0 +1,167 @@
+<dictionary>
+  <alphabet>AÁBCDEÉFGHIJKLMNOÓÖŐPQRSTUÚÜŰVWXYZaábcdeéfghijklmnoóöőpqrstuúüűvwxyz</alphabet>
+ 
+  <sdefs>
+    <sdef n="n"              c="Noun"/>
+    <sdef n="vbser"          c="Verb 'to be'"/>
+    <sdef n="np"             c="Proper noun"/>
+    <sdef n="adj"            c="Adjective"/>
+    <sdef n="adv"            c="Adverb"/>
+    <sdef n="det"            c="Determiner"/>
+    <sdef n="cnjcoo"         c="Coordinating conjunction"/>
+
+    <sdef n="f"              c="Feminine"/>
+    <sdef n="m"              c="Masculine"/>
+
+    <sdef n="sg"             c="Singular"/>
+    <sdef n="pl"             c="Plural"/>
+
+    <sdef n="p1"             c="1. person"/>
+    <sdef n="p2"             c="2. person"/>
+    <sdef n="p3"             c="3. person"/>
+
+    <sdef n="inf"            c="Infinitive"/>
+    <sdef n="pp"             c="Past participle"/>
+    <sdef n="pres"           c="Present tense"/>
+    <sdef n="past"           c="Past tense"/>
+
+    <sdef n="ant"            c="Anthroponym"/>
+
+    <sdef n="itg"            c="Interrogative"/>
+    <sdef n="ind"            c="Indefinite"/>
+    <sdef n="def"            c="Definite"/>
+
+    <sdef n="comp"           c="Comparative"/>
+  </sdefs>
+
+  <pardefs>
+
+    <!-- SECTION: Conjunctions -->
+
+    <pardef n="és__cnjcoo">
+      <e><p><l></l><r><s n="cnjcoo"/></r></p></e>
+    </pardef>
+
+    <!-- SECTION: Determiners -->
+
+    <pardef n="/a__det">
+      <e r="LR"><p><l>a</l><r>a<s n="det"/><s n="def"/></r></p></e>
+      <e r="LR"><p><l>az</l><r>a<s n="det"/><s n="def"/></r></p></e>
+      <e r="RL"><p><l><a/>a</l><r>a<s n="det"/><s n="def"/></r></p></e>
+    </pardef>
+
+    <!-- SECTION: Nouns -->
+
+    <pardef n="ház__n">
+      <e><p><l></l><r><s n="n"/></r></p></e>
+    </pardef>
+
+    <pardef n="kert__n">
+      <e><p><l></l><r><s n="n"/></r></p></e>
+    </pardef>
+
+    <pardef n="idő__n">
+      <e><p><l></l><r><s n="n"/></r></p></e>
+    </pardef>
+
+    <pardef n="macsk/a__n">
+      <e><p><l>a</l><r>a<s n="n"/></r></p></e>
+    </pardef>
+
+    <!-- SECTION: Proper nouns -->
+
+    <pardef n="Jancsi__np">
+      <e><p><l></l><r><s n="np"/><s n="ant"/><s n="m"/></r></p></e>
+    </pardef>
+
+    <pardef n="Mari__np">
+      <e><p><l></l><r><s n="np"/><s n="ant"/><s n="f"/></r></p></e>
+    </pardef>
+
+    <!-- SECTION: Adjectives -->
+
+    <pardef n="szé/p__adj">
+      <e><p><l>p</l><r>p<s n="adj"/></r></p></e>
+      <e><p><l>bb</l><r>p<s n="adj"/><s n="comp"/></r></p></e>
+    </pardef>
+
+    <pardef n="j/ó__adj">
+      <e><p><l>ó</l><r>ó<s n="adj"/></r></p></e>
+      <e><p><l>obb</l><r>ó<s n="adj"/><s n="comp"/></r></p></e>
+    </pardef>
+
+    <!-- SECTION: Adverbs -->
+
+    <pardef n="hol__adv">
+      <e><p><l></l><r><s n="adv"/><s n="itg"/></r></p></e>
+    </pardef>
+
+    <pardef n="tegnap__adv">
+      <e><p><l></l><r><s n="adv"/></r></p></e>
+    </pardef>
+
+    <!-- SECTION: Verbs -->
+
+    <pardef n="/van__vbser">
+      <e><p><l>lenni</l><r>van<s n="vbser"/><s n="inf"/></r></p></e>
+      <e><p><l>volt</l><r>van<s n="vbser"/><s n="pp"/></r></p></e>
+      <e><p><l>vagyok</l><r>van<s n="vbser"/><s n="pres"/><s n="p1"/><s n="sg"/></r></p></e>
+      <e><p><l>vagy</l><r>van<s n="vbser"/><s n="pres"/><s n="p2"/><s n="sg"/></r></p></e>
+      <e><p><l>van</l><r>van<s n="vbser"/><s n="pres"/><s n="p3"/><s n="sg"/></r></p></e>
+      <e><p><l>vagyunk</l><r>van<s n="vbser"/><s n="pres"/><s n="p1"/><s n="pl"/></r></p></e>
+      <e><p><l>vagytok</l><r>van<s n="vbser"/><s n="pres"/><s n="p2"/><s n="pl"/></r></p></e>
+      <e><p><l>vannak</l><r>van<s n="vbser"/><s n="pres"/><s n="p3"/><s n="pl"/></r></p></e>
+      <e><p><l>voltam</l><r>van<s n="vbser"/><s n="past"/><s n="p1"/><s n="sg"/></r></p></e>
+      <e><p><l>voltál</l><r>van<s n="vbser"/><s n="past"/><s n="p2"/><s n="sg"/></r></p></e>
+      <e><p><l>volt</l><r>van<s n="vbser"/><s n="past"/><s n="p3"/><s n="sg"/></r></p></e>
+      <e><p><l>voltunk</l><r>van<s n="vbser"/><s n="past"/><s n="p1"/><s n="pl"/></r></p></e>
+      <e><p><l>voltatok</l><r>van<s n="vbser"/><s n="past"/><s n="p2"/><s n="pl"/></r></p></e>
+      <e><p><l>voltak</l><r>van<s n="vbser"/><s n="past"/><s n="p3"/><s n="pl"/></r></p></e>
+    </pardef>
+
+  </pardefs>
+
+  <section id="main" type="standard">
+ 
+    <!-- SECTION: Conjunctions -->
+
+    <e lm="és"><i>és</i><par n="és__cnjcoo"/></e>
+
+    <!-- SECTION: Determiners -->
+
+    <e lm="a"><i></i><par n="/a__det"/></e>
+
+    <!-- SECTION: Nouns -->
+   
+    <e lm="ház"><i>ház</i><par n="ház__n"/></e>
+    <e lm="kert"><i>kert</i><par n="kert__n"/></e>
+    <e lm="macska"><i>macsk</i><par n="macsk/a__n"/></e>
+    <e lm="idő"><i>idő</i><par n="idő__n"/></e>
+
+    <!-- SECTION: Proper nouns -->
+
+    <e lm="Jancsi"><i>Jancsi</i><par n="Jancsi__np"/></e>
+    <e lm="Mari"><i>Mari</i><par n="Mari__np"/></e>
+
+    <!-- SECTION: Adjectives -->
+
+    <e lm="szép"><i>szé</i><par n="szé/p__adj"/></e>
+    <e lm="jó"><i>j</i><par n="j/ó__adj"/></e>
+
+    <!-- SECTION: Adverbs -->
+
+    <e lm="hol"><i>hol</i><par n="hol__adv"/></e>
+
+    <e lm="tegnap"><i>tegnap</i><par n="tegnap__adv"/></e>
+    <e lm="most"><i>most</i><par n="tegnap__adv"/></e>
+    <e lm="ma"><i>ma</i><par n="tegnap__adv"/></e>
+    <e lm="akkor"><i>akkor</i><par n="tegnap__adv"/></e>
+
+    <!-- SECTION: Verbs -->
+
+    <e lm="van"><i></i><par n="/van__vbser"/></e>
+
+  </section>
+
+
+</dictionary>
