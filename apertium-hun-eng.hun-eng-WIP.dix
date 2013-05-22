@@ -3,58 +3,60 @@
 <dictionary>
 	<alphabet>AÁBCDEÉFGHIÍJKLMNOÓÖŐPQRSTUÚÜŰVWXYZaábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz</alphabet>
 	<sdefs>
-		<sdef n="noun"/>
-		<sdef n="art" />
+		<sdef n="n"/>
+		<sdef n="pn" />
+		<sdef n="det" />
 		<sdef n="con" />
 		<sdef n="nom" />
 		<sdef n="int" />
 		<sdef n="vblex"/>
+		<sdef n="vbser"/>
 		<sdef n="sg"/>
 		<sdef n="pl"/>
 		<sdef n="pri"/>
 		<sdef n="def"/>
-		<sdef n="indef"/>
+		<sdef n="ind"/>
 		<sdef n="prn"/>
 		<sdef n="pers"/>
 		<sdef n="adv"/>
 		<sdef n="adj"/>
 	</sdefs>
 	<section id="main" type="standard">
-		<e><p><l>a<s n="art"/><s n="def"/></l><r>the<s n="art"><s n="def"/></r></p></e>
-		<e><p><l>az<s n="art"/><s n="def"/></l><r>the<s n="art"><s n="def"/></r></p></e>
-		<e><p><l>egy<s n="art"/><s n="indef"/></l><r>a<s n="art"><s n="indef"/></r></p></e>
-		<e><p><l>egy<s n="art"/><s n="indef"/></l><r>an<s n="art"><s n="indef"/></r></p></e>
+		<e><p><l>a<s n="det"/><s n="def"/></l><r>the<s n="det"><s n="def"/></r></p></e>
+		<e><p><l>az<s n="det"/><s n="def"/></l><r>the<s n="det"><s n="def"/></r></p></e>
+		<e><p><l>egy<s n="det"/><s n="ind"/></l><r>a<s n="det"><s n="ind"/></r></p></e>
+		<e><p><l>egy<s n="det"/><s n="ind"/></l><r>an<s n="det"><s n="ind"/></r></p></e>
 		<e><p><l>és<s n="con"/></l><r>and<s n="con"></r></p></e>
-		<e><p><l>Mari<s n="noun"></l><r>Mary<s n="noun"></r></p></e>
-		<e><p><l>Jancsi<s n="noun"></l><r>James<s n="noun"></r></p></e>
-		<e><p><l>számolás<s n="noun"></l><r>calculation<s n="noun"></r></p></e>
-		<e><p><l>kutya<s n="noun"></l><r>dog<s n="noun"></r></p></e>
-		<e><p><l>macska<s n="noun"></l><r>cat<s n="noun"></r></p></e>
-		<e><p><l>madár<s n="noun"></l><r>bird<s n="noun"></r></p></e>
-		<e><p><l>állat<s n="noun"></l><r>animal<s n="noun"></r></p></e>
-		<e><p><l>asztal<s n="noun"></l><r>table<s n="noun"></r></p></e>
-		<e><p><l>játék<s n="noun"></l><r>game<s n="noun"></r></p></e>
-		<e><p><l>víz<s n="noun"></l><r>water<s n="noun"></r></p></e>
-		<e><p><l>ház<s n="noun"></l><r>house<s n="noun"></r></p></e>
-		<e><p><l>fa<s n="noun"></l><r>tree<s n="noun"></r></p></e>
-		<e><p><l>idő<s n="noun"></l><r>time<s n="noun"></r></p></e>
-		<e><p><l>hang<s n="noun"></l><r>sound<s n="noun"></r></p></e>
-		<e><p><l>ablak<s n="noun"></l><r>window<s n="noun"></r></p></e>
-		<e><p><l>kert<s n="noun"></l><r>garden<s n="noun"></r></p></e>
-		<e><p><l>szék<s n="noun"></l><r>chair<s n="noun"></r></p></e>
-		<e><p><l>anya<s n="noun"></l><r>mother<s n="noun"></r></p></e>
-		<e><p><l>kéz<s n="noun"></l><r>hand<s n="noun"></r></p></e>
-		<e><p><l>szem<s n="noun"></l><r>eye<s n="noun"></r></p></e>
-		<e><p><l>kisfiú<s n="noun"></l><r>boy<s n="noun"></r></p></e>
-		<e><p><l>fiú<s n="noun"></l><r>boy<s n="noun"></r></p></e>
-		<e><p><l>húg<s n="noun"></l><r>sister<s n="noun"></r></p></e>
-		<e><p><l>kislány<s n="noun"></l><r>girl<s n="noun"></r></p></e>
-		<e><p><l>kérdés<s n="noun"></l><r>question<s n="noun"></r></p></e>
-		<e><p><l>gyerek<s n="noun"></l><r>child<s n="noun"></r></p></e>
-		<e><p><l>szem<s n="noun"></l><r>eye<s n="noun"></r></p></e>
-		<e><p><l>fej<s n="noun"></l><r>head<s n="noun"></r></p></e>
-		<e><p><l>ember<s n="noun"></l><r>man<s n="noun"></r></p></e>
-		<e><p><l>van<s n="vblex"></l><r>is<s n="vblex"></r></p></e>
+		<e><p><l>Mari<s n="np"></l><r>Mary<s n="np"></r></p></e>
+		<e><p><l>Jancsi<s n="np"></l><r>James<s n="np"></r></p></e>
+		<e><p><l>számolás<s n="n"></l><r>calculation<s n="n"></r></p></e>
+		<e><p><l>kutya<s n="n"></l><r>dog<s n="n"></r></p></e>
+		<e><p><l>macska<s n="n"></l><r>cat<s n="n"></r></p></e>
+		<e><p><l>madár<s n="n"></l><r>bird<s n="n"></r></p></e>
+		<e><p><l>állat<s n="n"></l><r>animal<s n="n"></r></p></e>
+		<e><p><l>asztal<s n="n"></l><r>table<s n="n"></r></p></e>
+		<e><p><l>játék<s n="n"></l><r>game<s n="n"></r></p></e>
+		<e><p><l>víz<s n="n"></l><r>water<s n="n"></r></p></e>
+		<e><p><l>ház<s n="n"></l><r>house<s n="n"></r></p></e>
+		<e><p><l>fa<s n="n"></l><r>tree<s n="n"></r></p></e>
+		<e><p><l>idő<s n="n"></l><r>time<s n="n"></r></p></e>
+		<e><p><l>hang<s n="n"></l><r>sound<s n="n"></r></p></e>
+		<e><p><l>ablak<s n="n"></l><r>window<s n="n"></r></p></e>
+		<e><p><l>kert<s n="n"></l><r>garden<s n="n"></r></p></e>
+		<e><p><l>szék<s n="n"></l><r>chair<s n="n"></r></p></e>
+		<e><p><l>anya<s n="n"></l><r>mother<s n="n"></r></p></e>
+		<e><p><l>kéz<s n="n"></l><r>hand<s n="n"></r></p></e>
+		<e><p><l>szem<s n="n"></l><r>eye<s n="n"></r></p></e>
+		<e><p><l>kisfiú<s n="n"></l><r>boy<s n="n"></r></p></e>
+		<e><p><l>fiú<s n="n"></l><r>boy<s n="n"></r></p></e>
+		<e><p><l>húg<s n="n"></l><r>sister<s n="n"></r></p></e>
+		<e><p><l>kislány<s n="n"></l><r>girl<s n="n"></r></p></e>
+		<e><p><l>kérdés<s n="n"></l><r>question<s n="n"></r></p></e>
+		<e><p><l>gyerek<s n="n"></l><r>child<s n="n"></r></p></e>
+		<e><p><l>szem<s n="n"></l><r>eye<s n="n"></r></p></e>
+		<e><p><l>fej<s n="n"></l><r>head<s n="n"></r></p></e>
+		<e><p><l>ember<s n="n"></l><r>man<s n="n"></r></p></e>
+		<e><p><l>van<s n="vbser"></l><r>is<s n="vbser"></r></p></e>
 		<e><p><l>nincs<s n="vblex"></l><r>isn't<s n="vblex"></r></p></e>
 		<e><p><l>játszik<s n="vblex"></l><r>play<s n="vblex"></r></p></e>
 		<e><p><l>alszik<s n="vblex"></l><r>sleep<s n="vblex"></r></p></e>
