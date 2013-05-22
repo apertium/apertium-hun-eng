@@ -186,6 +186,11 @@
 
     <!-- SECTION: Adjectives -->
 
+    <pardef n="hideg__adj">
+      <e><p><l></l><r><s n="adj"/></r></p></e>
+      <e><p><l>ebb</l><r><s n="adj"/><s n="comp"/></r></p></e>
+    </pardef>
+
     <pardef n="nagy__adj">
       <e><p><l></l><r><s n="adj"/></r></p></e>
       <e><p><l>obb</l><r><s n="adj"/><s n="comp"/></r></p></e>
@@ -286,6 +291,7 @@
 
     <e lm="nagy"><i>nagy</i><par n="nagy__adj"/></e>
     <e lm="boldog"><i>boldog</i><par n="boldog__adj"/></e>
+    <e lm="hideg"><i>hideg</i><par n="hideg__adj"/></e>
     <e lm="szép"><i>szé</i><par n="szé/p__adj"/></e>
     <e lm="jó"><i>j</i><par n="j/ó__adj"/></e>
 
