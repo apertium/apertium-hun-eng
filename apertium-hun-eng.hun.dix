@@ -9,7 +9,9 @@
     <sdef n="adv"            c="Adverb"/>
     <sdef n="post"           c="Postposition"/>
     <sdef n="det"            c="Determiner"/>
+    <sdef n="ij"             c="Interjection"/>
     <sdef n="cnjcoo"         c="Coordinating conjunction"/>
+    <sdef n="cnjadv"         c="Adverbial conjunction"/>
 
     <sdef n="f"              c="Feminine"/>
     <sdef n="m"              c="Masculine"/>
@@ -46,9 +48,12 @@
     <sdef n="def"            c="Definite"/>
 
     <sdef n="nom"            c="Nominative"/>
+    <sdef n="acc"            c="Accusative"/>
+    <sdef n="dat"            c="Dative"/>
     <sdef n="ins"            c="Instrumental"/>
     <sdef n="ine"            c="Inessive"/>
     <sdef n="ill"            c="Illative"/>
+    <sdef n="all"            c="Allative"/>
     <sdef n="ses"            c="Superessive"/>
 
     <sdef n="comp"           c="Comparative"/>
@@ -61,6 +66,10 @@
 
     <pardef n="és__cnjcoo">
       <e><p><l></l><r><s n="cnjcoo"/></r></p></e>
+    </pardef>
+
+    <pardef n="ha__cnjadv">
+      <e><p><l></l><r><s n="cnjadv"/></r></p></e>
     </pardef>
 
     <!-- SECTION: Postpositions -->
@@ -85,14 +94,18 @@
 
     <pardef n="case-ház">
       <e><p><l></l><r><s n="nom"/></r></p></e>
+      <e><p><l>nak</l><r><s n="dat"/></r></p></e>
       <e><p><l>val</l><r><s n="ins"/></r></p></e>
       <e><p><l>ban</l><r><s n="ine"/></r></p></e>
+      <e><p><l>hoz</l><r><s n="all"/></r></p></e>
       <e><p><l>ba</l><r><s n="ill"/></r></p></e>
     </pardef>
 
     <pardef n="case-kert">
       <e><p><l></l><r><s n="nom"/></r></p></e>
+      <e><p><l>nek</l><r><s n="dat"/></r></p></e>
       <e><p><l>ben</l><r><s n="ine"/></r></p></e>
+      <e><p><l>hez</l><r><s n="all"/></r></p></e>
       <e><p><l>be</l><r><s n="ill"/></r></p></e>
     </pardef>
 
@@ -128,25 +141,21 @@
     </pardef>
 
     <pardef n="ház__n">
-      <e><p><l></l><r><s n="n"/></r></p></e>
       <e><p><l>on</l><r><s n="n"/><s n="ses"/></r></p></e>
       <e><p><l></l><r><s n="n"/></r></p><par n="poss-ház"/></e>
       <e><p><l></l><r><s n="n"/></r></p><par n="case-ház"/></e>
     </pardef>
 
     <pardef n="kert__n">
-      <e><p><l></l><r><s n="n"/></r></p></e>
       <e><p><l>en</l><r><s n="n"/><s n="ses"/></r></p></e>
       <e><p><l></l><r><s n="n"/></r></p><par n="case-kert"/></e>
     </pardef>
 
     <pardef n="idő__n">
-      <e><p><l></l><r><s n="n"/></r></p></e>
+      <e><p><l></l><r><s n="n"/><s n="nom"/></r></p></e>
     </pardef>
 
     <pardef n="macsk/a__n">
-      <e><p><l>a</l><r>a<s n="n"/></r></p></e>
-      <e><p><l>a</l><r>a<s n="n"/></r></p></e>
       <e><p><l></l><r>a<s n="n"/></r></p><par n="poss-macska"/></e>
       <e><p><l>á</l><r>а<s n="n"/></r></p><par n="case-ház"/></e>
     </pardef>
@@ -157,12 +166,22 @@
 
     <!-- SECTION: Proper nouns -->
 
+    <pardef n="case-prop">
+      <e><p><l></l><r><s n="nom"/></r></p></e>
+      <e><p><l>t</l><r><s n="acc"/></r></p></e>
+      <e><p><l>nak</l><r><s n="dat"/></r></p></e>
+      <e><p><l>val</l><r><s n="ins"/></r></p></e>
+      <e><p><l>ban</l><r><s n="ine"/></r></p></e>
+      <e><p><l>ba</l><r><s n="ill"/></r></p></e>
+    </pardef>
+
+
     <pardef n="Jancsi__np">
-      <e><p><l></l><r><s n="np"/><s n="ant"/><s n="m"/></r></p></e>
+      <e><p><l></l><r><s n="np"/><s n="ant"/><s n="m"/><s n="sg"/></r></p><par n="case-prop"/></e>
     </pardef>
 
     <pardef n="Mari__np">
-      <e><p><l></l><r><s n="np"/><s n="ant"/><s n="f"/></r></p></e>
+      <e><p><l></l><r><s n="np"/><s n="ant"/><s n="f"/><s n="sg"/></r></p><par n="case-prop"/></e>
     </pardef>
 
     <!-- SECTION: Adjectives -->
@@ -170,6 +189,11 @@
     <pardef n="nagy__adj">
       <e><p><l></l><r><s n="adj"/></r></p></e>
       <e><p><l>obb</l><r><s n="adj"/><s n="comp"/></r></p></e>
+    </pardef>
+
+    <pardef n="boldog__adj">
+      <e><p><l></l><r><s n="adj"/></r></p></e>
+      <e><p><l>abb</l><r><s n="adj"/><s n="comp"/></r></p></e>
     </pardef>
 
     <pardef n="szé/p__adj">
@@ -217,6 +241,12 @@
       <e><p><l>voltak</l><r>van<s n="vbser"/><s n="past"/><s n="p3"/><s n="pl"/></r></p></e>
     </pardef>
 
+    <!-- SECTION: Interjections -->
+
+    <pardef n="nem__ij">
+      <e><p><l></l><r><s n="ij"/></r></p></e>
+    </pardef>
+
   </pardefs>
 
   <section id="main" type="standard">
@@ -225,10 +255,12 @@
 
     <e lm="és"><i>és</i><par n="és__cnjcoo"/></e>
     <e lm="de"><i>de</i><par n="és__cnjcoo"/></e>
+    <e lm="ha"><i>ha</i><par n="ha__cnjadv"/></e>
 
     <!-- SECTION: Postpositions -->
 
     <e lm="előtt"><i>előtt</i><par n="előtt__post"/></e>
+    <e lm="elől"><i>elől</i><par n="előtt__post"/></e>
 
     <!-- SECTION: Determiners -->
 
@@ -239,6 +271,7 @@
    
     <e lm="ház"><i>ház</i><par n="ház__n"/></e>
     <e lm="kert"><i>kert</i><par n="kert__n"/></e>
+    <e lm="ember"><i>ember</i><par n="kert__n"/></e>
     <e lm="macska"><i>macsk</i><par n="macsk/a__n"/></e>
     <e lm="kutya"><i>kuty</i><par n="macsk/a__n"/></e>
     <e lm="idő"><i>idő</i><par n="idő__n"/></e>
@@ -252,6 +285,7 @@
     <!-- SECTION: Adjectives -->
 
     <e lm="nagy"><i>nagy</i><par n="nagy__adj"/></e>
+    <e lm="boldog"><i>boldog</i><par n="boldog__adj"/></e>
     <e lm="szép"><i>szé</i><par n="szé/p__adj"/></e>
     <e lm="jó"><i>j</i><par n="j/ó__adj"/></e>
 
@@ -263,8 +297,11 @@
 
     <e lm="tegnap"><i>tegnap</i><par n="tegnap__adv"/></e>
     <e lm="is"><i>is</i><par n="tegnap__adv"/></e>
+    <e lm="mindig"><i>mindig</i><par n="tegnap__adv"/></e>
     <e lm="most"><i>most</i><par n="tegnap__adv"/></e>
     <e lm="ma"><i>ma</i><par n="tegnap__adv"/></e>
+    <e lm="persze"><i>persze</i><par n="tegnap__adv"/></e>
+    <e lm="nem"><i>nem</i><par n="tegnap__adv"/></e>
     <e lm="akkor"><i>akkor</i><par n="tegnap__adv"/></e>
     <e lm="ott"><i>ott</i><par n="tegnap__adv"/></e>
     <e lm="itt"><i>itt</i><par n="tegnap__adv"/></e>
@@ -273,6 +310,9 @@
 
     <e lm="van"><i></i><par n="/van__vbser"/></e>
 
+    <!-- SECTION: Interjections -->
+
+    <e lm="nem"><i>nem</i><par n="nem__ij"/></e>
   </section>
 
 
