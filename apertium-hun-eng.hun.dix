@@ -58,6 +58,27 @@
 
     <sdef n="comp"           c="Comparative"/>
     <sdef n="sup"            c="Superlative"/>
+
+    <sdef n="nom"            c="Nominative"/>
+    <sdef n="acc"            c="Accusative"/>
+    <sdef n="dat"            c="Dative"/>
+    <sdef n="inst"           c="Instrumental"/>
+    <sdef n="com"            c="Comitative"/>
+    <sdef n="cau"            c="Causal"/>
+    <sdef n="fin"            c="Final"/>
+    <sdef n="tran"           c="Translative"/>
+    <sdef n="ine"            c="Inessive"/>
+    <sdef n="super"          c="Superessive"/>
+    <sdef n="ade"            c="Adessive"/>
+    <sdef n="ill"            c="Illative"/>
+    <sdef n="subl"           c="Sublative"/>
+    <sdef n="all"            c="Allative"/>
+    <sdef n="ela"            c="Elative"/>
+    <sdef n="dela"           c="Delative"/>
+    <sdef n="abl"            c="Ablative"/>
+    <sdef n="term"           c="Terminative"/>
+    <sdef n="essfor"         c="Essive-formal"/>
+    <sdef n="essmod"         c="Essive-modal"/>
   </sdefs>
 
   <pardefs>
@@ -151,6 +172,11 @@
       <e><p><l></l><r><s n="n"/></r></p><par n="case-kert"/></e>
     </pardef>
 
+    <pardef n="k/éz__n">
+      <e><p><l>éz</l><r><s n="n"/><s n="nom"/></r></p></e>
+      <e><p><l>ezet</l><r><s n="n"/><s n="acc"/></r></p></e>
+    </pardef>
+
     <pardef n="idő__n">
       <e><p><l></l><r><s n="n"/><s n="nom"/></r></p></e>
     </pardef>
@@ -161,8 +187,18 @@
     </pardef>
 
     <pardef n="v/íz__n">
-      <e><p><l>íz</l><r>íz<s n="n"/></r></p></e>
+      <e><p><l>íz</l><r>íz<s n="n"/><s n="nom"/></r></p></e>
     </pardef>
+
+    <pardef n="hang__n">
+      <e><p><l></l><r><s n="n"/><s n="nom"/></r></p></e>
+      <e><p><l>ot</l><r><s n="n"/><s n="nom"/></r></p></e>
+    </pardef>
+
+    <pardef n="húg__n">
+      <e><p><l></l><r><s n="n"/><s n="nom"/></r></p></e>
+    </pardef>
+   
 
     <!-- SECTION: Proper nouns -->
 
@@ -279,6 +315,7 @@
     <e lm="ember"><i>ember</i><par n="kert__n"/></e>
     <e lm="macska"><i>macsk</i><par n="macsk/a__n"/></e>
     <e lm="kutya"><i>kuty</i><par n="macsk/a__n"/></e>
+    <e lm="fa"><i>f</i><par n="macsk/a__n"/></e>
     <e lm="idő"><i>idő</i><par n="idő__n"/></e>
     <e lm="víz"><i>v</i><par n="v/íz__n"/></e>
 
