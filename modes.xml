@@ -2,6 +2,95 @@
 
 <modes>
 
+  <mode name="hun-eng" install="yes">
+    <pipeline>
+      <program name="lt-proc">
+        <file name="hun-eng.automorf.bin"/>
+      </program>
+      <program name="apertium-tagger -g">
+        <file name="hun-eng.prob"/>
+      </program>
+      <program name="lt-proc -b">
+        <file name="hun-eng.autobil.bin"/>
+      </program>
+      <program name="lrx-proc">
+        <file name="hun-eng.autolex.bin"/>
+      </program>
+      <program name="apertium-transfer -b">
+        <file name="apertium-hun-eng.hun-eng.t1x"/>
+        <file name="hun-eng.t1x.bin"/>
+      </program>
+      <program name="apertium-interchunk">
+        <file name="apertium-hun-eng.hun-eng.t2x"/>
+        <file name="hun-eng.t2x.bin"/>
+      </program>
+      <program name="apertium-postchunk">
+        <file name="apertium-hun-eng.hun-eng.t3x"/>
+        <file name="hun-eng.t3x.bin"/>
+      </program>
+      <program name="lt-proc -g">
+        <file name="hun-eng.autogen.bin"/>
+      </program>
+    </pipeline>
+  </mode>
+
+
+  <mode name="hun-eng-postchunk">
+    <pipeline>
+      <program name="lt-proc">
+        <file name="hun-eng.automorf.bin"/>
+      </program>
+      <program name="apertium-tagger -g">
+        <file name="hun-eng.prob"/>
+      </program>
+      <program name="lt-proc -b">
+        <file name="hun-eng.autobil.bin"/>
+      </program>
+      <program name="lrx-proc">
+        <file name="hun-eng.autolex.bin"/>
+      </program>
+      <program name="apertium-transfer -b">
+        <file name="apertium-hun-eng.hun-eng.t1x"/>
+        <file name="hun-eng.t1x.bin"/>
+      </program>
+      <program name="apertium-interchunk">
+        <file name="apertium-hun-eng.hun-eng.t2x"/>
+        <file name="hun-eng.t2x.bin"/>
+      </program>
+      <program name="apertium-postchunk">
+        <file name="apertium-hun-eng.hun-eng.t3x"/>
+        <file name="hun-eng.t3x.bin"/>
+      </program>
+    </pipeline>
+  </mode>
+
+
+  <mode name="hun-eng-interchunk">
+    <pipeline>
+      <program name="lt-proc">
+        <file name="hun-eng.automorf.bin"/>
+      </program>
+      <program name="apertium-tagger -g">
+        <file name="hun-eng.prob"/>
+      </program>
+      <program name="lt-proc -b">
+        <file name="hun-eng.autobil.bin"/>
+      </program>
+      <program name="lrx-proc">
+        <file name="hun-eng.autolex.bin"/>
+      </program>
+      <program name="apertium-transfer -b">
+        <file name="apertium-hun-eng.hun-eng.t1x"/>
+        <file name="hun-eng.t1x.bin"/>
+      </program>
+      <program name="apertium-interchunk">
+        <file name="apertium-hun-eng.hun-eng.t2x"/>
+        <file name="hun-eng.t2x.bin"/>
+      </program>
+    </pipeline>
+  </mode>
+
+
   <mode name="hun-eng-transfer">
     <pipeline>
       <program name="lt-proc">

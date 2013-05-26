@@ -9,12 +9,14 @@
     <sdef n="adv"            c="Adverb"/>
     <sdef n="post"           c="Postposition"/>
     <sdef n="det"            c="Determiner"/>
+    <sdef n="prn"            c="Pronoun"/>
     <sdef n="ij"             c="Interjection"/>
     <sdef n="cnjcoo"         c="Coordinating conjunction"/>
     <sdef n="cnjadv"         c="Adverbial conjunction"/>
 
     <sdef n="f"              c="Feminine"/>
     <sdef n="m"              c="Masculine"/>
+    <sdef n="mf"             c="Masculine / feminine"/>
 
     <sdef n="sg"             c="Singular"/>
     <sdef n="pl"             c="Plural"/>
@@ -45,6 +47,7 @@
 
     <sdef n="itg"            c="Interrogative"/>
     <sdef n="ind"            c="Indefinite"/>
+    <sdef n="pers"           c="Personal"/>
     <sdef n="def"            c="Definite"/>
 
     <sdef n="nom"            c="Nominative"/>
@@ -62,23 +65,21 @@
     <sdef n="nom"            c="Nominative"/>
     <sdef n="acc"            c="Accusative"/>
     <sdef n="dat"            c="Dative"/>
-    <sdef n="inst"           c="Instrumental"/>
     <sdef n="com"            c="Comitative"/>
     <sdef n="cau"            c="Causal"/>
     <sdef n="fin"            c="Final"/>
-    <sdef n="tran"           c="Translative"/>
+    <sdef n="tra"           c="Translative"/>
     <sdef n="ine"            c="Inessive"/>
-    <sdef n="super"          c="Superessive"/>
     <sdef n="ade"            c="Adessive"/>
     <sdef n="ill"            c="Illative"/>
-    <sdef n="subl"           c="Sublative"/>
+    <sdef n="sub"           c="Sublative"/>
     <sdef n="all"            c="Allative"/>
     <sdef n="ela"            c="Elative"/>
     <sdef n="dela"           c="Delative"/>
     <sdef n="abl"            c="Ablative"/>
     <sdef n="term"           c="Terminative"/>
-    <sdef n="essfor"         c="Essive-formal"/>
-    <sdef n="essmod"         c="Essive-modal"/>
+    <sdef n="ess1"         c="Essive-formal"/>
+    <sdef n="ess2"         c="Essive-modal"/>
   </sdefs>
 
   <pardefs>
@@ -110,6 +111,26 @@
     <pardef n="egy__det">
       <e><p><l></l><r><s n="det"/><s n="ind"/></r></p></e>
     </pardef>
+
+    <!-- SECTION: Pronouns -->
+
+    <pardef n="/ő__prn">
+      <e><p><l>ő</l><r>ő<s n="prn"/><s n="pers"/><s n="p3"/><s n="mf"/><s n="sg"/><s n="nom"/></r></p></e>
+      <e><p><l>őt</l><r>ő<s n="prn"/><s n="pers"/><s n="p3"/><s n="mf"/><s n="sg"/><s n="acc"/></r></p></e>
+      <e><p><l>tőle</l><r>ő<s n="prn"/><s n="pers"/><s n="p3"/><s n="mf"/><s n="sg"/><s n="abl"/></r></p></e>
+      <e><p><l>nála</l><r>ő<s n="prn"/><s n="pers"/><s n="p3"/><s n="mf"/><s n="sg"/><s n="ade"/></r></p></e>
+      <e><p><l>hozzá</l><r>ő<s n="prn"/><s n="pers"/><s n="p3"/><s n="mf"/><s n="sg"/><s n="all"/></r></p></e>
+      <e><p><l>neki</l><r>ő<s n="prn"/><s n="pers"/><s n="p3"/><s n="mf"/><s n="sg"/><s n="dat"/></r></p></e>
+      <e><p><l>vele</l><r>ő<s n="prn"/><s n="pers"/><s n="p3"/><s n="mf"/><s n="sg"/><s n="ins"/></r></p></e>
+      <e><p><l>érte</l><r>ő<s n="prn"/><s n="pers"/><s n="p3"/><s n="mf"/><s n="sg"/><s n="cau"/></r></p></e>
+      <e><p><l>róla</l><r>ő<s n="prn"/><s n="pers"/><s n="p3"/><s n="mf"/><s n="sg"/><s n="dela"/></r></p></e>
+      <e><p><l>belőle</l><r>ő<s n="prn"/><s n="pers"/><s n="p3"/><s n="mf"/><s n="sg"/><s n="ela"/></r></p></e>
+      <e><p><l>belé</l><r>ő<s n="prn"/><s n="pers"/><s n="p3"/><s n="mf"/><s n="sg"/><s n="ill"/></r></p></e>
+      <e><p><l>benne</l><r>ő<s n="prn"/><s n="pers"/><s n="p3"/><s n="mf"/><s n="sg"/><s n="ine"/></r></p></e>
+      <e><p><l>rajta</l><r>ő<s n="prn"/><s n="pers"/><s n="p3"/><s n="mf"/><s n="sg"/><s n="ses"/></r></p></e>
+      <e><p><l>rá</l><r>ő<s n="prn"/><s n="pers"/><s n="p3"/><s n="mf"/><s n="sg"/><s n="sub"/></r></p></e>
+    </pardef>
+
 
     <!-- SECTION: Nouns -->
 
@@ -259,6 +280,16 @@
       <e><p><l>legjobban</l><r>nagyon<s n="adv"/><s n="sup"/></r></p></e>
     </pardef>
 
+    <pardef n="j/ól__adv">
+      <e><p><l>ól</l><r>ól<s n="adv"/></r></p></e>
+      <e><p><l>obban</l><r>ól<s n="adv"/><s n="comp"/></r></p></e>
+    </pardef>
+
+    <pardef n="lassa/n__adv">
+      <e><p><l>n</l><r>n<s n="adv"/></r></p></e>
+      <e><p><l>bban</l><r>n<s n="adv"/><s n="comp"/></r></p></e>
+    </pardef>
+
     <pardef n="tegnap__adv">
       <e><p><l></l><r><s n="adv"/></r></p></e>
     </pardef>
@@ -302,16 +333,24 @@
 
     <e lm="előtt"><i>előtt</i><par n="előtt__post"/></e>
     <e lm="elől"><i>elől</i><par n="előtt__post"/></e>
+    <e lm="alá"><i>alá</i><par n="előtt__post"/></e>
 
     <!-- SECTION: Determiners -->
 
     <e lm="a"><i></i><par n="/a__det"/></e>
     <e lm="egy"><i>egy</i><par n="egy__det"/></e>
 
+    <!-- SECTION: Pronouns -->
+
+    <e lm="ő"><i></i><par n="/ő__prn"/></e>
+
+
     <!-- SECTION: Nouns -->
    
     <e lm="ház"><i>ház</i><par n="ház__n"/></e>
+    <e lm="asztal"><i>asztal</i><par n="ház__n"/></e>
     <e lm="kert"><i>kert</i><par n="kert__n"/></e>
+    <e lm="szék"><i>szék</i><par n="kert__n"/></e>
     <e lm="ember"><i>ember</i><par n="kert__n"/></e>
     <e lm="macska"><i>macsk</i><par n="macsk/a__n"/></e>
     <e lm="kutya"><i>kuty</i><par n="macsk/a__n"/></e>
@@ -329,6 +368,7 @@
     <e lm="nagy"><i>nagy</i><par n="nagy__adj"/></e>
     <e lm="boldog"><i>boldog</i><par n="boldog__adj"/></e>
     <e lm="hideg"><i>hideg</i><par n="hideg__adj"/></e>
+    <e lm="kis"><i>kis</i><par n="hideg__adj"/></e>
     <e lm="szép"><i>szé</i><par n="szé/p__adj"/></e>
     <e lm="jó"><i>j</i><par n="j/ó__adj"/></e>
 
@@ -337,6 +377,8 @@
     <e lm="hol"><i>hol</i><par n="hol__adv"/></e>
 
     <e lm="nagyon"><i></i><par n="/nagyon__adv"/></e>
+    <e lm="lassan"><i>lassa</i><par n="lassa/n__adv"/></e>
+    <e lm="jól"><i>j</i><par n="j/ól__adv"/></e>
 
     <e lm="tegnap"><i>tegnap</i><par n="tegnap__adv"/></e>
     <e lm="is"><i>is</i><par n="tegnap__adv"/></e>
@@ -347,6 +389,7 @@
     <e lm="nem"><i>nem</i><par n="tegnap__adv"/></e>
     <e lm="akkor"><i>akkor</i><par n="tegnap__adv"/></e>
     <e lm="ott"><i>ott</i><par n="tegnap__adv"/></e>
+    <e lm="aztán"><i>aztán</i><par n="tegnap__adv"/></e>
     <e lm="itt"><i>itt</i><par n="tegnap__adv"/></e>
 
     <!-- SECTION: Verbs -->
