@@ -30,5 +30,20 @@
         </out>
       </action>
     </rule>
+    <rule>
+      <pattern>
+        <pattern-item n="det_adj_nom_post"/>
+      </pattern>
+      <action>
+        <out>
+          <lu>
+            <clip pos="1" part="whole"/>
+            <clip pos="2" part="whole"/>
+            <clip pos="3" part="whole"/>
+            <clip pos="4" part="whole"/>
+          </lu>
+        </out>
+      </action>
+    </rule>
   </section-rules>
 </postchunk>

@@ -20,141 +20,142 @@
 		<sdef n="pers"/>
 		<sdef n="adv"/>
 		<sdef n="adj"/>
+    <sdef n="post"/>
 	</sdefs>
 	<section id="main" type="standard">
-		<e><p><l>a<s n="det"/><s n="def"/></l><r>the<s n="det"><s n="def"/></r></p></e>
-		<e><p><l>az<s n="det"/><s n="def"/></l><r>the<s n="det"><s n="def"/></r></p></e>
-		<e><p><l>egy<s n="det"/><s n="ind"/></l><r>a<s n="det"><s n="ind"/></r></p></e>
-		<e><p><l>egy<s n="det"/><s n="ind"/></l><r>an<s n="det"><s n="ind"/></r></p></e>
-		<e><p><l>és<s n="con"/></l><r>and<s n="con"></r></p></e>
-		<e><p><l>Mari<s n="np"></l><r>Mary<s n="np"></r></p></e>
-		<e><p><l>Jancsi<s n="np"></l><r>James<s n="np"></r></p></e>
-		<e><p><l>számolás<s n="n"></l><r>calculation<s n="n"></r></p></e>
-		<e><p><l>kutya<s n="n"></l><r>dog<s n="n"></r></p></e>
-		<e><p><l>macska<s n="n"></l><r>cat<s n="n"></r></p></e>
-		<e><p><l>madár<s n="n"></l><r>bird<s n="n"></r></p></e>
-		<e><p><l>állat<s n="n"></l><r>animal<s n="n"></r></p></e>
-		<e><p><l>asztal<s n="n"></l><r>table<s n="n"></r></p></e>
-		<e><p><l>játék<s n="n"></l><r>game<s n="n"></r></p></e>
-		<e><p><l>víz<s n="n"></l><r>water<s n="n"></r></p></e>
-		<e><p><l>ház<s n="n"></l><r>house<s n="n"></r></p></e>
-		<e><p><l>fa<s n="n"></l><r>tree<s n="n"></r></p></e>
-		<e><p><l>idő<s n="n"></l><r>time<s n="n"></r></p></e>
-		<e><p><l>hang<s n="n"></l><r>sound<s n="n"></r></p></e>
-		<e><p><l>ablak<s n="n"></l><r>window<s n="n"></r></p></e>
-		<e><p><l>kert<s n="n"></l><r>garden<s n="n"></r></p></e>
-		<e><p><l>szék<s n="n"></l><r>chair<s n="n"></r></p></e>
-		<e><p><l>anya<s n="n"></l><r>mother<s n="n"></r></p></e>
-		<e><p><l>kéz<s n="n"></l><r>hand<s n="n"></r></p></e>
-		<e><p><l>szem<s n="n"></l><r>eye<s n="n"></r></p></e>
-		<e><p><l>kisfiú<s n="n"></l><r>boy<s n="n"></r></p></e>
-		<e><p><l>fiú<s n="n"></l><r>boy<s n="n"></r></p></e>
-		<e><p><l>húg<s n="n"></l><r>sister<s n="n"></r></p></e>
-		<e><p><l>kislány<s n="n"></l><r>girl<s n="n"></r></p></e>
-		<e><p><l>kérdés<s n="n"></l><r>question<s n="n"></r></p></e>
-		<e><p><l>gyerek<s n="n"></l><r>child<s n="n"></r></p></e>
-		<e><p><l>szem<s n="n"></l><r>eye<s n="n"></r></p></e>
-		<e><p><l>fej<s n="n"></l><r>head<s n="n"></r></p></e>
-		<e><p><l>ember<s n="n"></l><r>man<s n="n"></r></p></e>
-		<e><p><l>van<s n="vbser"></l><r>is<s n="vbser"></r></p></e>
-		<e><p><l>nincs<s n="vblex"></l><r>isn't<s n="vblex"></r></p></e>
-		<e><p><l>játszik<s n="vblex"></l><r>play<s n="vblex"></r></p></e>
-		<e><p><l>alszik<s n="vblex"></l><r>sleep<s n="vblex"></r></p></e>
-		<e><p><l>eszik<s n="vblex"></l><r>eat<s n="vblex"></r></p></e>
-		<e><p><l>iszik<s n="vblex"></l><r>drink<s n="vblex"></r></p></e>
-		<e><p><l>akar<s n="vblex"></l><r>want<s n="vblex"></r></p></e>
-		<e><p><l>imád<s n="vblex"></l><r>love<s n="vblex"></r></p></e>
-		<e><p><l>válaszol<s n="vblex"></l><r>answer<s n="vblex"></r></p></e>
-		<e><p><l>szalad<s n="vblex"></l><r>run<s n="vblex"></r></p></e>
-		<e><p><l>lát<s n="vblex"></l><r>see<s n="vblex"></r></p></e>
-		<e><p><l>néz<s n="vblex"></l><r>look<s n="vblex"></r></p></e>
-		<e><p><l>kap<s n="vblex"></l><r>get<s n="vblex"></r></p></e>
-		<e><p><l>választ<s n="vblex"></l><r>choose<s n="vblex"></r></p></e>
-		<e><p><l>megtalál<s n="vblex"></l><r>find<s n="vblex"></r></p></e>
-		<e><p><l>megmond<s n="vblex"></l><r>tell<s n="vblex"></r></p></e>
-		<e><p><l>elbújik<s n="vblex"></l><r>hide<s n="vblex"></r></p></e>
-		<e><p><l>csinál<s n="vblex"></l><r>do<s n="vblex"></r></p></e>
-		<e><p><l>hisz<s n="vblex"></l><r>believe<s n="vblex"></r></p></e>
-		<e><p><l>ül<s n="vblex"></l><r>sit<s n="vblex"></r></p></e>
-		<e><p><l>jön<s n="vblex"></l><r>come<s n="vblex"></r></p></e>
-		<e><p><l>tud<s n="vblex"></l><r>know<s n="vblex"></r></p></e>
-		<e><p><l>ment<s n="vblex"></l><r>save<s n="vblex"></r></p></e>
-		<e><p><l>megy<s n="vblex"></l><r>go<s n="vblex"></r></p></e>
-		<e><p><l>próbál<s n="vblex"></l><r>try<s n="vblex"></r></p></e>
-		<e><p><l>végigsétál<s n="vblex"></l><r>walk through<s n="vblex"></r></p></e>
-		<e><p><l>mond<s n="vblex"></l><r>say<s n="vblex"></r></p></e>
-		<e><p><l>tud<s n="vblex"></l><r>know<s n="vblex"></r></p></e>
-		<e><p><l>tart<s n="vblex"></l><r>hold<s n="vblex"></r></p></e>
-		<e><p><l>talál<s n="vblex"></l><r>find<s n="vblex"></r></p></e>
-		<e><p><l>szeret<s n="vblex"></l><r>love<s n="vblex"></r></p></e>
-		<e><p><l>nevet<s n="vblex"></l><r>laugh<s n="vblex"></r></p></e>
-		<e><p><l>beszél<s n="vblex"></l><r>talk<s n="vblex"></r></p></e>
-		<e><p><l>hall<s n="vblex"></l><r>hear<s n="vblex"></r></p></e>
-		<e><p><l>hallgatózik<s n="vblex"></l><r>hark<s n="vblex"></r></p></e>
-		<e><p><l>befejez<s n="vblex"></l><r>finish<s n="vblex"></r></p></e>
-		<e><p><l>benéz<s n="vblex"></l><r>look into<s n="vblex"></r></p></e><!-- fixme: inflecting part?-->
-		<e><p><l>kinéz<s n="vblex"></l><r>look out<s n="vblex"></r></p></e>
-		<e><p><l>körülnéz<s n="vblex"></l><r>look around<s n="vblex"></r></p></e>
-		<e><p><l>keres<s n="vblex"></l><r>search<s n="vblex"></r></p></e>
-		<e><p><l>számol<s n="vblex"></l><r>count<s n="vblex"></r></p></e>
-		<e><p><l>megkérdez<s n="vblex"></l><r>ask<s n="vblex"></r></p></e>
-		<e><p><l>nem<s n="int"></l><r>not<s n="int"></r></p></e>
-		<e><p><l>persze<s n="int"></l><r>of course<s n="int"></r></p></e>
-		<e><p><l>is<s n="int"></l><r>also<s n="int"></r></p></e>
-		<e><p><l>de<s n="int"></l><r>but<s n="int"></r></p></e>
-		<e><p><l>vagy<s n="int"></l><r>or<s n="int"></r></p></e>
-		<e><p><l>bár<s n="int"></l><r>although<s n="int"></r></p></e>
-		<e><p><l>csak<s n="int"></l><r>only<s n="int"></r></p></e>
-		<e><p><l>ha<s n="int"></l><r>if<s n="int"></r></p></e>
-		<e><p><l>ő<s n="prn"><s n="pers"/></l><r>he<s n="prn"><s n="pers"/></r></p></e><!-- fixme: gender? -->
-		<e><p><l>hol<s n="prn"></l><r>where<s n="prn"></r></p></e>
-		<e><p><l>ez<s n="prn"></l><r>this<s n="prn"></r></p></e>
-		<e><p><l>az<s n="prn"></l><r>that<s n="prn"></r></p></e>
-		<e><p><l>mi<s n="prn"></l><r>what<s n="prn"></r></p></e>
-		<e><p><l>semmi<s n="prn"></l><r>nothing<s n="prn"></r></p></e>
-		<e><p><l>mikor<s n="prn"></l><r>when<s n="prn"></r></p></e>
-		<e><p><l>miért<s n="prn"></l><r>why<s n="prn"></r></p></e>
-		<e><p><l>ekkor<s n="prn"></l><r>then<s n="prn"></r></p></e>
-		<e><p><l>akkor<s n="prn"></l><r>then<s n="prn"></r></p></e>
-		<e><p><l>aztán<s n="prn"></l><r>after that<s n="prn"></r></p></e>
-		<e><p><l>merre<s n="prn"></l><r>which direction<s n="prn"></r></p></e>
-		<e><p><l>így<s n="prn"></l><r>how<s n="prn"></r></p></e>
-		<e><p><l>hol<s n="prn"></l><r>where<s n="prn"></r></p></e>
-		<e><p><l>valami<s n="prn"></l><r>something<s n="prn"></r></p></e>
-		<e><p><l>mindketten<s n="prn"></l><r>both<s n="prn"></r></p></e>
-		<e><p><l>nagyon<s n="adv"></l><r>very<s n="adv"></r></p></e>
-		<e><p><l>most<s n="adv"></l><r>now<s n="adv"></r></p></e>
-		<e><p><l>mindig<s n="adv"></l><r>always<s n="adv"></r></p></e>
-		<e><p><l>tegnap<s n="adv"></l><r>yesterday<s n="adv"></r></p></e>
-		<e><p><l>soha<s n="adv"></l><r>never<s n="adv"></r></p></e>
-		<e><p><l>most<s n="adv"></l><r>now<s n="adv"></r></p></e>
-		<e><p><l>ott<s n="adv"></l><r>there<s n="adv"></r></p></e>
-		<e><p><l>odakint<s n="adv"></l><r>out there<s n="adv"></r></p></e>
-		<e><p><l>mögött<s n="adv"></l><r>behind<s n="adv"></r></p></e>
-		<e><p><l>előtt<s n="adv"></l><r>in front of<s n="adv"></r></p></e>
-		<e><p><l>mindenhol<s n="adv"></l><r>everywhere<s n="adv"></r></p></e>
-		<e><p><l>alatt<s n="adv"></l><r>under<s n="adv"></r></p></e>
-		<e><p><l>ma<s n="adv"></l><r>today<s n="adv"></r></p></e>
-		<e><p><l>jól<s n="adv"></l><r>well<s n="adv"></r></p></e>
-		<e><p><l>gyorsan<s n="adv"></l><r>quickly<s n="adv"></r></p></e>
-		<e><p><l>lassan<s n="adv"></l><r>slowly<s n="adv"></r></p></e>
-		<e><p><l>figyelmesen<s n="adv"></l><r>carefully<s n="adv"></r></p></e>
-		<e><p><l>együtt<s n="adv"></l><r>together<s n="adv"></r></p></e>
-		<e><p><l>közel<s n="adv"></l><r>near<s n="adv"></r></p></e>
-		<e><p><l>megint<s n="adv"></l><r>again<s n="adv"></r></p></e>
-		<e><p><l>még<s n="adv"></l><r>still<s n="adv"></r></p></e>
-		<e><p><l>valószínűleg<s n="adv"></l><r>likely<s n="adv"></r></p></e>
-		<e><p><l>nagy<s n="adj"></l><r>big<s n="adj"></r></p></e>
-		<e><p><l>kis<s n="adj"></l><r>small<s n="adj"></r></p></e>
-		<e><p><l>kicsi<s n="adj"></l><r>small<s n="adj"></r></p></e>
-		<e><p><l>vén<s n="adj"></l><r>old<s n="adj"></r></p></e>
-		<e><p><l>szép<s n="adj"></l><r>beautiful<s n="adj"></r></p></e>
-		<e><p><l>ötéves<s n="adj"></l><r>five years old<s n="adj"></r></p></e>
-		<e><p><l>hatéves<s n="adj"></l><r>six years old<s n="adj"></r></p></e>
-		<e><p><l>meleg<s n="adj"></l><r>hot<s n="adj"></r></p></e>
-		<e><p><l>hideg<s n="adj"></l><r>cold<s n="adj"></r></p></e>
-		<e><p><l>boldog<s n="adj"></l><r>happy<s n="adj"></r></p></e>
-		<e><p><l>más<s n="adj"></l><r>different<s n="adj"></r></p></e>
-		<e><p><l>kettő<s n="adj"></l><r>two<s n="adj"></r></p></e>
+    <e><p><l>a<s n="det"/><s n="def"/></l><r>the<s n="det"/><s n="def"/></r></p></e>
+    <e><p><l>az<s n="det"/><s n="def"/></l><r>the<s n="det"/><s n="def"/></r></p></e>
+    <e><p><l>egy<s n="det"/><s n="ind"/></l><r>a<s n="det"/><s n="ind"/></r></p></e>
+    <e><p><l>egy<s n="det"/><s n="ind"/></l><r>an<s n="det"/><s n="ind"/></r></p></e>
+    <e><p><l>és<s n="con"/></l><r>and<s n="con"/></r></p></e>
+    <e><p><l>Mari<s n="pn"/></l><r>Mary<s n="pn"/></r></p></e>
+    <e><p><l>Jancsi<s n="pn"/></l><r>James<s n="pn"/></r></p></e>
+    <e><p><l>számolás<s n="n"/></l><r>calculation<s n="n"/></r></p></e>
+    <e><p><l>kutya<s n="n"/></l><r>dog<s n="n"/></r></p></e>
+    <e><p><l>macska<s n="n"/></l><r>cat<s n="n"/></r></p></e>
+    <e><p><l>madár<s n="n"/></l><r>bird<s n="n"/></r></p></e>
+    <e><p><l>állat<s n="n"/></l><r>animal<s n="n"/></r></p></e>
+    <e><p><l>asztal<s n="n"/></l><r>table<s n="n"/></r></p></e>
+    <e><p><l>játék<s n="n"/></l><r>game<s n="n"/></r></p></e>
+    <e><p><l>víz<s n="n"/></l><r>water<s n="n"/></r></p></e>
+    <e><p><l>ház<s n="n"/></l><r>house<s n="n"/></r></p></e>
+    <e><p><l>fa<s n="n"/></l><r>tree<s n="n"/></r></p></e>
+    <e><p><l>idő<s n="n"/></l><r>time<s n="n"/></r></p></e>
+    <e><p><l>hang<s n="n"/></l><r>sound<s n="n"/></r></p></e>
+    <e><p><l>ablak<s n="n"/></l><r>window<s n="n"/></r></p></e>
+    <e><p><l>kert<s n="n"/></l><r>garden<s n="n"/></r></p></e>
+    <e><p><l>szék<s n="n"/></l><r>chair<s n="n"/></r></p></e>
+    <e><p><l>anya<s n="n"/></l><r>mother<s n="n"/></r></p></e>
+    <e><p><l>kéz<s n="n"/></l><r>hand<s n="n"/></r></p></e>
+    <e><p><l>szem<s n="n"/></l><r>eye<s n="n"/></r></p></e>
+    <e><p><l>kisfiú<s n="n"/></l><r>boy<s n="n"/></r></p></e>
+    <e><p><l>fiú<s n="n"/></l><r>boy<s n="n"/></r></p></e>
+    <e><p><l>húg<s n="n"/></l><r>sister<s n="n"/></r></p></e>
+    <e><p><l>kislány<s n="n"/></l><r>girl<s n="n"/></r></p></e>
+    <e><p><l>kérdés<s n="n"/></l><r>question<s n="n"/></r></p></e>
+    <e><p><l>gyerek<s n="n"/></l><r>child<s n="n"/></r></p></e>
+    <e><p><l>szem<s n="n"/></l><r>eye<s n="n"/></r></p></e>
+    <e><p><l>fej<s n="n"/></l><r>head<s n="n"/></r></p></e>
+    <e><p><l>ember<s n="n"/></l><r>man<s n="n"/></r></p></e>
+    <e><p><l>van<s n="vbser"/></l><r>is<s n="vbser"/></r></p></e>
+    <e><p><l>nincs<s n="vblex"/></l><r>isn't<s n="vblex"/></r></p></e>
+    <e><p><l>játszik<s n="vblex"/></l><r>play<s n="vblex"/></r></p></e>
+    <e><p><l>alszik<s n="vblex"/></l><r>sleep<s n="vblex"/></r></p></e>
+    <e><p><l>eszik<s n="vblex"/></l><r>eat<s n="vblex"/></r></p></e>
+    <e><p><l>iszik<s n="vblex"/></l><r>drink<s n="vblex"/></r></p></e>
+    <e><p><l>akar<s n="vblex"/></l><r>want<s n="vblex"/></r></p></e>
+    <e><p><l>imád<s n="vblex"/></l><r>love<s n="vblex"/></r></p></e>
+    <e><p><l>válaszol<s n="vblex"/></l><r>answer<s n="vblex"/></r></p></e>
+    <e><p><l>szalad<s n="vblex"/></l><r>run<s n="vblex"/></r></p></e>
+    <e><p><l>lát<s n="vblex"/></l><r>see<s n="vblex"/></r></p></e>
+    <e><p><l>néz<s n="vblex"/></l><r>look<s n="vblex"/></r></p></e>
+    <e><p><l>kap<s n="vblex"/></l><r>get<s n="vblex"/></r></p></e>
+    <e><p><l>választ<s n="vblex"/></l><r>choose<s n="vblex"/></r></p></e>
+    <e><p><l>megtalál<s n="vblex"/></l><r>find<s n="vblex"/></r></p></e>
+    <e><p><l>megmond<s n="vblex"/></l><r>tell<s n="vblex"/></r></p></e>
+    <e><p><l>elbújik<s n="vblex"/></l><r>hide<s n="vblex"/></r></p></e>
+    <e><p><l>csinál<s n="vblex"/></l><r>do<s n="vblex"/></r></p></e>
+    <e><p><l>hisz<s n="vblex"/></l><r>believe<s n="vblex"/></r></p></e>
+    <e><p><l>ül<s n="vblex"/></l><r>sit<s n="vblex"/></r></p></e>
+    <e><p><l>jön<s n="vblex"/></l><r>come<s n="vblex"/></r></p></e>
+    <e><p><l>tud<s n="vblex"/></l><r>know<s n="vblex"/></r></p></e>
+    <e><p><l>ment<s n="vblex"/></l><r>save<s n="vblex"/></r></p></e>
+    <e><p><l>megy<s n="vblex"/></l><r>go<s n="vblex"/></r></p></e>
+    <e><p><l>próbál<s n="vblex"/></l><r>try<s n="vblex"/></r></p></e>
+    <e><p><l>végigsétál<s n="vblex"/></l><r>walk through<s n="vblex"/></r></p></e>
+    <e><p><l>mond<s n="vblex"/></l><r>say<s n="vblex"/></r></p></e>
+    <e><p><l>tud<s n="vblex"/></l><r>know<s n="vblex"/></r></p></e>
+    <e><p><l>tart<s n="vblex"/></l><r>hold<s n="vblex"/></r></p></e>
+    <e><p><l>talál<s n="vblex"/></l><r>find<s n="vblex"/></r></p></e>
+    <e><p><l>szeret<s n="vblex"/></l><r>love<s n="vblex"/></r></p></e>
+    <e><p><l>nevet<s n="vblex"/></l><r>laugh<s n="vblex"/></r></p></e>
+    <e><p><l>beszél<s n="vblex"/></l><r>talk<s n="vblex"/></r></p></e>
+    <e><p><l>hall<s n="vblex"/></l><r>hear<s n="vblex"/></r></p></e>
+    <e><p><l>hallgatózik<s n="vblex"/></l><r>hark<s n="vblex"/></r></p></e>
+    <e><p><l>befejez<s n="vblex"/></l><r>finish<s n="vblex"/></r></p></e>
+    <e><p><l>benéz<s n="vblex"/></l><r>look into<s n="vblex"/></r></p></e><!-- fixme: inflecting part?-->
+    <e><p><l>kinéz<s n="vblex"/></l><r>look out<s n="vblex"/></r></p></e>
+    <e><p><l>körülnéz<s n="vblex"/></l><r>look around<s n="vblex"/></r></p></e>
+    <e><p><l>keres<s n="vblex"/></l><r>search<s n="vblex"/></r></p></e>
+    <e><p><l>számol<s n="vblex"/></l><r>count<s n="vblex"/></r></p></e>
+    <e><p><l>megkérdez<s n="vblex"/></l><r>ask<s n="vblex"/></r></p></e>
+    <e><p><l>nem<s n="int"/></l><r>not<s n="int"/></r></p></e>
+    <e><p><l>persze<s n="int"/></l><r>of course<s n="int"/></r></p></e>
+    <e><p><l>is<s n="int"/></l><r>also<s n="int"/></r></p></e>
+    <e><p><l>de<s n="int"/></l><r>but<s n="int"/></r></p></e>
+    <e><p><l>vagy<s n="int"/></l><r>or<s n="int"/></r></p></e>
+    <e><p><l>bár<s n="int"/></l><r>although<s n="int"/></r></p></e>
+    <e><p><l>csak<s n="int"/></l><r>only<s n="int"/></r></p></e>
+    <e><p><l>ha<s n="int"/></l><r>if<s n="int"/></r></p></e>
+    <e><p><l>ő<s n="prn"/><s n="pers"/></l><r>he<s n="prn"/><s n="pers"/></r></p></e><!-- fixme: gender? -->
+		<e><p><l>hol<s n="prn"/></l><r>where<s n="prn"/></r></p></e>
+		<e><p><l>ez<s n="prn"/></l><r>this<s n="prn"/></r></p></e>
+		<e><p><l>az<s n="prn"/></l><r>that<s n="prn"/></r></p></e>
+		<e><p><l>mi<s n="prn"/></l><r>what<s n="prn"/></r></p></e>
+		<e><p><l>semmi<s n="prn"/></l><r>nothing<s n="prn"/></r></p></e>
+		<e><p><l>mikor<s n="prn"/></l><r>when<s n="prn"/></r></p></e>
+		<e><p><l>miért<s n="prn"/></l><r>why<s n="prn"/></r></p></e>
+		<e><p><l>ekkor<s n="prn"/></l><r>then<s n="prn"/></r></p></e>
+		<e><p><l>akkor<s n="prn"/></l><r>then<s n="prn"/></r></p></e>
+		<e><p><l>aztán<s n="prn"/></l><r>after that<s n="prn"/></r></p></e>
+		<e><p><l>merre<s n="prn"/></l><r>which direction<s n="prn"/></r></p></e>
+		<e><p><l>így<s n="prn"/></l><r>how<s n="prn"/></r></p></e>
+		<e><p><l>hol<s n="prn"/></l><r>where<s n="prn"/></r></p></e>
+		<e><p><l>valami<s n="prn"/></l><r>something<s n="prn"/></r></p></e>
+		<e><p><l>mindketten<s n="prn"/></l><r>both<s n="prn"/></r></p></e>
+		<e><p><l>nagyon<s n="adv"/></l><r>very<s n="adv"/></r></p></e>
+		<e><p><l>most<s n="adv"/></l><r>now<s n="adv"/></r></p></e>
+		<e><p><l>mindig<s n="adv"/></l><r>always<s n="adv"/></r></p></e>
+		<e><p><l>tegnap<s n="adv"/></l><r>yesterday<s n="adv"/></r></p></e>
+		<e><p><l>soha<s n="adv"/></l><r>never<s n="adv"/></r></p></e>
+		<e><p><l>most<s n="adv"/></l><r>now<s n="adv"/></r></p></e>
+		<e><p><l>ott<s n="adv"/></l><r>there<s n="adv"/></r></p></e>
+		<e><p><l>odakint<s n="adv"/></l><r>out there<s n="adv"/></r></p></e>
+		<e><p><l>mögött<s n="adv"/></l><r>behind<s n="adv"/></r></p></e>
+		<e><p><l>előtt<s n="post"/></l><r>in front of<s n="post"/></r></p></e>
+		<e><p><l>mindenhol<s n="adv"/></l><r>everywhere<s n="adv"/></r></p></e>
+		<e><p><l>alatt<s n="adv"/></l><r>under<s n="adv"/></r></p></e>
+		<e><p><l>ma<s n="adv"/></l><r>today<s n="adv"/></r></p></e>
+		<e><p><l>jól<s n="adv"/></l><r>well<s n="adv"/></r></p></e>
+		<e><p><l>gyorsan<s n="adv"/></l><r>quickly<s n="adv"/></r></p></e>
+		<e><p><l>lassan<s n="adv"/></l><r>slowly<s n="adv"/></r></p></e>
+		<e><p><l>figyelmesen<s n="adv"/></l><r>carefully<s n="adv"/></r></p></e>
+		<e><p><l>együtt<s n="adv"/></l><r>together<s n="adv"/></r></p></e>
+		<e><p><l>közel<s n="adv"/></l><r>near<s n="adv"/></r></p></e>
+		<e><p><l>megint<s n="adv"/></l><r>again<s n="adv"/></r></p></e>
+		<e><p><l>még<s n="adv"/></l><r>still<s n="adv"/></r></p></e>
+		<e><p><l>valószínűleg<s n="adv"/></l><r>likely<s n="adv"/></r></p></e>
+		<e><p><l>nagy<s n="adj"/></l><r>big<s n="adj"/></r></p></e>
+		<e><p><l>kis<s n="adj"/></l><r>small<s n="adj"/></r></p></e>
+		<e><p><l>kicsi<s n="adj"/></l><r>small<s n="adj"/></r></p></e>
+		<e><p><l>vén<s n="adj"/></l><r>old<s n="adj"/></r></p></e>
+		<e><p><l>szép<s n="adj"/></l><r>beautiful<s n="adj"/></r></p></e>
+		<e><p><l>ötéves<s n="adj"/></l><r>five years old<s n="adj"/></r></p></e>
+		<e><p><l>hatéves<s n="adj"/></l><r>six years old<s n="adj"/></r></p></e>
+		<e><p><l>meleg<s n="adj"/></l><r>hot<s n="adj"/></r></p></e>
+		<e><p><l>hideg<s n="adj"/></l><r>cold<s n="adj"/></r></p></e>
+		<e><p><l>boldog<s n="adj"/></l><r>happy<s n="adj"/></r></p></e>
+		<e><p><l>más<s n="adj"/></l><r>different<s n="adj"/></r></p></e>
+		<e><p><l>kettő<s n="adj"/></l><r>two<s n="adj"/></r></p></e>
 	</section>
 </dictionary>
