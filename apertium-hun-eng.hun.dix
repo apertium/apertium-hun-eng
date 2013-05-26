@@ -141,6 +141,7 @@
       <e><p><l>ban</l><r><s n="ine"/></r></p></e>
       <e><p><l>hoz</l><r><s n="all"/></r></p></e>
       <e><p><l>ba</l><r><s n="ill"/></r></p></e>
+      <e><p><l>nál</l><r><s n="ade"/></r></p></e>
     </pardef>
 
     <pardef n="case-kert">
@@ -149,6 +150,7 @@
       <e><p><l>ben</l><r><s n="ine"/></r></p></e>
       <e><p><l>hez</l><r><s n="all"/></r></p></e>
       <e><p><l>be</l><r><s n="ill"/></r></p></e>
+      <e><p><l>nél</l><r><s n="ade"/></r></p></e>
     </pardef>
 
     <pardef n="poss-123ss">
@@ -203,8 +205,9 @@
     </pardef>
 
     <pardef n="macsk/a__n">
+      <e><p><l>a</l><r>a<s n="n"/><s n="nom"/></r></p></e>
       <e><p><l></l><r>a<s n="n"/></r></p><par n="poss-macska"/></e>
-      <e><p><l>á</l><r>а<s n="n"/></r></p><par n="case-ház"/></e>
+      <e><p><l>á</l><r>a<s n="n"/></r></p><par n="case-ház"/></e>
     </pardef>
 
     <pardef n="v/íz__n">
@@ -256,6 +259,11 @@
     <pardef n="boldog__adj">
       <e><p><l></l><r><s n="adj"/></r></p></e>
       <e><p><l>abb</l><r><s n="adj"/><s n="comp"/></r></p></e>
+    </pardef>
+
+    <pardef n="ki/csi__adj">
+      <e><p><l>csi</l><r>csi<s n="adj"/></r></p></e>
+      <e><p><l>sebb</l><r>csi<s n="adj"/><s n="comp"/></r></p></e>
     </pardef>
 
     <pardef n="szé/p__adj">
@@ -368,6 +376,7 @@
     <e lm="nagy"><i>nagy</i><par n="nagy__adj"/></e>
     <e lm="boldog"><i>boldog</i><par n="boldog__adj"/></e>
     <e lm="hideg"><i>hideg</i><par n="hideg__adj"/></e>
+    <e lm="kicsi"><i>ki</i><par n="ki/csi__adj"/></e>
     <e lm="kis"><i>kis</i><par n="hideg__adj"/></e>
     <e lm="szép"><i>szé</i><par n="szé/p__adj"/></e>
     <e lm="jó"><i>j</i><par n="j/ó__adj"/></e>
@@ -383,6 +392,7 @@
     <e lm="tegnap"><i>tegnap</i><par n="tegnap__adv"/></e>
     <e lm="is"><i>is</i><par n="tegnap__adv"/></e>
     <e lm="mindig"><i>mindig</i><par n="tegnap__adv"/></e>
+    <e lm="együtt"><i>együtt</i><par n="tegnap__adv"/></e>
     <e lm="most"><i>most</i><par n="tegnap__adv"/></e>
     <e lm="ma"><i>ma</i><par n="tegnap__adv"/></e>
     <e lm="persze"><i>persze</i><par n="tegnap__adv"/></e>
