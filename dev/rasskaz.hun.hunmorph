@@ -1,125 +1,107 @@
-Milyet	mily/ADJ<CAS<ACC>>
-kutyázódik	kutyázik/VERB[MEDIAL]/VERB
-Jancsi	Jancsi/NOUN
-?	?/PUNCT
-
 Hol	hol/ADV
 van	van/VERB
 Jancsi	Jancsi/NOUN
 ?	?/PUNCT
-
 Jancsi	Jancsi/NOUN
 és	és/CONJ
-Mari	mari/ADJ mari/NOUN Mari/NOUN
+Mari	mari/ADJ	mari/NOUN	Mari/NOUN
 a	a/ART
 kertben	kert/NOUN<CAS<INE>>
 vannak	van/VERB<PLUR>
 .	./PUNCT
-
 Ma	ma/ADV
 szép	szép/ADV
-az	az/DET az/NOUN a/ART
+az	az/DET	az/NOUN	a/ART
 idő	idő/NOUN
 ,	,/PUNCT
 nagyon	nagyon/ADV
-meleg	meleg/ADJ meleg/NOUN
+meleg	meleg/ADJ	meleg/NOUN
 van	van/VERB
 .	./PUNCT
-
-De	de/ADV de/CONJ
+De	de/ADV	de/CONJ
 tegnap	tegnap/ADV
 nagyon	nagyon/ADV
-hideg	hideg/NOUN hideg/ADJ
-volt	van/VERB<PAST> volt/VERB volt/ADJ volt/NOUN
+hideg	hideg/NOUN	hideg/ADJ
+volt	van/VERB<PAST>	volt/VERB	volt/ADJ	volt/NOUN
 !	!/PUNCT
-
-Akkor	akkor/CONJ akkor/ADV az/DET<CAS<TEM>> az/NOUN<CAS<TEM>>
-nem	nem/UTT-INT nem/ADV
+Akkor	akkor/CONJ	akkor/ADV	az/DET<CAS<TEM>>	az/NOUN<CAS<TEM>>
+nem	nem/UTT-INT	nem/ADV
 játszhattak	játszik/VERB<MODAL><PAST><PLUR>
 odakint	odakint/ADV
 .	./PUNCT
-
 Jancsi	Jancsi/NOUN
 és	és/CONJ
-Mari	mari/ADJ mari/NOUN Mari/NOUN
-imádnak	ima/NOUN<POSS<2>><CAS<DAT>> imád/VERB<PLUR>
+Mari	mari/ADJ	mari/NOUN	Mari/NOUN
+imádnak	ima/NOUN<POSS<2>><CAS<DAT>>	imád/VERB<PLUR>
 játszani	játszik/VERB<INF>
 ,	,/PUNCT
 mindig	mindig/ADV
-együtt	együtt/PREV együtt/ADV együtt/POSTP
+együtt	együtt/PREV	együtt/ADV	együtt/POSTP
 játszanak	játszik/VERB<PLUR>
 a	a/ART
 kertben	kert/NOUN<CAS<INE>>
 a	a/ART
-nagy	nagy/NOUN nagy/ADJ
+nagy	nagy/NOUN	nagy/ADJ
 ház	ház/NOUN
 előtt	előtt/POSTP
 .	./PUNCT
-
 Jancsi	Jancsi/NOUN
 kisfiú	kisfiú/NOUN
 ,	,/PUNCT
 és	és/CONJ
 hatéves	hatéves/ADJ
 .	./PUNCT
-
 A	a/ART
 kislány	kislány/NOUN
 a	a/ART
 húga	húg/NOUN<POSS>
 ,	,/PUNCT
 ő	ő/NOUN<PERS>
-ötéves	ötéves/NOUN ötéves/ADJ
+ötéves	ötéves/NOUN	ötéves/ADJ
 .	./PUNCT
-
 Jancsinak	Jancsi/NOUN<CAS<DAT>>
 van	van/VERB
-egy	egy/ART egy/ADV
-kicsi	kicsi/ADJ kicsi/NOUN
-kutyája	kutya/ADJ<POSS> kutya/NOUN<POSS>
+egy	egy/ART	egy/ADV
+kicsi	kicsi/ADJ	kicsi/NOUN
+kutyája	kutya/ADJ<POSS>	kutya/NOUN<POSS>
 ,	,/PUNCT
 most	most/ADV
 a	a/ART
-kutya	kutya/ADJ kutya/NOUN
+kutya	kutya/ADJ	kutya/NOUN
 is	is/ADV
 a	a/ART
 kertben	kert/NOUN<CAS<INE>>
 van	van/VERB
 .	./PUNCT
-
 A	a/ART
-kutya	kutya/ADJ kutya/NOUN
+kutya	kutya/ADJ	kutya/NOUN
 szeret	szeret/VERB
 játszani	játszik/VERB<INF>
 a	a/ART
 két	kettő/NUM
 gyerekkel	gyerek/NOUN<CAS<INS>>
 .	./PUNCT
-
 A	a/ART
-kutya	kutya/ADJ kutya/NOUN
+kutya	kutya/ADJ	kutya/NOUN
 most	most/ADV
 nagyon	nagyon/ADV
-boldog	boldog/NOUN boldog/ADJ
+boldog	boldog/NOUN	boldog/ADJ
 .	./PUNCT
-
-Marinak	mari/ADJ<CAS<DAT>> mari/NOUN<CAS<DAT>> Mari/NOUN<CAS<DAT>>
+Marinak	mari/ADJ<CAS<DAT>>	mari/NOUN<CAS<DAT>>	Mari/NOUN<CAS<DAT>>
 is	is/ADV
 van	van/VERB
-kutyája	kutya/ADJ<POSS> kutya/NOUN<POSS>
+kutyája	kutya/ADJ<POSS>	kutya/NOUN<POSS>
 ?	?/PUNCT
-
-Nem	nem/UTT-INT nem/ADV
+Nem	nem/UTT-INT	nem/ADV
 ,	,/PUNCT
-Marinak	mari/ADJ<CAS<DAT>> mari/NOUN<CAS<DAT>> Mari/NOUN<CAS<DAT>>
+Marinak	mari/ADJ<CAS<DAT>>	mari/NOUN<CAS<DAT>>	Mari/NOUN<CAS<DAT>>
 nincs	nincs/VERB
-kutyája	kutya/ADJ<POSS> kutya/NOUN<POSS>
+kutyája	kutya/ADJ<POSS>	kutya/NOUN<POSS>
 ,	,/PUNCT
 macskája	macska/NOUN<POSS>
 van	van/VERB
 .	./PUNCT
-
-De	de/ADV de/CONJ
+De	de/ADV	de/CONJ
 a	a/ART
 macska	macska/NOUN
 a	a/ART
@@ -130,47 +112,43 @@ a	a/ART
 macska	macska/NOUN
 alszik	alszik/VERB
 .	./PUNCT
-
-Az	az/DET az/NOUN a/ART
-anyjuk	anya/NOUN<POSS<PLUR>> anyjuk/NOUN
+Az	az/DET	az/NOUN	a/ART
+anyjuk	anya/NOUN<POSS<PLUR>>	anyjuk/NOUN
 a	a/ART
 házban	ház/NOUN<CAS<INE>>
 van	van/VERB
 a	a/ART
 macskával	macska/NOUN<CAS<INS>>
 ,	,/PUNCT
-kinéz	kinéz/VERB ki/PREV+néz/VERB ki/PREV+néz/VERB
-az	az/DET az/NOUN a/ART
+kinéz	kinéz/VERB	ki/PREV+néz/VERB	ki/PREV+néz/VERB
+az	az/DET	az/NOUN	a/ART
 ablakon	ablak/NOUN<CAS<SUE>>
 és	és/CONJ
-látja	lát/VERB<DEF> lát/NOUN<POSS>
+látja	lát/VERB<DEF>	lát/NOUN<POSS>
 Jancsit	Jancsi/NOUN<CAS<ACC>>
 és	és/CONJ
-Marit	mari/ADJ<CAS<ACC>> mari/NOUN<CAS<ACC>> Mari/NOUN<CAS<ACC>> Marit/NOUN Marit/NOUN
+Marit	mari/ADJ<CAS<ACC>>	mari/NOUN<CAS<ACC>>	Mari/NOUN<CAS<ACC>>	Marit/NOUN	Marit/NOUN
 játszani	játszik/VERB<INF>
 .	./PUNCT
-
 Jancsi	Jancsi/NOUN
 gyorsan	gyors/ADJ[MANNER]/ADV
-egy	egy/ART egy/ADV
-nagy	nagy/NOUN nagy/ADJ
+egy	egy/ART	egy/ADV
+nagy	nagy/NOUN	nagy/ADJ
 ,	,/PUNCT
-vén	vén/ADJ vén/NOUN
+vén	vén/ADJ	vén/NOUN
 fához	fa/NOUN<CAS<ALL>>
 szalad	szalad/VERB
 ,	,/PUNCT
 és	és/CONJ
-elbújik	elbújik/VERB el/PREV+bújik/VERB
-Mari	mari/ADJ mari/NOUN Mari/NOUN
+elbújik	elbújik/VERB	el/PREV+bújik/VERB
+Mari	mari/ADJ	mari/NOUN	Mari/NOUN
 elől	elől/POSTP
 .	./PUNCT
-
 Tudod	tud/VERB<PERS<2>><DEF>
 ,	,/PUNCT
 miért	miért/ADV
 ?	?/PUNCT
-
-Mari	mari/ADJ mari/NOUN Mari/NOUN
+Mari	mari/ADJ	mari/NOUN	Mari/NOUN
 ül	ül/VERB
 ,	,/PUNCT
 és	és/CONJ
@@ -181,20 +159,17 @@ szeme	szem/NOUN<POSS>
 előtt	előtt/POSTP
 tartja	tart/VERB<DEF>
 .	./PUNCT
-
-Nem	nem/UTT-INT nem/ADV
-lát	la/NOUN<CAS<ACC>> lát/VERB lát/NOUN
+Nem	nem/UTT-INT	nem/ADV
+lát	la/NOUN<CAS<ACC>>	lát/VERB	lát/NOUN
 semmit	semmi/NOUN<CAS<ACC>>
 ,	,/PUNCT
 és	és/CONJ
 számol	számol/VERB
 .	./PUNCT
-
 Miért	miért/ADV
-csinálja	csinál/VERB<DEF> csinál/VERB<SUBJUNC-IMP><DEF>
-ezt	ez/DET<CAS<ACC>> ez/NOUN<CAS<ACC>>
+csinálja	csinál/VERB<DEF>	csinál/VERB<SUBJUNC-IMP><DEF>
+ezt	ez/DET<CAS<ACC>>	ez/NOUN<CAS<ACC>>
 ?	?/PUNCT
-
 És	és/CONJ
 mit	mi/NOUN<CAS<ACC>>
 csinál	csinál/VERB
@@ -202,43 +177,37 @@ Jancsi	Jancsi/NOUN
 a	a/ART
 fánál	fa/NOUN<CAS<ADE>>
 ?	?/PUNCT
-
-Ez	ez/DET ez/NOUN
-egy	egy/ART egy/ADV
-játék	ját/NOUN<PLUR<FAM>> játék/NOUN
+Ez	ez/DET	ez/NOUN
+egy	egy/ART	egy/ADV
+játék	ját/NOUN<PLUR<FAM>>	játék/NOUN
 .	./PUNCT
-
-Mikor	mikor/CONJ mikor/ADV
-Mari	mari/ADJ mari/NOUN Mari/NOUN
-befejezte	befejez/VERB<PAST><DEF> be/PREV+fej/NOUN[ACT]/VERB<PAST><DEF> be/PREV+fejez/VERB<PAST><DEF> befejezte/NOUN<POSS> befejezte/NOUN
+Mikor	mikor/CONJ	mikor/ADV
+Mari	mari/ADJ	mari/NOUN	Mari/NOUN
+befejezte	befejez/VERB<PAST><DEF>	be/PREV+fej/NOUN[ACT]/VERB<PAST><DEF>	be/PREV+fejez/VERB<PAST><DEF>	befejezte/NOUN<POSS>	befejezte/NOUN
 a	a/ART
 számolást	számolás/NOUN<CAS<ACC>>
 ,	,/PUNCT
-körülnéz	körülnéz/VERB körül/PREV+néz/VERB körül/PREV+néz/VERB
+körülnéz	körülnéz/VERB	körül/PREV+néz/VERB	körül/PREV+néz/VERB
 .	./PUNCT
-
-Keresi	keres/VERB<DEF> Keresi/NOUN
+Keresi	keres/VERB<DEF>	Keresi/NOUN
 Jancsit	Jancsi/NOUN<CAS<ACC>>
 :	:/PUNCT
 hova	hova/ADV
-ment	megy/VERB<PAST> ment/VERB ment/ADJ
+ment	megy/VERB<PAST>	ment/VERB	ment/ADJ
 ?	?/PUNCT
-
 Láttad	lát/VERB<PAST><PERS<2>><DEF>
 ?	?/PUNCT
-
-Mari	mari/ADJ mari/NOUN Mari/NOUN
-nem	nem/UTT-INT nem/ADV
-tudja	tud/VERB<DEF> tud/VERB<SUBJUNC-IMP><DEF>
+Mari	mari/ADJ	mari/NOUN	Mari/NOUN
+nem	nem/UTT-INT	nem/ADV
+tudja	tud/VERB<DEF>	tud/VERB<SUBJUNC-IMP><DEF>
 ,	,/PUNCT
 hol	hol/ADV
 van	van/VERB
 Jancsi	Jancsi/NOUN
 .	./PUNCT
-
-Megkérdezi	megkérdez/VERB<DEF> meg/PREV+kérdez/VERB<DEF>
+Megkérdezi	megkérdez/VERB<DEF>	meg/PREV+kérdez/VERB<DEF>
 a	a/ART
-kutyát	kutya/ADJ<CAS<ACC>> kutya/NOUN<CAS<ACC>>
+kutyát	kutya/ADJ<CAS<ACC>>	kutya/NOUN<CAS<ACC>>
 :	:/PUNCT
 „	„/PUNCT
 Láttad	lát/VERB<PAST><PERS<2>><DEF>
@@ -246,221 +215,199 @@ Jancsit	Jancsi/NOUN<CAS<ACC>>
 ?	?/PUNCT
 ”	”/PUNCT
 .	./PUNCT
-
-De	de/ADV de/CONJ
-persze	persze/UTT-INT persze/CONJ
+De	de/ADV	de/CONJ
+persze	persze/UTT-INT	persze/CONJ
 a	a/ART
-kutya	kutya/ADJ kutya/NOUN
-nem	nem/UTT-INT nem/ADV
+kutya	kutya/ADJ	kutya/NOUN
+nem	nem/UTT-INT	nem/ADV
 tud	tud/VERB
 beszélni	beszél/VERB<INF>
 !	!/PUNCT
-
-Így	így/ADV így/CONJ
-Mari	mari/ADJ mari/NOUN Mari/NOUN
-nem	nem/UTT-INT nem/ADV
+Így	így/ADV	így/CONJ
+Mari	mari/ADJ	mari/NOUN	Mari/NOUN
+nem	nem/UTT-INT	nem/ADV
 kap	kap/VERB
-választ	válasz/NOUN<CAS<ACC>> választ/VERB
+választ	válasz/NOUN<CAS<ACC>>	választ/VERB
 a	a/ART
-kérdésére	kérdés/NOUN<POSS><CAS<SBL>> kérdés/NOUN<ANP><CAS<SBL>>
+kérdésére	kérdés/NOUN<POSS><CAS<SBL>>	kérdés/NOUN<ANP><CAS<SBL>>
 .	./PUNCT
-
-Az	az/DET az/NOUN a/ART
+Az	az/DET	az/NOUN	a/ART
 ember	ember/NOUN
 soha	soha/ADV
-nem	nem/UTT-INT nem/ADV
+nem	nem/UTT-INT	nem/ADV
 kap	kap/VERB
-választ	válasz/NOUN<CAS<ACC>> választ/VERB
+választ	válasz/NOUN<CAS<ACC>>	választ/VERB
 ,	,/PUNCT
-ha	ha/UTT-INT ha/CONJ
-egy	egy/ART egy/ADV
-kutyához	kutya/ADJ<CAS<ALL>> kutya/NOUN<CAS<ALL>>
+ha	ha/UTT-INT	ha/CONJ
+egy	egy/ART	egy/ADV
+kutyához	kutya/ADJ<CAS<ALL>>	kutya/NOUN<CAS<ALL>>
 beszél	beszél/VERB
 !	!/PUNCT
-
-Mari	mari/ADJ mari/NOUN Mari/NOUN
-az	az/DET az/NOUN a/ART
+Mari	mari/ADJ	mari/NOUN	Mari/NOUN
+az	az/DET	az/NOUN	a/ART
 anyjára	anya/NOUN<POSS><CAS<SBL>>
 néz	néz/VERB
-az	az/DET az/NOUN a/ART
+az	az/DET	az/NOUN	a/ART
 ablak	ablak/NOUN
 mögött	mögött/POSTP
 ,	,/PUNCT
-az	az/DET az/NOUN a/ART
+az	az/DET	az/NOUN	a/ART
 anyja	anya/NOUN<POSS>
-nevet	név/NOUN<CAS<ACC>> nevet/VERB
+nevet	név/NOUN<CAS<ACC>>	nevet/VERB
 .	./PUNCT
-
-Mari	mari/ADJ mari/NOUN Mari/NOUN
-azt	az/NOUN<CAS<ACC>> az/DET<CAS<ACC>> azt/CONJ
-hiszi	Hisz/NOUN[MET_ATTRIB]/ADJ Hisz/NOUN[MET_ATTRIB]/ADJ hisz/VERB<DEF>
+Mari	mari/ADJ	mari/NOUN	Mari/NOUN
+azt	az/NOUN<CAS<ACC>>	az/DET<CAS<ACC>>	azt/CONJ
+hiszi	Hisz/NOUN[MET_ATTRIB]/ADJ	Hisz/NOUN[MET_ATTRIB]/ADJ	hisz/VERB<DEF>
 ,	,/PUNCT
 ő	ő/NOUN<PERS>
-látta	lát/VERB<PAST><DEF> látta/NOUN
+látta	lát/VERB<PAST><DEF>	látta/NOUN
 ,	,/PUNCT
 merre	merre/ADV
-ment	megy/VERB<PAST> ment/VERB ment/ADJ
+ment	megy/VERB<PAST>	ment/VERB	ment/ADJ
 Jancsi	Jancsi/NOUN
 :	:/PUNCT
 „	„/PUNCT
 Mondd	mond/VERB<SUBJUNC-IMP><PERS<2>><DEF>
-meg	meg/CONJ meg/PREV
+meg	meg/CONJ	meg/PREV
 ,	,/PUNCT
 hol	hol/ADV
 van	van/VERB
 !	!/PUNCT
 ”	”/PUNCT
 ,	,/PUNCT
-mondja	mond/VERB<DEF> mond/VERB<SUBJUNC-IMP><DEF>
-az	az/DET az/NOUN a/ART
+mondja	mond/VERB<DEF>	mond/VERB<SUBJUNC-IMP><DEF>
+az	az/DET	az/NOUN	a/ART
 anyjának	anya/NOUN<POSS><CAS<DAT>>
 .	./PUNCT
-
 „	„/PUNCT
-Nem	nem/UTT-INT nem/ADV
+Nem	nem/UTT-INT	nem/ADV
 ,	,/PUNCT
-Mari	mari/ADJ mari/NOUN Mari/NOUN
+Mari	mari/ADJ	mari/NOUN	Mari/NOUN
 ,	,/PUNCT
-nem	nem/UTT-INT nem/ADV
+nem	nem/UTT-INT	nem/ADV
 mondhatom	mond/VERB<MODAL><PERS<1>><DEF>
-meg	meg/CONJ meg/PREV
+meg	meg/CONJ	meg/PREV
 !	!/PUNCT
 ”	”/PUNCT
 ,	,/PUNCT
-
-válaszolja	válaszol/VERB<DEF> válaszol/VERB<SUBJUNC-IMP><DEF>
+válaszolja	válaszol/VERB<DEF>	válaszol/VERB<SUBJUNC-IMP><DEF>
 ő	ő/NOUN<PERS>
 .	./PUNCT
-
 Bár	bár/CONJ
 valószínűleg	valószínűleg/ADV
-tudja	tud/VERB<DEF> tud/VERB<SUBJUNC-IMP><DEF>
+tudja	tud/VERB<DEF>	tud/VERB<SUBJUNC-IMP><DEF>
 ,	,/PUNCT
 hol	hol/ADV
 a	a/ART
 fiú	fiú/NOUN
 ,	,/PUNCT
-nem	nem/UTT-INT nem/ADV
-akarja	akar/VERB<DEF> akar/VERB<SUBJUNC-IMP><DEF>
-megmondani	megmond/VERB<INF> meg/PREV+mond/VERB<INF>
+nem	nem/UTT-INT	nem/ADV
+akarja	akar/VERB<DEF>	akar/VERB<SUBJUNC-IMP><DEF>
+megmondani	megmond/VERB<INF>	meg/PREV+mond/VERB<INF>
 .	./PUNCT
-
-Mari	mari/ADJ mari/NOUN Mari/NOUN
+Mari	mari/ADJ	mari/NOUN	Mari/NOUN
 lassan	lassú/ADJ[MANNER]/ADV
-végigsétál	végigsétál/VERB végig/PREV+sétál/VERB végig/PREV+sétál/VERB
+végigsétál	végigsétál/VERB	végig/PREV+sétál/VERB	végig/PREV+sétál/VERB
 a	a/ART
 kerten	kert/NOUN<CAS<SUE>>
 .	./PUNCT
-
 Még	még/ADV
 mindig	mindig/ADV
-próbálja	próbál/VERB<DEF> próbál/VERB<SUBJUNC-IMP><DEF>
-megtalálni	megtalál/VERB<INF> meg/PREV+talál/VERB<INF> meg/PREV+talál/VERB<INF>
+próbálja	próbál/VERB<DEF>	próbál/VERB<SUBJUNC-IMP><DEF>
+megtalálni	megtalál/VERB<INF>	meg/PREV+talál/VERB<INF>	meg/PREV+talál/VERB<INF>
 Jancsit	Jancsi/NOUN<CAS<ACC>>
 .	./PUNCT
-
-Benéz	benéz/VERB be/PREV+néz/VERB be/PREV+néz/VERB
-az	az/DET az/NOUN a/ART
+Benéz	benéz/VERB	be/PREV+néz/VERB	be/PREV+néz/VERB
+az	az/DET	az/NOUN	a/ART
 asztal	asztal/NOUN
-alá	alá/POSTP alá/PREV
+alá	alá/POSTP	alá/PREV
 és	és/CONJ
 a	a/ART
 székek	szék/NOUN<PLUR>
 alám	én/NOUN<POSTP<ALÁ>><PERS<1>>
-de	de/ADV de/CONJ
+de	de/ADV	de/CONJ
 Jancsi	Jancsi/NOUN
 nincs	nincs/VERB
-ott	ott/PREV ott/ADV
+ott	ott/PREV	ott/ADV
 .	./PUNCT
-
 Mindenhová	mindenhová/ADV
-benéz	benéz/VERB be/PREV+néz/VERB be/PREV+néz/VERB
+benéz	benéz/VERB	be/PREV+néz/VERB	be/PREV+néz/VERB
 ,	,/PUNCT
-de	de/ADV de/CONJ
-nem	nem/UTT-INT nem/ADV
-találja	talál/VERB<DEF> talál/VERB<SUBJUNC-IMP><DEF>
+de	de/ADV	de/CONJ
+nem	nem/UTT-INT	nem/ADV
+találja	talál/VERB<DEF>	talál/VERB<SUBJUNC-IMP><DEF>
 Jancsit	Jancsi/NOUN<CAS<ACC>>
 .	./PUNCT
-
-Ekkor	ekkor/ADV ez/NOUN<CAS<TEM>> ez/DET<CAS<TEM>>
-hall	hall/VERB hall/NOUN
-egy	egy/ART egy/ADV
+Ekkor	ekkor/ADV	ez/NOUN<CAS<TEM>>	ez/DET<CAS<TEM>>
+hall	hall/VERB	hall/NOUN
+egy	egy/ART	egy/ADV
 hangot	hang/NOUN<CAS<ACC>>
 ,	,/PUNCT
 a	a/ART
-nagy	nagy/NOUN nagy/ADJ
+nagy	nagy/NOUN	nagy/ADJ
 ,	,/PUNCT
-vén	vén/ADJ vén/NOUN
+vén	vén/ADJ	vén/NOUN
 fa	fa/NOUN
 mögül	mögül/POSTP
 jön	jön/VERB
 .	./PUNCT
-
-Lehet-e	lehet?NOUN<POSS> lehet-e?NOUN
+Lehet-e	lehet?NOUN<POSS>	lehet-e?NOUN
 Jancsi	Jancsi/NOUN
 ?	?/PUNCT
-
 Megint	megint/ADV
-hallani	hallik/VERB<INF> hall/VERB<INF>
+hallani	hallik/VERB<INF>	hall/VERB<INF>
 a	a/ART
 hangot	hang/NOUN<CAS<ACC>>
 !	!/PUNCT
-
-Figyelmesen	figyelmes/ADJ<CAS<SUE>> figyelmes/ADJ[MANNER]/ADV
+Figyelmesen	figyelmes/ADJ<CAS<SUE>>	figyelmes/ADJ[MANNER]/ADV
 hallgatózik	hallgatózik/VERB
 .	./PUNCT
-
-Ez	ez/DET ez/NOUN
-nem	nem/UTT-INT nem/ADV
+Ez	ez/DET	ez/NOUN
+nem	nem/UTT-INT	nem/ADV
 madár	madár/NOUN
-vagy	vagy/CONJ van/VERB<PERS<2>>
-más	más/NOUN más/ADJ
-állat	áll/NOUN<CAS<ACC>> állat/VERB állat/NOUN
+vagy	vagy/CONJ	van/VERB<PERS<2>>
+más	más/NOUN	más/ADJ
+állat	áll/NOUN<CAS<ACC>>	állat/VERB	állat/NOUN
 .	./PUNCT
-
 Most	most/ADV
-jól	jól/PREV jól/ADV
-hallja	hall/VERB<DEF> hall/VERB<SUBJUNC-IMP><DEF> hall/NOUN<POSS>
+jól	jól/PREV	jól/ADV
+hallja	hall/VERB<DEF>	hall/VERB<SUBJUNC-IMP><DEF>	hall/NOUN<POSS>
 .	./PUNCT
-
-Ez	ez/DET ez/NOUN
+Ez	ez/DET	ez/NOUN
 csak	csak/ADV
 Jancsi	Jancsi/NOUN
-lehet	van/VERB<MODAL> lehet/VERB
+lehet	van/VERB<MODAL>	lehet/VERB
 !	!/PUNCT
-
-Aztán	aztán/CONJ aztán/ADV
-egy	egy/ART egy/ADV
+Aztán	aztán/CONJ	aztán/ADV
+egy	egy/ART	egy/ADV
 kis	kis/ADJ
 kezet	kéz/NOUN<CAS<ACC>>
 is	is/ADV
-lát	la/NOUN<CAS<ACC>> lát/VERB lát/NOUN
+lát	la/NOUN<CAS<ACC>>	lát/VERB	lát/NOUN
 ,	,/PUNCT
 és	és/CONJ
-mikor	mikor/CONJ mikor/ADV
+mikor	mikor/CONJ	mikor/ADV
 közelebb	közelebb/ADV
 megy	megy/VERB
 ,	,/PUNCT
 a	a/ART
-fejét	fő/NOUN<POSS><CAS<ACC>> fej/NOUN<ANP><CAS<ACC>> fej/NOUN<POSS><CAS<ACC>>
+fejét	fő/NOUN<POSS><CAS<ACC>>	fej/NOUN<ANP><CAS<ACC>>	fej/NOUN<POSS><CAS<ACC>>
 is	is/ADV
-látja	lát/VERB<DEF> lát/NOUN<POSS>
+látja	lát/VERB<DEF>	lát/NOUN<POSS>
 !	!/PUNCT
-
-Nevet	Nev/NOUN<CAS<ACC>> név/NOUN<CAS<ACC>> nevet/VERB
+Nevet	Nev/NOUN<CAS<ACC>>	név/NOUN<CAS<ACC>>	nevet/VERB
 ,	,/PUNCT
 és	és/CONJ
-azt	az/NOUN<CAS<ACC>> az/DET<CAS<ACC>> azt/CONJ
-mondja	mond/VERB<DEF> mond/VERB<SUBJUNC-IMP><DEF>
+azt	az/NOUN<CAS<ACC>>	az/DET<CAS<ACC>>	azt/CONJ
+mondja	mond/VERB<DEF>	mond/VERB<SUBJUNC-IMP><DEF>
 :	:/PUNCT
 „	„/PUNCT
 Megvagy	meg/PREV+van/VERB<PERS<2>>
 !	!/PUNCT
 ”	”/PUNCT
 .	./PUNCT
-
 Mindketten	mindketten/ADV
-boldogok	boldog/NOUN<PLUR> boldog/ADJ<PLUR>
+boldogok	boldog/NOUN<PLUR>	boldog/ADJ<PLUR>
 ,	,/PUNCT
 és	és/CONJ
 a	a/ART
@@ -471,9 +418,8 @@ ideje	idő/NOUN<POSS>
 enni	eszik/VERB<INF>
 valamit	valami/NOUN<CAS<ACC>>
 és	és/CONJ
-inni	iszik/VERB<INF> Inn/NOUN[MET_ATTRIB]/ADJ Inn/NOUN[MET_ATTRIB]/ADJ
-egy	egy/ART egy/ADV
+inni	iszik/VERB<INF>	Inn/NOUN[MET_ATTRIB]/ADJ	Inn/NOUN[MET_ATTRIB]/ADJ
+egy	egy/ART	egy/ADV
 kis	kis/ADJ
 vizet	víz/NOUN<CAS<ACC>>
 !	!/PUNCT
-
