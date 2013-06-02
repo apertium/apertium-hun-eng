@@ -1,0 +1,17 @@
+## Converts the output of ocamorph to the Apertium stream format.
+## This script does NOT expect the default ocamorph output format. Instead, run
+## ocamorph with the following parameters:
+##
+##   ./ocamorph --bin morphdb.hu/morphdb_hu.bin --tag_preamble ""
+##              --tag_sep $'\t' --blocking --guess Fallback
+##
+## (Obviously, the points here are the values of the tag_preamble and tag_sep
+## parameters.)
+
+# TODO: What to do with /'s in WordForm?
+# TODO: Replace the ? - TAB part of Analysis with kr_to_apertium.lexc
+define WordForm [? - "	"]+;
+define Analysis WordForm [%/ : %<] [? - "	"]+ [0 : %>];
+
+regex [0 : %^] WordForm [ ["	" : %/] Analysis ]+ [0 : %$];
+save stack h2a.fst
