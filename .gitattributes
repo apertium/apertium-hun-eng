@@ -9,6 +9,7 @@
 /apertium-hun-eng.hun-eng.t3x -text
 /apertium-hun-eng.hun.dix -text
 dev/hunmorph_to_apertium.foma -text
+dev/kr_to_apertium.lexc -text
 dev/rasskaz.hun.hunmorph -text
 /hun-eng.prob -text svneol=unset#unset
 /modes.xml -text

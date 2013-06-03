@@ -1,0 +1,100 @@
+!! Converts KR-code to Apertium's morphologic tags, as present in the Apertium
+!! stream format.
+
+! TODO handle the lemma here!
+! TODO handle PUNCT
+! [22:47] <spectie> could be <sent> ? : .
+! [22:47] <spectie> <guio> -
+! [22:47] <zfe> ONO is greek
+! [22:47] <spectie> <cm> ,
+LEXICON Root
+
+NOUN:%<n%>	Nominal;
+ADJ:%<adj%>	Nominal;
+NUM:%<num%>	Nominal;
+DET:%<det%>	Nominal;
+VERB	Verb;
+ADV:%<adv%>	#;
+POSTP:%<post%>	#;
+ART:%<det%>	#;  ! <def>/<ind>!!!
+CONJ:%<cnjcoo%>	#;  ! cnjadv ???
+PREP:%<pr%>	#;  ! wasn't in hun.dix
+PREV:%<prevb%>	#;  ! NEW!
+UTT-INT:%<ij%>	#;
+ONO:%<onom%>	#;
+PUNCT		#;  ! see above
+
+! Handle pronouns differently
+
+LEXICON Nominal
+
+%<POSTP%>:0	NominalNumber;  ! ???
+		NominalNumber;
+
+LEXICON NominalNumber
+
+%<PLUR:%<pl%>	NominalNumberFam;
+0:%<sg%>	NominalPoss;
+
+LEXICON NominalNumberFam
+%<FAM%>%>:0	NominalPoss;	! ???
+%>:0		NominalPoss;
+
+LEXICON NominalPoss
+NominalAnp;		! TODO
+
+! TODO handle nested ANP's
+LEXICON NominalAnp
+NominalCas;
+
+LEXICON NominalCas
+0:%<nom%>		#;  ! ember
+%<CAS%<ACC%>%>:%<acc%>	#;  ! embert
+%<CAS%<DAT%>%>:%<dat%>	#;  ! embernek
+%<CAS%<INS%>%>:%<ins%>	#;  ! kalapáccsal
+%<CAS%<COM%>%>:%<com%>	#;  ! emberrel
+%<CAS%<CAU%>%>:%<cau%>	#;  ! emberért
+%<CAS%<FIN%>%>:%<fin%>	#;  ! emberért (does FIN exist at all?)
+%<CAS%<TRA%>%>:%<tra%>	#;  ! emberré
+%<CAS%<INE%>%>:%<ine%>	#;  ! emberben
+%<CAS%<SUE%>%>:%<ses%>	#;  ! emberen
+%<CAS%<ADE%>%>:%<ade%>	#;  ! embernél
+%<CAS%<ILL%>%>:%<ill%>	#;  ! emberbe
+%<CAS%<SBL%>%>:%<sub%>	#;  ! emberre
+%<CAS%<ALL%>%>:%<all%>	#;  ! emberhez
+%<CAS%<ELA%>%>:%<ela%>	#;  ! emberből
+%<CAS%<DEL%>%>:%<dela%>	#;  ! emberről
+%<CAS%<ABL%>%>:%<abl%>	#;  ! embertől
+%<CAS%<TER%>%>:%<term%>	#;  ! emberig
+%<CAS%<FOR%>%>:%<ess1%>	#;  ! emberként
+%<CAS%<ESS%>%>:%<ess2%>	#;  ! emberül
+
+LEXICON Verb
+
+%<MODAL%>:%<vbmod%>	VerbModes;  ! ???
+0:%<vblex%>		VerbModes;  ! Handle vbser!
+
+LEXICON VerbModes
+
+%<PAST%>:%<past%>	VerbNumber;
+%<COND%>:%<cni%>	VerbNumber;
+%<SUBJUNC-IMP%>:%<pis%>	VerbNumber;
+%<INF%>:%<inf%>		VerbNumber;
+
+LEXICON VerbNumber
+<PLUR>:%<pl%>	VerbPerson;
+0:%<sg%>	VerbPerson;
+
+LEXICON VerbPerson
+%<PERS%<1:%<s1p%>	VerbPerson1;
+%<PERS%<2%>%>:%<s2p%>	VerbDef;
+0:%<s3p%>		VerbDef;
+
+LEXICON VerbPerson1
+%<OBJ%<2%>%>%>%>:%<o2p%>	VerbDef;  ! NEW
+%>%>:0				VerbDef;
+
+LEXICON VerbDef
+%<DEF%>:%<def%> #;
+0:%<ind%>	#;  ! what about itg, pers? pers is FAM?
+
