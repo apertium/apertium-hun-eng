@@ -6,7 +6,7 @@ LEXICON Root
 <[%? | %: | %.] %/:0>	PunctSent;
 <%- %/:0>		PunctGuio;
 <%, %/:0>		PunctCm;
-<van %/:0>		VbSer;
+<v a n %/:0>		VbSer;
 <?+ %/:0>		KRRoot;  ! All the other words
 
 LEXICON PunctSent
