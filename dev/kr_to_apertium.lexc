@@ -1,13 +1,27 @@
 !! Converts KR-code to Apertium's morphologic tags, as present in the Apertium
 !! stream format.
 
-! TODO handle the lemma here!
-! TODO handle PUNCT
-! [22:47] <spectie> could be <sent> ? : .
-! [22:47] <spectie> <guio> -
-! [22:47] <zfe> ONO is greek
-! [22:47] <spectie> <cm> ,
+! What about other puncts, such as ;, ", ', / ?
 LEXICON Root
+<[%? | %: | %.] %/:0>	PunctSent;
+<%- %/:0>		PunctGuio;
+<%, %/:0>		PunctCm;
+<van %/:0>		VbSer;
+<?+ %/:0>		KRRoot;  ! All the other words
+
+LEXICON PunctSent
+PUNCT:%<sent%>	#;
+
+LEXICON PunctGuio
+PUNCT:%<guio%>	#;
+
+LEXICON PunctCm
+PUNCT:%<cm%>	#;
+
+LEXICON VbSer
+VERB:%<vbser%>	VerbModes;
+
+LEXICON KRRoot
 
 NOUN:%<n%>	Nominal;
 ADJ:%<adj%>	Nominal;
@@ -17,12 +31,11 @@ VERB	Verb;
 ADV:%<adv%>	#;
 POSTP:%<post%>	#;
 ART:%<det%>	#;  ! <def>/<ind>!!!
-CONJ:%<cnjcoo%>	#;  ! cnjadv ???
+CONJ:%<cnjcoo%>	#;  ! cnjadv ??? TODO: handle w/ lemmas
 PREP:%<pr%>	#;  ! wasn't in hun.dix
 PREV:%<prevb%>	#;  ! NEW!
 UTT-INT:%<ij%>	#;
 ONO:%<onom%>	#;
-PUNCT		#;  ! see above
 
 ! Handle pronouns differently
 
@@ -69,10 +82,10 @@ LEXICON NominalCas
 %<CAS%<FOR%>%>:%<ess1%>	#;  ! emberként
 %<CAS%<ESS%>%>:%<ess2%>	#;  ! emberül
 
-LEXICON Verb
+LEXICON Verb                        ! vbser is handled in Root & VbSer
 
 %<MODAL%>:%<vbmod%>	VerbModes;  ! ???
-0:%<vblex%>		VerbModes;  ! Handle vbser!
+0:%<vblex%>		VerbModes;
 
 LEXICON VerbModes
 
