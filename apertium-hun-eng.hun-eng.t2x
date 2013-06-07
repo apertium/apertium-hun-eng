@@ -54,32 +54,6 @@
         </out>
       </action>
     </rule>
-    <rule>
-      <pattern>
-        <pattern-item n="det_adj_nom_post"/>
-      </pattern>
-      <action>
-        <out>
-          <chunk>
-            <lu>
-              <clip pos="4" part="whole"/>
-            </lu>
-            <b/>
-            <lu>
-              <clip pos="1" part="whole"/>
-            </lu>
-            <b/>
-            <lu>
-              <clip pos="2" part="whole"/>
-            </lu>
-            <b/>
-            <lu>
-              <clip pos="3" part="whole"/>
-            </lu>
-          </chunk>
-        </out>
-      </action>
-    </rule>
   </section-rules>
 </interchunk>
 
