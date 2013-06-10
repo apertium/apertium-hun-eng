@@ -351,7 +351,7 @@ fa	fa/NOUN
 mögül	mögül/POSTP
 jön	jön/VERB
 .	./PUNCT
-Lehet-e	lehet?NOUN<POSS>	lehet-e?NOUN
+Lehet-e	lehet/NOUN<POSS>	lehet-e/NOUN
 Jancsi	Jancsi/NOUN
 ?	?/PUNCT
 Megint	megint/ADV

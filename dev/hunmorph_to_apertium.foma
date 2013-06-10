@@ -9,9 +9,12 @@
 ## parameters.)
 
 # TODO: What to do with /'s in WordForm?
-# TODO: Replace the ? - TAB part of Analysis with kr_to_apertium.lexc
-define WordForm [? - "	"]+;
-define Analysis WordForm [%/ : %<] [? - "	"]+ [0 : %>];
+define NonSlash [? - [%/ | "	"]];
+define WordForm NonSlash+;
+read lexc kr_to_apertium.lexc
+define Analysis
+define WordInflection WordForm [%/:0 NonSlash:0*]* %/ NonSlash+;
+define Converter WordInflection .o. Analysis;
 
-regex [0 : %^] WordForm [ ["	" : %/] Analysis ]+ [0 : %$];
+regex [0 : %^] WordForm [ ["	" : %/] Converter ]+ [0 : %$];
 save stack h2a.fst
