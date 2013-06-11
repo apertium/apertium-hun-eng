@@ -5,9 +5,23 @@ DELIMITERS = "<.>" "<!>" "<?>" "<;>" "<...>";
 #SETS
 
 # Articles
-LIST ART = "a" "az" "egy" ;
+LIST ART    = "a" "az" "egy" ;
+# Demonstratives -- these can also appear in predet position
+LIST DEM    = "az" "ez" "amaz" "emez" ;
+LIST NOUN = n np ;
 
 CONSTRAINTS
+
+############
+# az       #
+############
+
+# Before an ADJ or NOUN, "az" is a <det>
+SELECT (det) IF (0 ("az") LINK 1 (adj) OR (n))
+# Before an article, demonstratives are <predet>
+# TODO should implement as REMOVE?
+SELECT (predet) IF (0 DEM LINK 1 ART)
+# TODO Can I get rid of 0 + LINK and use word form instead?
 
 ############
 # NP-stuff #
