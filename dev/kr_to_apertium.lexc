@@ -8,6 +8,13 @@ LEXICON Root
 <[%" | „ | ”]%/:0>		PunctQuot;
 <%' %/:0>			PunctApos;
 <v a n %/:0>			VbSer;
+a%/ART:a%<det%>%<def%>		#;
+az%/ART:az%<det%>%<def%>	#;
+ez%/NOUN:ez%<prn%>		NominalNumber;
+az%/NOUN:az%<prn%>		NominalNumber;
+emez%/NOUN:emez%<prn%>		NominalNumber;
+amaz%/NOUN:amaz%<prn%>		NominalNumber;
+egy%/ART:egy%<det%>%<ind%>	#;
 én%/NOUN:én%<prn%>%<pers%>	PersProPostp;
 te%/NOUN:te%<prn%>%<pers%>	PersProPostp;
 ő%/NOUN:ő%<prn%>%<pers%>	PersProPostp;
@@ -74,11 +81,10 @@ LEXICON KRRoot
 !NOUN:%<n%>	Nominal;  ! Nouns are handled in Root
 ADJ:%<adj%>	Nominal;
 NUM:%<num%>	Nominal;
-DET:%<det%>	Nominal;
+DET:%<predet%>	Nominal;
 VERB:0		Verb;
 ADV:%<adv%>	#;
 POSTP:%<post%>	#;
-ART:%<det%>	#;  ! <def>/<ind>!!!
 CONJ:%<cnjcoo%>	#;  ! cnjadv ??? TODO: handle w/ lemmas
 PREP:%<pr%>	#;  ! wasn't in hun.dix
 PREV:%<prevb%>	WordEnd;  ! NEW!
