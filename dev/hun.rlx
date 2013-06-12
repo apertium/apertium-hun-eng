@@ -1,13 +1,15 @@
 # Copyright (c) Dávid Márk Nemeskey
 
-DELIMITERS = "<.>" "<!>" "<?>" "<;>" "<...>";
+DELIMITERS = "<.>" "<!>" "<?>" "<;>" "<...>" (sent);
 
 #SETS
 
 # Articles
 LIST ART    = det ;
+LIST DefArt = (det def) ;
+LIST IndArt = (det ind) ;
 # Demonstratives -- these can also appear in predet position
-LIST DEM    = "az" "ez" "amaz" "emez" ;
+LIST Dem    = "az" "ez" "amaz" "emez" ;
 LIST NOUN = n np ;
 
 CONSTRAINTS
@@ -21,12 +23,34 @@ CONSTRAINTS
 "<az>" SELECT (det) IF (1 (adj) OR (n))
 "<Az>" SELECT (det) IF (1 (adj) OR (n))
 
-# Before an article, demonstratives are <predet>
-#SELECT (predet) IF (0 DEM LINK 1C ART)
-#SELECT (predet) IF (0 DEM) (1C ART)
-SELECT (predet) + DEM IF (1C ART)
+# Before a definete article, demonstratives are <predet>; they cannot be that
+# before an indefinite article (or any other word? So can I use IFF?)
+#SELECT (predet) IF (0 Dem LINK 1C DefArt)
+#SELECT (predet) IF (0 Dem) (1C DefArt)
+#SELECT (predet) + Dem IF (1C DefArt)
+#REMOVE (predet) + Dem IF (1C IndArt)
+IFF (predet) + Dem IF (1C DefArt)
 
 ############
 # NP-stuff #
 ############
+
+# Disambiguate the <det> at the beginning of an NP (<np> too?)
+#SELECT (det) IF (1* NOUN BARRIER (*) - AdjOrNum)
+SELECT (det) IF (1* NOUN BARRIER (*) - (adj) - (num))
+
+# No <adv> before <n>. NOT CORRECT. (e.g. before N V constructs)
 REMOVE (n) IF (-1C (adv));
+
+########
+# MISC #
+########
+
+# Remove the archaic "fő" reading when "fej" is available
+REMOVE ("fő") IF (0 ("fej"))
+
+########
+# ???  #
+########
+
+# E.g. ADDs for <adj>: <pred>/<attr>
