@@ -12,6 +12,7 @@ dev/hun.rlx -text
 dev/hunmorph_to_apertium.foma -text
 dev/kr_to_apertium.lexc -text
 dev/rasskaz.hun.hunmorph -text
+dev/uniq_oca.py -text
 /hun-eng.prob -text svneol=unset#unset
 /modes.xml -text
 texts/rasskaz.eng.txt -text
