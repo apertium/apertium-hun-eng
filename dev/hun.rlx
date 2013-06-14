@@ -11,6 +11,7 @@ LIST IndArt = (det ind) ;
 # Demonstratives -- these can also appear in predet position
 LIST Dem    = "az" "ez" "amaz" "emez" ;
 LIST NOUN = n np ;
+LIST Verb = vblex vbser vbmod ;
 
 CONSTRAINTS
 
@@ -41,6 +42,25 @@ SELECT (det) IF (1* NOUN BARRIER (*) - (adj) - (num))
 
 # No <adv> before <n>. NOT CORRECT. (e.g. before N V constructs)
 REMOVE (n) IF (-1C (adv));
+
+#########
+# Verbs #
+#########
+
+# In case of verbs modified by a preverb, hunmorph returns both the
+# (underspecified) vblex/ser and the prevb + vblex/ser analysis. Of these, we
+# select the latter one.
+# Note: this rule is not really sound because of two reasons: first, the word
+#       form of a verb with a preverb might be the same as that of a regular
+#       verb, though this is rare. Second, this kind of disambiguation is
+#       really the morphological analyser's task: hunmorph should not return
+#       the underspecified analysis, if it knows better (and it does).
+# For sub-readings, see http://beta.visl.sdu.dk/cg3/chunked/subreadings.html
+#SELECT (prevb) + (vblex) IF (0C Verb LINK 0:1 (prevb))
+SELECT SUB:1 (prevb) IF (0C Verb)
+
+# volt is not a present-tense verb -- again, an error of hunmorph
+REMOVE ("volt") + (vblex) + (pres)
 
 ########
 # MISC #
