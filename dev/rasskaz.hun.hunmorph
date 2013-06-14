@@ -423,3 +423,8 @@ egy	egy/ART	egy/ADV
 kis	kis/ADJ
 vizet	víz/NOUN<CAS<ACC>>
 !	!/PUNCT
+Az	az/DET	az/NOUN	a/ART
+a	a/ART
+kutya	kutya/ADJ	kutya/NOUN
+harapós	harapós/ADJ
+.	./PUNCT
