@@ -8,13 +8,16 @@
 ## (Obviously, the points here are the values of the tag_preamble and tag_sep
 ## parameters.)
 
-# TODO: What to do with /'s in WordForm?
-define NonSlash [? - [%/ | "	"]];
-define WordForm NonSlash+;
+# TODO: What to do with /'s and +'s in WordForm?
+define NonSlashOrPlus [? - [%/ | %+ | "	"]];
+define WordForm NonSlashOrPlus+;
+
 read lexc kr_to_apertium.lexc
 define Analysis
-define WordInflection WordForm [%/:0 NonSlash:0*]* %/ NonSlash+;
-define Converter WordInflection .o. Analysis;
+
+define WordInflection WordForm [%/:0 NonSlashOrPlus:0*]* %/ NonSlashOrPlus+;
+define CompoundInflection WordInflection [%+ WordInflection]*;
+define Converter CompoundInflection .o. Analysis;
 
 regex [0 : %^] WordForm [ ["	" : %/] Converter ]+ [0 : %$];
 save stack h2a.fst
