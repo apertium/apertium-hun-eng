@@ -12,6 +12,7 @@ LIST IndArt = (det ind) ;
 LIST Dem    = "az" "ez" "amaz" "emez" ;
 LIST NOUN = n np ;
 LIST Verb = vblex vbser vbmod ;
+LIST Punct = cm sent quot ;  # guio, apos?
 
 CONSTRAINTS
 
@@ -47,6 +48,16 @@ REMOVE (n) IF (-1C (adv));
 # Verbs #
 #########
 
+# volt is not a present-tense verb -- again, an error of hunmorph
+REMOVE ("volt") + (vblex) + (pres)
+
+# pis is imperative (and also very rare)
+REMOVE (pis) IF (NOT *1 ("!"))
+
+#########
+# prevb #
+#########
+
 # In case of verbs modified by a preverb, hunmorph returns both the
 # (underspecified) vblex/ser and the prevb + vblex/ser analysis. Of these, we
 # select the latter one.
@@ -59,8 +70,27 @@ REMOVE (n) IF (-1C (adv));
 #SELECT (prevb) + (vblex) IF (0C Verb LINK 0:1 (prevb))
 SELECT SUB:1 (prevb) IF (0C Verb)
 
-# volt is not a present-tense verb -- again, an error of hunmorph
-REMOVE ("volt") + (vblex) + (pres)
+# preverbs cannot occur before a verb (in that case, they must form a compound
+# word), except if there is an infinite verb somewhere later in the sentence
+# (e.g. el<prevb> akarja<vblex> olvasni<vblex><inf>).
+REMOVE (prevb) IF (1C Verb) (NOT 2* Verb + (inf)) 
+
+##########
+# cnjcoo #
+##########
+
+# cnjcoo is always at the beginning of the second part, never at the end of the
+# first one.
+REMOVE (cnjcoo) IF (1 Punct)
+
+#########
+#  nem  #
+#########
+
+# "nem" is always adv before a verb. (TODO: but after another ij?)
+SELECT ("nem" adv) IF (1C Verb)
+
+# TODO: Nem, Marinak: ij?
 
 ########
 # MISC #
