@@ -98,6 +98,18 @@ SELECT SUB:1 (prevb) IF (0C Verb)
 # (e.g. el<prevb> akarja<vblex> olvasni<vblex><inf>).
 REMOVE (prevb) IF (1C Verb) (NOT 2* Verb + (inf)) 
 
+# Get rid of free dangling preverbs -- they must be attached to a verb, which
+# in turn must not be a <prevb>+<vbxxx>
+# TODO: doesn't work
+REMOVE (prevb) IF (NOT 2* Verb LINK NOT 0 (prevb)) (NOT -1* Verb LINK NOT 0 (prevb))
+
+########
+# post #
+########
+
+# <post> can only stand after a noun (or adj)
+REMOVE (post) IF (NOT -1C Noun or (adj))
+
 ##########
 # cnjcoo #
 ##########
@@ -109,6 +121,10 @@ REMOVE (cnjcoo) IF (1 Punct)
 # "de" is <adv> only immediately before and <adj> (e.g. de hideg van)
 REMOVE ("de" adv) IF (NOT 1C (adj))
 
+# Remove cnjcoo if the word is not at the beginning of a sentence or clause
+# "vagy" is an exception, as is "és", but the latter is not ambiguous
+REMOVE (cnjcoo) IF (NOT 0 ("vagy")) (NOT -1 (>>>) OR (cm) OR (quot) OR (sent))
+
 #########
 #  nem  #
 #########
@@ -116,7 +132,15 @@ REMOVE ("de" adv) IF (NOT 1C (adj))
 # "nem" is always adv before a verb. (TODO: but after another ij?)
 IFF ("nem" adv) IF (1C Verb OR (<adj>) OR Noun)
 
-# TODO: Nem, Marinak: ij?
+######
+# cm #
+######
+
+# e.g. Jancsit és Marit. All cases should be listed here, except for nom,
+# because that's the default, and it does not capture the head.
+# TODO: do the same for the right side
+# TODO: do the same for NPs
+SELECT Noun + (acc) IF (-1 (cnjcoo) LINK -1 Noun + (acc))
 
 ########
 # MISC #
