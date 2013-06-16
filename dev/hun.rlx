@@ -10,10 +10,11 @@ LIST DefArt = (det def) ;
 LIST IndArt = (det ind) ;
 # Demonstratives -- these can also appear in predet position
 LIST Dem    = "az" "ez" "amaz" "emez" ;
-LIST NOUN = n np ;
+LIST Noun = n np ;
 LIST Verb = vblex vbser vbmod ;
 LIST Punct = cm sent quot ;  # guio, apos?
 LIST Poss = px1ss px2ss px3ss px1ps px2ps px3ps px1sp px2sp px3sp px1pp px2pp px3pp ;
+LIST VbSer = "van" "lehet" "volt" "nincs";
 
 CONSTRAINTS
 
@@ -40,7 +41,7 @@ IFF (predet) + Dem IF (1C DefArt)
 
 # Disambiguate the <det> at the beginning of an NP (<np> too?)
 #SELECT (det) IF (1* NOUN BARRIER (*) - AdjOrNum)
-SELECT (det) IF (1* NOUN BARRIER (*) - (adj) - (num))
+SELECT (det) IF (1* Noun BARRIER (*) - (adj) - (num))
 
 ## Non-proper nouns need a <det> before them, except if they are a possession
 ## (e.g. János és kutyája)
@@ -51,15 +52,27 @@ SELECT (det) IF (1* NOUN BARRIER (*) - (adj) - (num))
 REMOVE (n) IF (-1C (adv));
 
 # If a noun is written with capital letters and it is not at the start of the
-# sentence, it is an np. TODO!
+# sentence, it is an np.
 SELECT (np) IF (NOT -1 (>>>))
+
+# <plfam> cannot stand with "egy"
+REMOVE (plfam) IF (-1* IndArt BARRIER (*) - (adj) - (num) - (adv))
+
+# Note: the rules from this point are based on the rules of the Hungarian NP
+# grammar. Unfortunately, there are some points, where different analyses are
+# possible (e.g. can an inflected <adj> + a zero <n> be the head of an NP?).
+# The rules here are based on my decision on how NPs look like.
+
+# <adj>s cannot take <pxNPP>. Examples such as "(tojás)fehérje" do not refer
+# to the property of the noun, but rather, to one of its parts.
+REMOVE (adj) + Poss IF (0 Noun + Poss)
 
 #########
 # Verbs #
 #########
 
-# volt is not a present-tense verb -- again, an error of hunmorph
-REMOVE ("volt") + (vblex) + (pres)
+# Remove the <vblex> analysis of <vbser>s, erroneously added by hunmorph.
+REMOVE VbSer + (vblex) + (pres)
 
 # pis is imperative (and also very rare)
 REMOVE (pis) IF (NOT *1 ("!"))
@@ -101,7 +114,7 @@ REMOVE ("de" adv) IF (NOT 1C (adj))
 #########
 
 # "nem" is always adv before a verb. (TODO: but after another ij?)
-SELECT ("nem" adv) IF (1C Verb)
+IFF ("nem" adv) IF (1C Verb OR (<adj>) OR Noun)
 
 # TODO: Nem, Marinak: ij?
 
@@ -111,6 +124,9 @@ SELECT ("nem" adv) IF (1C Verb)
 
 # Remove the archaic "fő" reading when "fej" is available
 REMOVE ("fő") IF (0 ("fej"))
+
+# Remove the familiar form "anyjuk", if it is not preceded by an <ij>
+REMOVE ("anyjuk") IF (NOT -1* (ij) BARRIER (cm))
 
 ########
 # ???  #
