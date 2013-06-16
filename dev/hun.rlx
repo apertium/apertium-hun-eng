@@ -5,7 +5,7 @@ DELIMITERS = "<.>" "<!>" "<?>" "<;>" "<...>" (sent);
 #SETS
 
 # Articles
-LIST ART    = det ;
+LIST Art    = det ;
 LIST DefArt = (det def) ;
 LIST IndArt = (det ind) ;
 # Demonstratives -- these can also appear in predet position
@@ -13,6 +13,7 @@ LIST Dem    = "az" "ez" "amaz" "emez" ;
 LIST NOUN = n np ;
 LIST Verb = vblex vbser vbmod ;
 LIST Punct = cm sent quot ;  # guio, apos?
+LIST Poss = px1ss px2ss px3ss px1ps px2ps px3ps px1sp px2sp px3sp px1pp px2pp px3pp ;
 
 CONSTRAINTS
 
@@ -41,8 +42,17 @@ IFF (predet) + Dem IF (1C DefArt)
 #SELECT (det) IF (1* NOUN BARRIER (*) - AdjOrNum)
 SELECT (det) IF (1* NOUN BARRIER (*) - (adj) - (num))
 
+## Non-proper nouns need a <det> before them, except if they are a possession
+## (e.g. János és kutyája)
+#REMOVE (n) IF (NOT 0 Poss) (NOT -1* Art BARRIER (*) - (adj) - (num) - (adv))
+# No, they don't -- see e.g. választ kap (collocation), "kutyába se vesz" (idiom), etc.
+
 # No <adv> before <n>. NOT CORRECT. (e.g. before N V constructs)
 REMOVE (n) IF (-1C (adv));
+
+# If a noun is written with capital letters and it is not at the start of the
+# sentence, it is an np. TODO!
+SELECT (np) IF (NOT -1 (>>>))
 
 #########
 # Verbs #
@@ -82,6 +92,9 @@ REMOVE (prevb) IF (1C Verb) (NOT 2* Verb + (inf))
 # cnjcoo is always at the beginning of the second part, never at the end of the
 # first one.
 REMOVE (cnjcoo) IF (1 Punct)
+
+# "de" is <adv> only immediately before and <adj> (e.g. de hideg van)
+REMOVE ("de" adv) IF (NOT 1C (adj))
 
 #########
 #  nem  #
