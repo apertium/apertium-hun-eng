@@ -12,9 +12,21 @@ LIST IndArt = (det ind) ;
 LIST Dem    = "az" "ez" "amaz" "emez" ;
 LIST Noun = n np ;
 LIST Verb = vblex vbser vbmod ;
+LIST VerbNotSer = vblex vbmod ;
 LIST Punct = cm sent quot ;  # guio, apos?
 LIST Poss = px1ss px2ss px3ss px1ps px2ps px3ps px1sp px2sp px3sp px1pp px2pp px3pp ;
-LIST VbSer = "van" "lehet" "volt" "nincs";
+LIST VbSer = "van" "lehet" "volt" "nincs" ;
+LIST PastAdv = "tegnap" "múltkor" "régen" ;
+# Words that are <post>, but can be members of another closed class, e.g. <prevb>
+LIST PostFirst = "alá" ;
+# Parts of an NP (other than the noun)
+LIST NpPart = det num adv adj ;
+LIST NpPartFromAdj = adv adj ;
+# Conjunctions that may occur in NPs
+LIST NpConj = "és" "vagy" cm ;
+# Verbs that can take an infinite verb as argument
+LIST MetaVerb = "akar" "szeret" "imád" ;
+LIST Anp = pxs pxp ;
 
 CONSTRAINTS
 
@@ -34,6 +46,13 @@ CONSTRAINTS
 #SELECT (predet) + Dem IF (1C DefArt)
 #REMOVE (predet) + Dem IF (1C IndArt)
 IFF (predet) + Dem IF (1C DefArt)
+
+################
+# Collocations #
+################
+
+SELECT ("válasz" n acc) IF (1* ("kap") + VerbNotSer BARRIER Verb)
+SELECT ("válasz" n acc) IF (-1* ("kap") + VerbNotSer BARRIER Verb)
 
 ############
 # NP-stuff #
@@ -67,6 +86,35 @@ REMOVE (plfam) IF (-1* IndArt BARRIER (*) - (adj) - (num) - (adv))
 # to the property of the noun, but rather, to one of its parts.
 REMOVE (adj) + Poss IF (0 Noun + Poss)
 
+# The head of an NP is a noun. There can only be one noun in an NP, except:
+# - <np>s
+# - possessives (János kutyája)
+# - conjunctions (János és Mari)
+#REMOVE (n) IF (*1C Noun LINK NOT 0 Poss BARRIER (*) - (num) - (adj))
+#REMOVE (n) IF (*1C Noun LINK NOT 0 Poss BARRIER (*) - (adj))
+#REMOVE (n) IF (*1C Noun BARRIER (*) - (adj) LINK NOT 0 Poss)
+
+# Same, but if there the <det> is <ind>, we also allow <cm> and <cnjoo>
+
+# Possessions can occur in an NP if
+# - it is a proper NP, with <det> and all
+# - after another Noun
+# TODO cnjcoo, cm?
+REMOVE (n) + Poss IF (NEGATE (-1* Art BARRIER (*) - NpPart) OR (-1* Noun BARRIER (*) - NpPart))
+
+# adj/nouns are adjs if they are in the same NP with a noun, which does not have
+# a possession marker on it
+# TODO Poss?
+REMOVE (n) IF (*1C Noun BARRIER (*) - NpPartFromAdj - NpConj)
+
+# There cannot be regular, non-possessive nouns in an NP
+REMOVE (n) IF (-1C Noun) (NOT 0 Poss)
+
+# A bit too specific, but what can you do... Anp + "is" is only valid, if there
+# was another possessive construct in the sentence
+# TODO: of course, it could be in the previous sentence...
+REMOVE (n) + Anp IF (1 ("is")) (NOT -1C* (n) + Anp OR Poss)
+
 #########
 # Verbs #
 #########
@@ -76,6 +124,19 @@ REMOVE VbSer + (vblex) + (pres)
 
 # pis is imperative (and also very rare)
 REMOVE (pis) IF (NOT *1 ("!"))
+
+# Some adverbs bring past tense with them.
+SELECT Verb + (past) IF (-1* PastAdv BARRIER (cm) OR (cnjcoo) OR Verb + (past))
+
+# Meta-verbs
+SELECT MetaVerb IF (1* Verb + (inf) BARRIER (cm) OR (cnjcoo) OR MetaVerb)
+
+# If sth can be an adjective and an adverb, select the latter if it stands
+# before a verb, unless it's <vbser>
+SELECT (adv) IF (0 (adj)) (1C VerbNotSer)
+
+# Non-personal pronouns are third person
+REMOVE Verb + (s1p) OR (s2p) IF (-1* (prn nom) - (pers) BARRIER Verb)
 
 #########
 # prevb #
@@ -98,17 +159,14 @@ SELECT SUB:1 (prevb) IF (0C Verb)
 # (e.g. el<prevb> akarja<vblex> olvasni<vblex><inf>).
 REMOVE (prevb) IF (1C Verb) (NOT 2* Verb + (inf)) 
 
-# Get rid of free dangling preverbs -- they must be attached to a verb, which
-# in turn must not be a <prevb>+<vbxxx>
-# TODO: doesn't work
-REMOVE (prevb) IF (NOT 2* Verb LINK NOT 0 (prevb)) (NOT -1* Verb LINK NOT 0 (prevb))
-
 ########
 # post #
 ########
 
 # <post> can only stand after a noun (or adj)
 REMOVE (post) IF (NOT -1C Noun or (adj))
+
+SELECT (post) IF (0 PostFirst) (-1C Noun)
 
 ##########
 # cnjcoo #
@@ -124,6 +182,9 @@ REMOVE ("de" adv) IF (NOT 1C (adj))
 # Remove cnjcoo if the word is not at the beginning of a sentence or clause
 # "vagy" is an exception, as is "és", but the latter is not ambiguous
 REMOVE (cnjcoo) IF (NOT 0 ("vagy")) (NOT -1 (>>>) OR (cm) OR (quot) OR (sent))
+
+# "ha" is cnjcoo unless it is by itself (e.g. "ha!")
+SELECT ("ha" cnjcoo) IF (NOT 1 (sent))
 
 #########
 #  nem  #
@@ -157,3 +218,27 @@ REMOVE ("anyjuk") IF (NOT -1* (ij) BARRIER (cm))
 ########
 
 # E.g. ADDs for <adj>: <pred>/<attr>
+
+CONSTRAINTS
+
+# Identify preverbs disconnected from their verbs. The candidate verb must
+# not be have a prevb attached, must not be vbser and there cannot be another
+# verb between.
+SELECT (prevb) IF ((2* VerbNotSer BARRIER Verb OR (prevb) LINK NOT 0/1 (prevb)) OR (-1* VerbNotSer BARRIER Verb OR (prevb) LINK NOT 0/1 (prevb)))
+
+######
+# NP #
+######
+
+# <n> requires an article, unless it's Poss
+#REMOVE (n) IF (NOT -1* Art OR (np) OR ("nem") BARRIER (*) - NpPart - NpConj)
+
+###########
+# Guesser #
+###########
+
+CONSTRAINTS
+
+SELECT ("Mari" np)
+SELECT ("kutya" n)
+
