@@ -107,7 +107,7 @@
 ^Nem/nem<ij>/nem<adv>$
 ^,/,<cm>$
 ^Marinak/mari<adj><sg><dat>/mari<n><sg><dat>/Mari<np><sg><dat>$
-^nincs/nincs<vblex><pres><sg><s3p><ind>$
+^nincs/nincs<vbser><pres><sg><s3p><ind>$
 ^kutyája/kutya<adj><sg><px3ss><nom>/kutya<n><sg><px3ss><nom>$
 ^,/,<cm>$
 ^macskája/macska<n><sg><px3ss><nom>$
@@ -365,7 +365,7 @@
 ^alám/én<prn><pers><post><p1><mf><sg><nom>$
 ^de/de<adv>/de<cnjcoo>$
 ^Jancsi/Jancsi<np><sg><nom>$
-^nincs/nincs<vblex><pres><sg><s3p><ind>$
+^nincs/nincs<vbser><pres><sg><s3p><ind>$
 ^ott/ott<prevb>/ott<adv>$
 ^./.<sent>$
 
