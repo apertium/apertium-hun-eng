@@ -45,6 +45,10 @@ CONSTRAINTS
 # PastAdv immediately before or after it
 SELECT ("az" prn tem) IF (1* Verb + (past) BARRIER Verb) (NOT 1 PastAdv) (NOT -1 PastAdv)
 
+# "ekkor" is a <prn><tem>, if a verb follows it (not necessarily past tense --
+# that's a difference to "akkor")
+SELECT ("ez" prn tem) IF (1C VerbNotSer)
+
 # Before a definete article, demonstratives are <predet>; they cannot be that
 # before an indefinite article (or any other word? So can I use IFF?)
 #SELECT (predet) IF (0 Dem LINK 1C DefArt)
@@ -182,8 +186,11 @@ SELECT (post) IF (0 PostFirst) (-1C Noun)
 # first one.
 REMOVE (cnjcoo) IF (1 Punct)
 
-# "de" is <adv> only immediately before and <adj> (e.g. de hideg van)
+# "de" is <adv> only immediately before an <adj> (e.g. de hideg van)
 REMOVE ("de" adv) IF (NOT 1C (adj))
+
+# "így" needs a verb to be and adverb (might be valid for other cnjadv/adv's?)
+REMOVE ("így" adv) IF (NOT 1C Verb)
 
 # Remove cnjcoo if the word is not at the beginning of a sentence or clause
 # "vagy" is an exception, as is "és", but the latter is not ambiguous
@@ -250,8 +257,26 @@ SELECT VerbNotSer IF ((1C* (acc) BARRIER Conj) OR (-1C* (acc) BARRIER Conj)) ((N
 # Guesser #
 ###########
 
+LIST DestinationAdv = "hova" "hová" "merre" ;
+
 CONSTRAINTS
+
+# This again -- why doesn't it work now?
+SELECT SUB:1 (prevb) IF (0C Verb)
+
+# "ment": megy+past, if there's a destination
+SELECT ("<ment>"i "megy" past) IF ((-1* DestinationAdv) OR (-1* Noun + (ill) OR (all) OR (sub) OR (term)) OR (-1* Noun + (ill) OR (all) OR (sub) OR (term)))
+
+# If we have to choose between Anp and Poss, choose Poss
+# TODO: why doesn't the condition work?
+SELECT Poss - Anp IF (NOT 0 Poss + Anp) (0 Anp) #(0 Anp LINK NOT 0 Poss) (0 Poss LINK NOT 0 Anp)
 
 SELECT ("Mari" np)
 SELECT ("kutya" n)
+REMOVE ("aztán" adv)  # I think it's not an adv
+REMOVE ("ott" prevb)  # I can't think of such a word now
+
+# No such word, unless it's a possessive/ion (even then there's no such word,
+# but I use this form to remember the - Anp trick)
+REMOVE ("látta" n sg nom) - Anp - Poss
 
