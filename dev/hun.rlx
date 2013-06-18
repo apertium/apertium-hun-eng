@@ -24,6 +24,8 @@ LIST NpPart = det num adv adj ;
 LIST NpPartFromAdj = adv adj ;
 # Conjunctions that may occur in NPs
 LIST NpConj = "és" "vagy" cm ;
+# Conjunctions, might be the same as the previous one?
+LIST Conj   = "és" "vagy" cm ;
 # Verbs that can take an infinite verb as argument
 LIST MetaVerb = "akar" "szeret" "imád" ;
 LIST Anp = pxs pxp ;
@@ -38,6 +40,10 @@ CONSTRAINTS
 #SELECT (det) IF (0 ("az") LINK 1 (adj) OR (n))
 "<az>" SELECT (det) IF (1 (adj) OR (n))
 "<Az>" SELECT (det) IF (1 (adj) OR (n))
+
+# "akkor" is <prn>, if it is together with a past-tense verb, and there is no
+# PastAdv immediately before or after it
+SELECT ("az" prn tem) IF (1* Verb + (past) BARRIER Verb) (NOT 1 PastAdv) (NOT -1 PastAdv)
 
 # Before a definete article, demonstratives are <predet>; they cannot be that
 # before an indefinite article (or any other word? So can I use IFF?)
@@ -168,9 +174,9 @@ REMOVE (post) IF (NOT -1C Noun or (adj))
 
 SELECT (post) IF (0 PostFirst) (-1C Noun)
 
-##########
-# cnjcoo #
-##########
+################
+# Conjunctions #
+################
 
 # cnjcoo is always at the beginning of the second part, never at the end of the
 # first one.
@@ -185,6 +191,9 @@ REMOVE (cnjcoo) IF (NOT 0 ("vagy")) (NOT -1 (>>>) OR (cm) OR (quot) OR (sent))
 
 # "ha" is cnjcoo unless it is by itself (e.g. "ha!")
 SELECT ("ha" cnjcoo) IF (NOT 1 (sent))
+
+# Not necessarily @-1 (e.g. ?!)
+REMOVE ("mikor" itg) IF (NOT *1 ("?"))
 
 #########
 #  nem  #
@@ -225,6 +234,10 @@ CONSTRAINTS
 # not be have a prevb attached, must not be vbser and there cannot be another
 # verb between.
 SELECT (prevb) IF ((2* VerbNotSer BARRIER Verb OR (prevb) LINK NOT 0/1 (prevb)) OR (-1* VerbNotSer BARRIER Verb OR (prevb) LINK NOT 0/1 (prevb)))
+
+# If there is an <acc> word, and no other (potential) verbs in the sentence,
+# select the verb reading.
+SELECT VerbNotSer IF ((1C* (acc) BARRIER Conj) OR (-1C* (acc) BARRIER Conj)) ((NOT -1* VerbNotSer) OR (NOT 1* VerbNotSer))
 
 ######
 # NP #
