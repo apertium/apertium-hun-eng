@@ -270,6 +270,9 @@ SELECT SUB:1 (prevb) IF (0C Verb)
 # "ment": megy+past, if there's a destination
 SELECT ("<ment>"i "megy" past) IF ((-1* DestinationAdv) OR (-1* Noun + (ill) OR (all) OR (sub) OR (term)) OR (-1* Noun + (ill) OR (all) OR (sub) OR (term)))
 
+# "hallik" vs "hall": if there is an object, it's "hall"
+SELECT ("hall" vblex inf) IF ((1* (acc) BARRIER Verb) OR (-1* (acc) BARRIER Verb))
+
 # If we have to choose between Anp and Poss, choose Poss
 # TODO: why doesn't the condition work?
 SELECT Poss - Anp IF (NOT 0 Poss + Anp) (0 Anp) #(0 Anp LINK NOT 0 Poss) (0 Poss LINK NOT 0 Anp)
