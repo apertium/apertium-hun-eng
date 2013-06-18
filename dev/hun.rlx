@@ -125,6 +125,11 @@ REMOVE (n) IF (-1C Noun) (NOT 0 Poss)
 # TODO: of course, it could be in the previous sentence...
 REMOVE (n) + Anp IF (1 ("is")) (NOT -1C* (n) + Anp OR Poss)
 
+# Handle the last noun in a conjunctive NP -- one rule per case...
+# Note: could be Noun OR (adj) + (nom) -- but in that case 0 could also be adj; I don't know
+SELECT (n nom) IF (NOT 1* (n) BARRIER (np) OR Art) (-1* NpConj BARRIER (*) - NpPart LINK -1 Noun + (nom))
+SELECT (n acc) IF (NOT 1* (n) BARRIER (np) OR Art) (-1* NpConj BARRIER (*) - NpPart LINK -1 Noun + (acc))
+
 #########
 # Verbs #
 #########
@@ -219,21 +224,19 @@ IFF ("nem" adv) IF (1C Verb OR (<adj>) OR Noun)
 # TODO: do the same for NPs
 SELECT Noun + (acc) IF (-1 (cnjcoo) LINK -1 Noun + (acc))
 
-########
-# MISC #
-########
+#######
+# más #
+#######
 
-# Remove the archaic "fő" reading when "fej" is available
-REMOVE ("fő") IF (0 ("fej"))
+# "más" is a special <adj>/<n>
+SELECT ("más" adj) IF (*1 (n) BARRIER (*) - NpPartFromAdj)
 
-# Remove the familiar form "anyjuk", if it is not preceded by an <ij>
-REMOVE ("anyjuk") IF (NOT -1* (ij) BARRIER (cm))
+# Verbs that can take "ott" as <prevb>
+LIST OttVerb = "marad" ;
 
-########
-# ???  #
-########
+CONSTRAINTS
 
-# E.g. ADDs for <adj>: <pred>/<attr>
+REMOVE ("ott" prevb) IF (NEGATE (2* OttVerb BARRIER Conj) OR (-1* OttVerb BARRIER Conj))
 
 CONSTRAINTS
 
@@ -273,10 +276,21 @@ SELECT Poss - Anp IF (NOT 0 Poss + Anp) (0 Anp) #(0 Anp LINK NOT 0 Poss) (0 Poss
 
 SELECT ("Mari" np)
 SELECT ("kutya" n)
+SELECT ("ötéves" adj)
 REMOVE ("aztán" adv)  # I think it's not an adv
-REMOVE ("ott" prevb)  # I can't think of such a word now
+
+# it would be "be+fejel", not "be+fej+ez"
+# Note: 0/1 doesn't guarantee that it's the same meaning -- welcome to
+# subreadings!
+REMOVE ("fej" vblex) IF (0 ("fej" vblex) LINK 0/1 ("be"))
 
 # No such word, unless it's a possessive/ion (even then there's no such word,
 # but I use this form to remember the - Anp trick)
 REMOVE ("látta" n sg nom) - Anp - Poss
+
+# Remove the archaic "fő" reading when "fej" is available
+REMOVE ("fő") IF (0 ("fej"))
+
+# Remove the familiar form "anyjuk", if it is not preceded by an <ij>
+REMOVE ("anyjuk") IF (NOT -1* (ij) BARRIER (cm))
 
