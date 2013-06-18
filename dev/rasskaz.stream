@@ -203,7 +203,7 @@
 ^játék/ját<n><plfam><nom>/játék<n><sg><nom>$
 ^./.<sent>$
 
-^Mikor/mikor<cnjcoo>/mikor<adv>$
+^Mikor/mikor<cnjadv>/mikor<adv><itg>$
 ^Mari/mari<adj><sg><nom>/mari<n><sg><nom>/Mari<np><sg><nom>$
 ^befejezte/befejez<vblex><past><sg><s3p><def>/be<prevb>+fej<vblex><past><sg><s3p><def>/be<prevb>+fejez<vblex><past><sg><s3p><def>/befejezte<n><sg><px3ss><nom>/befejezte<n><sg><nom>$
 ^a/a<det><def>$
