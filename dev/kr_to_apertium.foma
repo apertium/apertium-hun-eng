@@ -1,0 +1,21 @@
+## Creates the FST file that hunmorph_to_apertium.cpp uses to convert the output
+## of ocamorph to the Apertium stream format.
+
+# TODO: What to do with /'s and +'s in WordForm?
+define NonSlashOrPlus [? - [%/ | %+ | "	"]];
+define WordForm NonSlashOrPlus+;
+
+define WordInflection WordForm [%/:0 NonSlashOrPlus:0*]* %/ NonSlashOrPlus+;
+define CompoundInflection WordInflection [%+ WordInflection]*;
+
+read lexc kr_to_apertium_spec.lexc
+define SpecAnalysis
+define SpecConverter CompoundInflection .o. SpecAnalysis;
+regex SpecConverter;
+
+read lexc kr_to_apertium.lexc
+define Analysis
+define Converter CompoundInflection .o. Analysis;
+regex Converter;
+
+save stack kr_to_apertium.fst

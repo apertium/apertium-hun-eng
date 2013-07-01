@@ -1,0 +1,204 @@
+!! Converts KR-code to Apertium's morphologic tags, as present in the Apertium
+!! stream format.
+!! This file contains the words that require special treatment; for all others,
+!! see kr_to_apertium.lexc.
+
+LEXICON Root
+<[%! | %? | %: | %. | %; | %/ | %.%.%.] %/:0>	PunctSent;
+<%- %/:0>			PunctGuio;
+<%, %/:0>			PunctCm;
+<[%" | „ | ”]%/:0>		PunctQuot;
+<%' %/:0>			PunctApos;
+<v a n %/:0>			VbSer;
+<n i n c s %/:0>		VbSer;
+a%/ART:a%<det%>%<def%>		#;
+az%/ART:az%<det%>%<def%>	#;
+ez%/NOUN:ez%<prn%>		NominalNumber;
+az%/NOUN:az%<prn%>		NominalNumber;
+emez%/NOUN:emez%<prn%>		NominalNumber;
+amaz%/NOUN:amaz%<prn%>		NominalNumber;
+egy%/ART:egy%<det%>%<ind%>	#;
+én%/NOUN:én%<prn%>%<pers%>	PersProPostp;
+te%/NOUN:te%<prn%>%<pers%>	PersProPostp;
+ő%/NOUN:ő%<prn%>%<pers%>	PersProPostp;
+ön%/NOUN:ön%<prn%>%<pers%>	PersProPostp;
+mi%/NOUN:mi%<prn%>%<pers%>	PersProPostp;
+ti%/NOUN:ti%<prn%>%<pers%>	PersProPostp;
+ők%/NOUN:ők%<prn%>%<pers%>	PersProPostp;
+ki%/NOUN:ki%<n%>%<itg%>			NominalNumber;
+kicsoda%/NOUN:kicsoda%<n%>%<itg%>	NominalNumber;
+mi%/NOUN:mi%<n%>%<itg%>			NominalNumber;
+micsoda%/NOUN:micsoda%<n%>%<itg%>	NominalNumber;
+hány%/NUM:hány%<num%>%<itg%>		NominalNumber;
+mennyi%/NUM:mennyi%<num%>%<itg%>	NominalNumber;
+hol%/ADV:hol%<adv%>%<itg%>		#;
+hova%/ADV:hova%<adv%>%<itg%>		#;  ! hova = hol + ill/all?
+hová%/ADV:hova%<adv%>%<itg%>		#;
+hogyan%/ADV:hogyan%<adv%>%<itg%>	#;
+mikor%/ADV:mikor%<adv%>%<itg%>		#;
+ekkor%/ADV:ekkor%<cnjadv%>		#;
+mikor%/CONJ:mikor%<cnjadv%>		#;
+aztán%/CONJ:aztán%<cnjadv%>		#;
+így%/CONJ:így%<cnjadv%>			#;
+<[? - [%/ | %+]]+ %/:0>			KRRoot;  ! All the other words
+
+LEXICON KRRoot
+PREV:%<prevb%>	WordEnd;  ! NEW!
+
+! TODO: the order should be different, and also this should be e.g.
+! én<prn><pers><p1><sg><mf>+alá<post>. Implement it with flag diacritics once
+! they get fixed.
+LEXICON PersProPostp
+%<POSTP%<ALÁ%>%>:%<post%>	PersProPerson;
+%<POSTP%<ALATT%>%>:%<post%>	PersProPerson;
+0				PersProPerson;
+! TODO: the rest
+
+LEXICON PersProPerson
+%<PERS%<1%>%>:%<p1%>%<mf%>	PersProNumber;
+%<PERS%<2%>%>:%<p2%>%<mf%>	PersProNumber;
+%<PERS%>:%<p3%>%<mf%>		PersProNumber;
+
+! WARNING: for övéi, ocamorph returns the invalid analysis <PLUR<ANP>>, instead
+! of <ANP<PLUR>>. If this bug gets fixed, this lexicon will have to be updated.
+! TODO <PLUR<FAM>> to also be a pxp here?
+LEXICON PersProNumber
+%<PLUR%>:%<pl%>			PersProAnp;
+%<PLUR%<FAM%>%>:%<plfam%>	PersProAnp;
+0:%<sg%>			PersProAnp;
+%<PLUR%<ANP%>%>:%<sg%>%<pxp	PersProAnp2;
+
+LEXICON PunctSent
+PUNCT:%<sent%>	#;
+
+LEXICON PunctGuio
+PUNCT:%<guio%>	#;
+
+LEXICON PunctCm
+PUNCT:%<cm%>	#;
+
+LEXICON PunctQuot
+PUNCT:%<quot%>	#;
+
+LEXICON PunctApos
+PUNCT:%<apos%>	#;
+
+! van/VERB<MODAL> => <vbser><vbmod>, but we cannot do that => <vbser>
+LEXICON VbSer
+VERB:%<vbser%>			VerbModes;
+VERB%<MODAL%>:%<vbser%>		VerbModes;
+
+LEXICON Nominal
+		NominalNumber;
+
+LEXICON NominalNumber
+%<PLUR:0	NominalNumberFam;
+0:%<sg%>	NominalPoss;
+
+LEXICON NominalNumberFam
+%<FAM%>%>:%<plfam%>	NominalPossPl;	! NEW
+%>:%<pl%>		NominalPossPl;
+
+LEXICON NominalPoss
+%<POSS%>:%<px3s 		NominalPossObj;
+%<POSS%<1%>%>:%<px1s		NominalPossObj;
+%<POSS%<2%>%>:%<px2s		NominalPossObj;
+%<POSS%<PLUR%>%>:%<px3p		NominalPossObj;
+%<POSS%<1%>%<PLUR%>%>:%<px1p	NominalPossObj;
+%<POSS%<2%>%<PLUR%>%>:%<px2p	NominalPossObj;
+0				NominalAnp;
+
+! TODO flag diacritics
+LEXICON NominalPossPl
+%<POSS%>:%<px3s 		NominalPossObjPl;
+%<POSS%<1%>%>:%<px1s		NominalPossObjPl;
+%<POSS%<2%>%>:%<px2s		NominalPossObjPl;
+%<POSS%<PLUR%>%>:%<px3p		NominalPossObjPl;
+%<POSS%<1%>%<PLUR%>%>:%<px1p	NominalPossObjPl;
+%<POSS%<2%>%<PLUR%>%>:%<px2p	NominalPossObjPl;
+0				NominalAnp;
+
+LEXICON NominalPossObj
+0:s%>		NominalAnp;
+
+LEXICON NominalPossObjPl
+0:p%>		NominalAnp;
+
+LEXICON NominalAnp
+%<ANP%>:%<pxs%>		NominalCas;
+%<ANP%<PLUR%>%>:%<pxp%>	NominalCas;
+0			NominalCas;
+
+! ANP's on personal pronouns can stack
+! WARNING The version of ocamorph we have returns <ANP<PLUR>><ANP<PLUR>>,
+! instead of properly nesting the second ANP: <ANP<PLUR><ANP<PLUR>>>
+! The three lexicons below handle both.
+LEXICON PersProAnp
+%<ANP:%<pxs		PersProAnp2;
+%<ANP%<PLUR%>:%<pxp	PersProAnp2;
+%<ANP%>:%<pxs		PersProAnp2Bug;
+%<ANP%<PLUR%>%>:%<pxp	PersProAnp2Bug;
+0			NominalCas;
+
+LEXICON PersProAnp2Bug
+0:%>			NominalCas;
+%<ANP%>:s%>		NominalCas;
+%<ANP%<PLUR%>%>:p%>	NominalCas;
+
+LEXICON PersProAnp2
+%>			NominalCas;
+%<ANP%>%>:s%>		NominalCas;
+%<ANP%<PLUR%>%>%>:p%>	NominalCas;
+
+LEXICON NominalCas
+0:%<nom%>		WordEnd;  ! ember
+%<CAS%<ACC%>%>:%<acc%>	#;  ! embert
+%<CAS%<DAT%>%>:%<dat%>	#;  ! embernek
+%<CAS%<INS%>%>:%<ins%>	#;  ! kalapáccsal
+%<CAS%<COM%>%>:%<com%>	#;  ! emberrel
+%<CAS%<CAU%>%>:%<cau%>	#;  ! emberért
+%<CAS%<FIN%>%>:%<fin%>	#;  ! emberért (does FIN exist at all?)
+%<CAS%<TRA%>%>:%<tra%>	#;  ! emberré
+%<CAS%<INE%>%>:%<ine%>	#;  ! emberben
+%<CAS%<SUE%>%>:%<ses%>	#;  ! emberen
+%<CAS%<ADE%>%>:%<ade%>	#;  ! embernél
+%<CAS%<ILL%>%>:%<ill%>	#;  ! emberbe
+%<CAS%<SBL%>%>:%<sub%>	#;  ! emberre
+%<CAS%<ALL%>%>:%<all%>	#;  ! emberhez
+%<CAS%<ELA%>%>:%<ela%>	#;  ! emberből
+%<CAS%<DEL%>%>:%<dela%>	#;  ! emberről
+%<CAS%<ABL%>%>:%<abl%>	#;  ! embertől
+%<CAS%<TER%>%>:%<term%>	#;  ! emberig
+%<CAS%<FOR%>%>:%<ess1%>	#;  ! emberként
+%<CAS%<ESS%>%>:%<ess2%>	#;  ! emberül
+%<CAS%<TEM%>%>:%<tem%>	#;  ! emberül
+
+LEXICON VerbModes
+%<PAST%>:%<past%>	VerbNumber;
+%<COND%>:%<cni%>	VerbNumber;
+%<SUBJUNC-IMP%>:%<pis%>	VerbNumber;
+%<INF%>:%<inf%>		VerbNumber;
+0:%<pres%>		VerbNumber;
+
+LEXICON VerbNumber
+%<PLUR%>:%<pl%>	VerbPerson;
+0:%<sg%>	VerbPerson;
+
+LEXICON VerbPerson
+%<PERS%<1:%<s1p%>	VerbPerson1;
+%<PERS%<2%>%>:%<s2p%>	VerbDef;
+0:%<s3p%>		VerbDef;
+
+LEXICON VerbPerson1
+%<OBJ%<2%>%>%>%>:%<o2p%>	VerbDef;  ! NEW
+%>%>:0				VerbDef;
+
+LEXICON VerbDef
+%<DEF%>:%<def%> #;
+0:%<ind%>	#;
+
+! End of the word, or the first part of a compound word
+LEXICON WordEnd
+%+	Root;
+0	#;
+
