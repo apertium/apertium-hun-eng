@@ -8,6 +8,7 @@
 /apertium-hun-eng.hun-eng.t2x -text
 /apertium-hun-eng.hun-eng.t3x -text
 /apertium-hun-eng.hun.dix -text
+dev/att_to_ltt/att_to_ltt.cpp -text
 dev/hun.rlx -text
 dev/hunmorph_to_apertium.cpp -text
 dev/kr_to_apertium.foma -text
