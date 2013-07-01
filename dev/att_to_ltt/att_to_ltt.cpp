@@ -112,6 +112,12 @@ int main(int argc, char **argv) {
   /* And now the FST. */
   Compression::multibyte_write(1, output);
   Compression::wstring_write(L"main@standard", output);
+
+  wcout << L"main@standard" << " " << transducer.size();
+  wcout << " " << transducer.numberOfTransitions() << endl;
+
   transducer.write(output);
+
+
   fclose(output);
 }
