@@ -46,27 +46,3 @@ int main(int argc, char **argv) {
 //  cout << transducer.size() << " - " << transducer.numberOfTransitions() << endl;
   transducer.show(alphabet, stdout);
 }
-
-/*
-int main(int argc, char **argv)
-{
-    if(argc < 2) { 
-        wcout << L"Please specify a transducer" << endl;
-        exit(-1);
-    }
-
-        LtLocale::tryToSetLocale();
-    FILE *t_rl = fopen(argv[1], "r");
-
-    fstp.load(t_rl);
-    fclose(t_rl);
-    fstp.initBiltrans();
-
-    wstring input = L"^car<n><pl>$";
-    wstring trad = fstp.biltrans(input);
-
-    wcout << input << L" --> " << trad << endl;
-
-    return 0;
-}
-*/
