@@ -9,9 +9,11 @@
 #include <fstream>
 #include <sstream>
 #include <map>
+#include <set>
 
 #include <lttoolbox/alphabet.h>
 #include <lttoolbox/transducer.h>
+#include <lttoolbox/compression.h>
 
 using namespace std;
 
@@ -26,14 +28,16 @@ void convert_hfst(wstring& symbol) {
 
 /**
  * Returns the code of the symbol in alphabet. Run after convert_hfst has run.
+ * Also adds all non-multicharacter symbols (letters) to the @p letters set.
  * @return the code of the symbol, if @p symbol is multichar; its first and only
  *         character otherwise.
  */
-int symbol_code(wstring& symbol, Alphabet& alphabet) {
+int symbol_code(wstring& symbol, Alphabet& alphabet, set<wchar_t>& letters) {
   if (symbol.length() > 1) {
     alphabet.includeSymbol(symbol);
     return alphabet(symbol);
   } else {
+    letters.insert(symbol[0]);
     return symbol[0];
   }
 }
@@ -48,6 +52,7 @@ int main(int argc, char **argv) {
   wistringstream iss;
   wstring line;
   map<int, int> corr;  // state id correspondence in the file and in the FST
+  set<wchar_t> letters;  // all non-multicharacter symbols
 
   while (std::getline(infile, line)) {
     iss.clear();
@@ -74,8 +79,8 @@ int main(int argc, char **argv) {
     } else {
       convert_hfst(upper);
       convert_hfst(lower);
-      int tag = alphabet(symbol_code(upper, alphabet),
-                         symbol_code(lower, alphabet));
+      int tag = alphabet(symbol_code(upper, alphabet, letters),
+                         symbol_code(lower, alphabet, letters));
 
       /* Now with the target state: */
       map<int, int>::iterator it_to = corr.find(to);
@@ -97,6 +102,16 @@ int main(int argc, char **argv) {
 //    wcerr << it->first << "\t" << it->second << endl;
 //  }
 //  wcerr << transducer.size() << " - " << transducer.numberOfTransitions() << endl;
-  transducer.show(alphabet, stdout);
-  // TODO: save the transducer
+//  transducer.show(alphabet, stdout);
+  
+  FILE* output = fopen(argv[2], "w");
+  /* Non-multichar symbols. */
+  Compression::wstring_write(wstring(letters.begin(), letters.end()), output);
+  /* Multichar symbols. */
+  alphabet.write(output);
+  /* And now the FST. */
+  Compression::multibyte_write(1, output);
+  Compression::wstring_write(L"main", output);
+  transducer.write(output);
+  fclose(output);
 }
