@@ -111,7 +111,7 @@ int main(int argc, char **argv) {
   alphabet.write(output);
   /* And now the FST. */
   Compression::multibyte_write(1, output);
-  Compression::wstring_write(L"main", output);
+  Compression::wstring_write(L"main@standard", output);
   transducer.write(output);
   fclose(output);
 }
