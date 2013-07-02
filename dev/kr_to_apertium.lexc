@@ -2,8 +2,8 @@
 !! stream format.
 
 LEXICON Root
-< [A|Á|B|C|D|E|É|F|G|H|I|Í|J|K|L|M|N|O|Ó|Ö|Ő|P|Q|R|S|T|U|Ú|Ü|Ű|V|W|X|Y|Z] [? - [%/ | %+]]* %/:0 {NOUN}:%<np%> >			Nominal;
-< [? - [A|Á|B|C|D|E|É|F|G|H|I|Í|J|K|L|M|N|O|Ó|Ö|Ő|P|Q|R|S|T|U|Ú|Ü|Ű|V|W|X|Y|Z]] [? - [%/ | %+]]* %/:0 {NOUN}:%<n%> >			Nominal;
+< [A|Á|B|C|D|E|É|F|G|H|I|Í|J|K|L|M|N|O|Ó|Ö|Ő|P|Q|R|S|T|U|Ú|Ü|Ű|V|W|X|Y|Z] [? - [%/ | %+]]* %/:0 {NOUN}:{<np>} >			Nominal;
+< [? - [A|Á|B|C|D|E|É|F|G|H|I|Í|J|K|L|M|N|O|Ó|Ö|Ő|P|Q|R|S|T|U|Ú|Ü|Ű|V|W|X|Y|Z]] [? - [%/ | %+]]* %/:0 {NOUN}:{<n>} >		Nominal;
 <[? - [%/ | %+]]+ %/:0>			KRRoot;  ! All the other words
 
 LEXICON KRRoot
