@@ -154,7 +154,8 @@ private:
       return alphabet(symbol);
     } else if (symbol == L"") {
       return 0;
-    } else if (symbol == L" " || symbol == L".") {
+//    } else if (symbol == L" " || symbol == L".") {
+    } else if (iswpunct(symbol[0]) || iswspace(symbol[0])) {
       return symbol[0];
     } else {
       letters.insert(symbol[0]);
