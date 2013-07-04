@@ -133,7 +133,7 @@ private:
    */
   void convert_hfst(wstring& symbol) {
     if (symbol == L"@0@") {
-      symbol = L"ε";
+      symbol = L"";
     } else if (symbol == L"@_SPACE_@") {
       symbol = L" ";
     }
@@ -152,7 +152,9 @@ private:
     if (symbol.length() > 1) {
       alphabet.includeSymbol(symbol);
       return alphabet(symbol);
-    } else if(symbol == L" " || symbol == L".") {
+    } else if (symbol == L"") {
+      return symbol;
+    } else if (symbol == L" " || symbol == L".") {
       return symbol[0];
     } else {
       letters.insert(symbol[0]);
