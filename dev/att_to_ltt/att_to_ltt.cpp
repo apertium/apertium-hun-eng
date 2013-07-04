@@ -152,7 +152,7 @@ private:
     if (symbol.length() > 1) {
       alphabet.includeSymbol(symbol);
       return alphabet(symbol);
-    } else if(symbol == L" ") {
+    } else if(symbol == L" " || symbol == L".") {
       return symbol[0];
     } else {
       letters.insert(symbol[0]);
