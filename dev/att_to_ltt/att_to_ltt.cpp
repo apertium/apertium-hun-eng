@@ -92,7 +92,7 @@ public:
     alphabet.write(output);
     /* And now the FST. */
     Compression::multibyte_write(1, output);
-    Compression::wstring_write(L"main", output);
+    Compression::wstring_write(L"main@standard", output);
     transducer.write(output);
     fclose(output);
   }
@@ -152,6 +152,8 @@ private:
     if (symbol.length() > 1) {
       alphabet.includeSymbol(symbol);
       return alphabet(symbol);
+    } else if(symbol == L" ") {
+      return symbol[0];
     } else {
       letters.insert(symbol[0]);
       return symbol[0];
