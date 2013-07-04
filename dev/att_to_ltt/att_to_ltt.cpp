@@ -57,11 +57,13 @@ public:
       map<int, int>::iterator it = corr.find(from);
       if (it == corr.end()) {
         /* First time we see this id: register it. */
-        corr[from] = from;
+        corr[from] = transducer.size();
       } else {
         /* This id already has a mapping: use the id in the transducer. */
-        from = it->second;
+  //      from = it->second;
       }
+
+      from = corr[from];
 
       /* Final state. */
       if (!(iss >> to >> upper >> lower)) {
