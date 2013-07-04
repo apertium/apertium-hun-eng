@@ -35,6 +35,7 @@ public:
     wifstream infile(file_name);  // TODO: error checking
     wistringstream iss;
     wstring line;
+    bool first_line = true;  // First line -- see below
 
     while (getline(infile, line)) {
       iss.clear();
@@ -44,6 +45,12 @@ public:
 
       if (!(iss >> from)) {
         continue;
+      }
+
+      /* First line: handle files where the first ID is not 0. */
+      if (first_line) {
+        corr[from] = transducer.getInitial();
+        first_line = false;
       }
 
       /* Get the id of the state from in the transducer we are building. */
