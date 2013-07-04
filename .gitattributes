@@ -10,6 +10,7 @@
 /apertium-hun-eng.hun.dix -text
 dev/att_to_ltt/att_to_ltt.cpp -text
 dev/att_to_ltt/kaz.att -text
+dev/att_to_ltt/repl.py -text
 dev/att_to_ltt/test-att.lexc -text
 dev/att_to_ltt/test.att -text
 dev/hun.rlx -text
