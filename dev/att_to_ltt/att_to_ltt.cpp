@@ -153,7 +153,7 @@ private:
       alphabet.includeSymbol(symbol);
       return alphabet(symbol);
     } else if (symbol == L"") {
-      return symbol;
+      return 0;
     } else if (symbol == L" " || symbol == L".") {
       return symbol[0];
     } else {
