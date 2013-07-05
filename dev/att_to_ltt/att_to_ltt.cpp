@@ -24,6 +24,23 @@ using namespace std;
  *       <tt>std::locale::global(locale(""));</tt> to your code.
  */
 class AttReader {
+private:
+  /** Which transducer(s) is the state in? */
+  enum TransducerType {
+    WORD,
+    PUNCT,
+    BOTH
+  };
+
+  /** The value in the @c *_corr maps: */
+  struct Correlation {
+    TransducerType type;
+    int            state;
+
+    Correlation() : type(BOTH), state(0) {}
+    Correlation(TransducerType type, int state) : type(type), state(state) {}
+  };
+
 public:
   /**
    * Reads the AT&T format file @p file_name. The transducer and the alphabet
@@ -36,15 +53,15 @@ public:
     wistringstream iss;
     wstring line;
     bool first_line = true;  // First line -- see below
-    set<int> finals;         // Store the _original_ id of the final states here
+    set<int> finals;    // Store the _original_ id of the final states here
 
     while (getline(infile, line)) {
       iss.clear();
       iss.str(line);
       int from, to;
       wstring upper, lower;
-      bool new_from = false;
-      bool new_to   = false;
+      bool new_word_from = false;
+      bool new_punct_from = false;
 
       if (!(iss >> from)) {
         continue;
@@ -52,13 +69,14 @@ public:
 
       /* First line: handle files where the first ID is not 0. */
       if (first_line) {
-        corr[from] = transducer.getInitial();
+        word_corr[from] = Correlation(BOTH, word_fst.getInitial());
+        punct_corr[from] = Correlation(BOTH, punct_fst.getInitial());
         first_line = false;
       }
 
       /* Is the source state new? */
-      new_from = corr.find(from) == corr.end();
-      /* Get the id of the state from in the transducer we are building. */
+      new_word_from = word_corr.find(from) == word_corr.end();
+      new_punct_from = punct_corr.find(from) == punct_corr.end();
 
       /* Final state. */
       if (!(iss >> to >> upper >> lower)) {
@@ -69,23 +87,25 @@ public:
         convert_hfst(lower);
         int tag = alphabet(symbol_code(upper), symbol_code(lower));
 
-        /* Is the source state new? */
-        new_to = corr.find(to) == corr.end();
-
-        if (new_from) {
-          corr[from] = transducer.size() + (new_to ? 1 : 0);
-        }
-        from = corr[from];
-
-        /* Now with the target state: */
-        if (!new_to) {
-          /* We already know it, possibly by a different name: link them! */
-          to = corr[to];
-          transducer.linkStates(from, to, tag);
+        /* If we are in exactly one of the transducers, we stay in it. */
+        if (new_word_from ^ new_punct_from) {
+          if (!new_word_from) {
+            addTransduction(from, to, tag, WORD, word_fst, word_corr, new_word_from);
+          } else {
+            addTransduction(from, to, tag, PUNCT, punct_fst, punct_corr, new_punct_from);
+          }
         } else {
-          /* We haven't seen it yet: add a new state! */
-          int target = transducer.insertNewSingleTransduction(tag, from);
-          corr[to] = target;
+          bool upper_word  = (upper.length() == 1 &&
+                              letters.find(upper[0]) != letters.end());
+          bool upper_punct = (upper.length() == 1 && iswpunct(upper[0]));
+          if (upper_word) {
+            addTransduction(from, to, tag, WORD, word_fst, word_corr, new_word_from);
+          } else if (upper_punct) {
+            addTransduction(from, to, tag, PUNCT, punct_fst, punct_corr, new_punct_from);
+          } else {
+            addTransduction(from, to, tag, BOTH, word_fst, word_corr, new_word_from);
+            addTransduction(from, to, tag, BOTH, punct_fst, punct_corr, new_punct_from);
+          }
         }
       }
 
@@ -95,15 +115,43 @@ public:
     /* Set the final state(s). */
     for (set<int>::const_iterator it = finals.begin(); it != finals.end();
         ++it) {
-      map<int, int>::const_iterator state = corr.find(*it);
-      if (state != corr.end()) {
-        transducer.setFinal(state->second);
+      map<int, Correlation>::const_iterator state = word_corr.find(*it);
+      if (state != word_corr.end()) {
+        word_fst.setFinal(state->second.state);
+      } else {
+        // TODO: report error
+      }
+      state = punct_corr.find(*it);
+      if (state != punct_corr.end()) {
+        punct_fst.setFinal(state->second.state);
       } else {
         // TODO: report error
       }
     }
 
     infile.close();
+  }
+
+  void addTransduction(int from, int to, int tag, TransducerType type,
+                       Transducer& transducer,
+                       map<int, Correlation>& corr, bool new_from) {
+    /* Is the target state new? */
+    bool new_to = corr.find(to) == corr.end();
+
+    if (new_from) {
+      corr[from] = Correlation(type, transducer.size() + (new_to ? 1 : 0));
+    }
+    from = corr[from].state;
+
+    if (!new_to) {
+      /* We already know it, possibly by a different name: link them! */
+      to = corr[to].state;
+      transducer.linkStates(from, to, tag);
+    } else {
+      /* We haven't seen it yet: add a new state! */
+      int target = transducer.insertNewSingleTransduction(tag, from);
+      corr[to] = Correlation(WORD, target);
+    }
   }
 
   /** Writes the transducer to @p file_name in lt binary format. */
@@ -114,9 +162,11 @@ public:
     /* Multichar symbols. */
     alphabet.write(output);
     /* And now the FST. */
-    Compression::multibyte_write(1, output);
+    Compression::multibyte_write(2, output);
     Compression::wstring_write(L"main@standard", output);
-    transducer.write(output);
+    word_fst.write(output);
+    Compression::wstring_write(L"final@inconditional", output);
+    punct_fst.write(output);
     fclose(output);
   }
 
@@ -130,9 +180,14 @@ public:
     write_lt_file(lt_file);
   }
 
-  /** Returns a copy of the transducer. */
-  Transducer get_transducer() const {
-    return transducer;
+  /** Returns a copy of the word transducer. */
+  Transducer get_word_fst() const {
+    return word_fst;
+  }
+
+  /** Returns a copy of the punctuation transducer. */
+  Transducer get_punct_fst() const {
+    return punct_fst;
   }
 
   /** Returns a copy of the alphabet. */
@@ -143,9 +198,11 @@ public:
 private:
   /** Clears the data associated with the current transducer. */
   void clear() {
-    transducer.clear();
+    word_fst.clear();
+    punct_fst.clear();
     alphabet = Alphabet();
-    corr.clear();
+    word_corr.clear();
+    punct_corr.clear();
     letters.clear();
   }
 
@@ -186,12 +243,15 @@ private:
     }
   }
 
+
 private:
   Alphabet alphabet;
-  Transducer transducer;
+  Transducer word_fst;
+  Transducer punct_fst;
 
   /** State id correspondance in the file and in the FST. */
-  map<int, int> corr;
+  map<int, Correlation> word_corr;
+  map<int, Correlation> punct_corr;
   /** All non-multicharacter symbols. */
   set<wchar_t> letters;
 };
