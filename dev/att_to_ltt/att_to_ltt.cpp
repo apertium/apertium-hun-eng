@@ -36,6 +36,7 @@ public:
     wistringstream iss;
     wstring line;
     bool first_line = true;  // First line -- see below
+    set<int> finals;         // Store the _original_ id of the final states here
 
     while (getline(infile, line)) {
       iss.clear();
@@ -61,12 +62,8 @@ public:
 
       /* Final state. */
       if (!(iss >> to >> upper >> lower)) {
-        if (new_from) {
-          corr[from] = transducer.size();
-        }
-        from = corr[from];
-        transducer.setFinal(from);
-        // TODO: what if from is new?
+        /* The old id. */
+        finals.insert(from);
       } else {
         convert_hfst(upper);
         convert_hfst(lower);
@@ -93,6 +90,17 @@ public:
       }
 
       /* We don't read the weights, even if they are defined. */
+    }
+
+    /* Set the final state(s). */
+    for (set<int>::const_iterator it = finals.begin(); it != finals.end();
+        ++it) {
+      map<int, int>::const_iterator state = corr.find(*it);
+      if (state != corr.end()) {
+        transducer.setFinal(state->second);
+      } else {
+        // TODO: report error
+      }
     }
 
     infile.close();
