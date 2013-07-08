@@ -8,12 +8,33 @@
 #include <sstream>
 #include <map>
 #include <set>
+#include <vector>
 
 #include <lttoolbox/alphabet.h>
 #include <lttoolbox/transducer.h>
 #include <lttoolbox/compression.h>
 
 using namespace std;
+
+namespace {
+/** Splits a string into fields. */
+vector<wstring>& split(const wstring& s, wchar_t delim, vector<wstring> &out) {
+    wistringstream ss(s);
+    wstring item;
+    while (getline(ss, item, delim)) {
+      out.push_back(item);
+    }
+    return out;
+}
+
+/** Converts a string to a number. Slow, but at this point I don't care. */
+int convert(const wstring& s) {
+  int ret;
+  wistringstream ss(s);
+  ss >> ret;
+  return ret;
+}
+};
 
 /**
  * Converts transducers from AT&T text format to lt binary format.
@@ -50,22 +71,24 @@ public:
     clear();
 
     wifstream infile(file_name);  // TODO: error checking
-    wistringstream iss;
+    vector<wstring> tokens;
     wstring line;
     bool first_line = true;  // First line -- see below
     set<int> finals;    // Store the _original_ id of the final states here
 
     while (getline(infile, line)) {
-      iss.clear();
-      iss.str(line);
+      tokens.clear();
       int from, to;
       wstring upper, lower;
       bool new_word_from = false;
       bool new_punct_from = false;
 
-      if (!(iss >> from)) {
+      /* Empty line. */
+      if (line.length() == 0) {
         continue;
       }
+      split(line, L'\t', tokens);
+      from = convert(tokens[0]);
 
       /* First line: handle files where the first ID is not 0. */
       if (first_line) {
@@ -79,10 +102,14 @@ public:
       new_punct_from = punct_corr.find(from) == punct_corr.end();
 
       /* Final state. */
-      if (!(iss >> to >> upper >> lower)) {
+      if (tokens.size() <= 2) {
         /* The old id. */
         finals.insert(from);
       } else {
+        to = convert(tokens[1]);
+        upper = tokens[2];
+        lower = tokens[3];
+        /* We don't read the weights, even if they are defined. */
         convert_hfst(upper);
         convert_hfst(lower);
         int tag = alphabet(symbol_code(upper), symbol_code(lower));
@@ -108,8 +135,6 @@ public:
           }
         }
       }
-
-      /* We don't read the weights, even if they are defined. */
     }
 
     /* Set the final state(s). */
