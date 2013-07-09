@@ -14,7 +14,15 @@
 #include <lttoolbox/transducer.h>
 #include <lttoolbox/compression.h>
 
+#define UNDECIDED 0
+#define WORD      1
+#define PUNCT     2
+#define BOTH      3
+
 using namespace std;
+
+/** Bitmask; 1 = WORD, 2 = PUNCT, 3 = BOTH. */
+typedef unsigned int TransducerType;
 
 namespace {
 /** Splits a string into fields. */
@@ -46,20 +54,25 @@ int convert(const wstring& s) {
  */
 class AttReader {
 private:
-  /** Which transducer(s) is the state in? */
-  enum TransducerType {
-    WORD,
-    PUNCT,
-    BOTH
+  /** Used in Node. */
+  struct Transduction {
+    int            to;
+    wstring        upper;
+    wstring        lower;
+    int            tag;
+    TransducerType type;
+
+    Transduction(int to, wstring upper, wstring lower, int tag,
+                 TransducerType type=UNDECIDED) :
+      to(to), upper(upper), lower(lower), tag(tag), type(type) {}
   };
 
-  /** The value in the @c *_corr maps: */
-  struct Correlation {
-    TransducerType type;
-    int            state;
+  /** A node in the transducer graph. */
+  struct Node {
+    int                  id;
+    vector<Transduction> transductions;
 
-    Correlation() : type(BOTH), state(0) {}
-    Correlation(TransducerType type, int state) : type(type), state(state) {}
+    Node(int id) : id(id) {}
   };
 
 public:
@@ -73,15 +86,12 @@ public:
     wifstream infile(file_name);  // TODO: error checking
     vector<wstring> tokens;
     wstring line;
-    bool first_line = true;  // First line -- see below
-    set<int> finals;    // Store the _original_ id of the final states here
+    bool first_line = true;       // First line -- see below
 
     while (getline(infile, line)) {
       tokens.clear();
       int from, to;
       wstring upper, lower;
-      bool new_word_from = false;
-      bool new_punct_from = false;
 
       /* Empty line. */
       if (line.length() == 0) {
@@ -90,93 +100,150 @@ public:
       split(line, L'\t', tokens);
       from = convert(tokens[0]);
 
-      /* First line: handle files where the first ID is not 0. */
+      Node* source = get_node(from);
+      /* First line: the initial state is of both types. */
       if (first_line) {
-        word_corr[from] = Correlation(BOTH, word_fst.getInitial());
-        punct_corr[from] = Correlation(BOTH, punct_fst.getInitial());
+        starting_state = from;
         first_line = false;
       }
 
-      /* Is the source state new? */
-      new_word_from = word_corr.find(from) == word_corr.end();
-      new_punct_from = punct_corr.find(from) == punct_corr.end();
-
       /* Final state. */
       if (tokens.size() <= 2) {
-        /* The old id. */
         finals.insert(from);
       } else {
         to = convert(tokens[1]);
         upper = tokens[2];
         lower = tokens[3];
-        /* We don't read the weights, even if they are defined. */
         convert_hfst(upper);
         convert_hfst(lower);
         int tag = alphabet(symbol_code(upper), symbol_code(lower));
+        /* We don't read the weights, even if they are defined. */
+        source->transductions.push_back(Transduction(to, upper, lower, tag));
 
-        /* If we are in exactly one of the transducers, we stay in it. */
-        if (new_word_from ^ new_punct_from) {
-          if (!new_word_from) {
-            addTransduction(from, to, tag, WORD, word_fst, word_corr, new_word_from);
-          } else {
-            addTransduction(from, to, tag, PUNCT, punct_fst, punct_corr, new_punct_from);
-          }
-        } else {
-          bool upper_word  = (upper.length() == 1 &&
-                              letters.find(upper[0]) != letters.end());
-          bool upper_punct = (upper.length() == 1 && iswpunct(upper[0]));
-          if (upper_word) {
-            addTransduction(from, to, tag, WORD, word_fst, word_corr, new_word_from);
-          } else if (upper_punct) {
-            addTransduction(from, to, tag, PUNCT, punct_fst, punct_corr, new_punct_from);
-          } else {
-            addTransduction(from, to, tag, BOTH, word_fst, word_corr, new_word_from);
-            addTransduction(from, to, tag, BOTH, punct_fst, punct_corr, new_punct_from);
-          }
-        }
+        get_node(to);
       }
     }
 
-    /* Set the final state(s). */
-    for (set<int>::const_iterator it = finals.begin(); it != finals.end();
-        ++it) {
-      map<int, Correlation>::const_iterator state = word_corr.find(*it);
-      if (state != word_corr.end()) {
-        word_fst.setFinal(state->second.state);
-      } else {
-        // TODO: report error
-      }
-      state = punct_corr.find(*it);
-      if (state != punct_corr.end()) {
-        punct_fst.setFinal(state->second.state);
-      } else {
-        // TODO: report error
-      }
-    }
+    /* Classify the nodes of the graph. */
+    map<int, TransducerType> classified;
+    classify(starting_state, classified, false, BOTH);
 
     infile.close();
   }
 
-  void addTransduction(int from, int to, int tag, TransducerType type,
-                       Transducer& transducer,
-                       map<int, Correlation>& corr, bool new_from) {
-    /* Is the target state new? */
-    bool new_to = corr.find(to) == corr.end();
+  /** Extracts the sub-transducer made of states of type @p type. */
+  Transducer extract_transducer(TransducerType type) {
+    Transducer transducer;
+    /* Correlation between the graph's state ids and those in the transducer. */
+    map<int, int> corr;
+    set<int> visited;
 
-    if (new_from) {
-      corr[from] = Correlation(type, transducer.size() + (new_to ? 1 : 0));
+    corr[starting_state] = transducer.getInitial();
+    _extract_transducer(type, starting_state, transducer, corr, visited);
+
+    /* The final states. */
+    for (set<int>::const_iterator f = finals.begin(); f != finals.end(); ++f) {
+      if (corr.find(*f) != corr.end()) {
+        transducer.setFinal(corr[*f]);
+      }
     }
-    from = corr[from].state;
 
-    if (!new_to) {
-      /* We already know it, possibly by a different name: link them! */
-      to = corr[to].state;
-      transducer.linkStates(from, to, tag);
+    return transducer;
+  }
+
+  /**
+   * Recursively fills @p transducer (and @p corr) -- helper method called by
+   * extract_transducer().
+   */
+  void _extract_transducer(TransducerType type, int from,
+                           Transducer& transducer, map<int, int>& corr,
+                           set<int>& visited) {
+    if (visited.find(from) != visited.end()) {
+      return;
     } else {
-      /* We haven't seen it yet: add a new state! */
-      int target = transducer.insertNewSingleTransduction(tag, from);
-      corr[to] = Correlation(WORD, target);
+      visited.insert(from);
     }
+
+    Node* source = get_node(from);
+
+    /* Is the source state new? */
+    bool new_from = corr.find(from) == corr.end();
+    int from_t, to_t;
+
+    for (vector<Transduction>::const_iterator it = source->transductions.begin();
+         it != source->transductions.end(); ++it) {
+      if ((it->type & type) == 0) {
+        continue;  // Not the right type
+      }
+
+      /* Is the target state new? */
+      bool new_to = corr.find(it->to) == corr.end();
+
+      if (new_from) {
+        corr[from] = transducer.size() + (new_to ? 1 : 0);
+      }
+      from_t = corr[from];
+
+      /* Now with the target state: */
+      if (!new_to) {
+        /* We already know it, possibly by a different name: link them! */
+        to_t = corr[it->to];
+        transducer.linkStates(from_t, to_t, it->tag);
+      } else {
+        /* We haven't seen it yet: add a new state! */
+        to_t = transducer.insertNewSingleTransduction(it->tag, from_t);
+        corr[it->to] = to_t;
+      }
+      _extract_transducer(type, it->to, transducer, corr, visited);
+    }  // for
+  }
+
+  /**
+   * Classifies the edges of the transducer graphs recursively. It works like
+   * this:
+   * - the type of the starting state is BOTH (already set)
+   * - in case of an epsilon move, the type of the target state is the same as
+   *   that of the source
+   * - the first non-epsilon transition determines the type of the whole path
+   * - it is also the time from which we begin filling the @p visited set.
+   *
+   * @param from the id of the source state.
+   * @param visited the ids of states visited by this path.
+   * @param path are we in a path?
+   */
+  void classify(int from, map<int, TransducerType>& visited, bool path,
+                TransducerType type) {
+    Node* source = get_node(from);
+    if (visited.find(from) != visited.end()) {
+      if (path && ( (visited[from] & type) == type) ) {
+        return;
+      }
+    }
+
+    if (path) {
+      visited[from] |= type;
+    }
+    for (vector<Transduction>::iterator it = source->transductions.begin();
+         it != source->transductions.end(); ++it) {
+      bool next_path = path;
+      int  next_type = type;
+      bool first_transition = !path && it->upper != L"";
+      if (first_transition) {
+        /* First transition: we now know the type of the path! */
+        bool upper_word  = (it->upper.length() == 1 &&
+                            letters.find(it->upper[0]) != letters.end());
+        bool upper_punct = (it->upper.length() == 1 && iswpunct(it->upper[0]));
+        next_type = UNDECIDED;
+        if (upper_word)  next_type |= WORD;
+        if (upper_punct) next_type |= PUNCT;
+        next_path = true;
+      } else {
+        /* Otherwise (not yet, already): target's type is the same as ours. */
+        next_type = type;
+      }
+      it->type |= next_type;
+      classify(it->to, visited, next_path, next_type);
+    }  // for
   }
 
   /** Writes the transducer to @p file_name in lt binary format. */
@@ -189,8 +256,10 @@ public:
     /* And now the FST. */
     Compression::multibyte_write(2, output);
     Compression::wstring_write(L"main@standard", output);
+    Transducer word_fst = extract_transducer(WORD);
     word_fst.write(output);
     Compression::wstring_write(L"final@inconditional", output);
+    Transducer punct_fst = extract_transducer(PUNCT);
     punct_fst.write(output);
     fclose(output);
   }
@@ -205,30 +274,30 @@ public:
     write_lt_file(lt_file);
   }
 
-  /** Returns a copy of the word transducer. */
-  Transducer get_word_fst() const {
-    return word_fst;
-  }
-
-  /** Returns a copy of the punctuation transducer. */
-  Transducer get_punct_fst() const {
-    return punct_fst;
-  }
-
-  /** Returns a copy of the alphabet. */
-  Alphabet get_alphabet() const {
-    return alphabet;
-  }
-
 private:
   /** Clears the data associated with the current transducer. */
   void clear() {
-    word_fst.clear();
-    punct_fst.clear();
+    for (map<int, Node*>::const_iterator it = graph.begin(); it != graph.end();
+        ++it) {
+      delete it->second;
+    }
+    graph.clear();
     alphabet = Alphabet();
-    word_corr.clear();
-    punct_corr.clear();
-    letters.clear();
+  }
+
+  /**
+   * Returns the Node that represents the state @id. If it does not exist,
+   * creates it and inserts it into @c graph.
+   */
+  Node* get_node(int id) {
+    Node* state;
+    if (graph.find(id) != graph.end()) {
+      state = graph[id];
+    } else {
+      state = new Node(id);
+      graph[id] = state;
+    }
+    return state;
   }
 
   /** 
@@ -253,13 +322,12 @@ private:
    * @return the code of the symbol, if @p symbol is multichar; its first (and
    *         only) character otherwise.
    */
-  int symbol_code(wstring& symbol) {
+  int symbol_code(const wstring& symbol) {
     if (symbol.length() > 1) {
       alphabet.includeSymbol(symbol);
       return alphabet(symbol);
     } else if (symbol == L"") {
       return 0;
-//    } else if (symbol == L" " || symbol == L".") {
     } else if (iswpunct(symbol[0]) || iswspace(symbol[0])) {
       return symbol[0];
     } else {
@@ -268,15 +336,18 @@ private:
     }
   }
 
-
 private:
-  Alphabet alphabet;
-  Transducer word_fst;
-  Transducer punct_fst;
+  /** Stores the transducer graph. */
+  map<int, Node*> graph;
+  /** The final state(s). */
+  set<int> finals;
+  /**
+   * Id of the starting state. We assume it is the source state of the first
+   * transduction in the file.
+   */
+  int starting_state;
 
-  /** State id correspondance in the file and in the FST. */
-  map<int, Correlation> word_corr;
-  map<int, Correlation> punct_corr;
+  Alphabet alphabet;
   /** All non-multicharacter symbols. */
   set<wchar_t> letters;
 };
