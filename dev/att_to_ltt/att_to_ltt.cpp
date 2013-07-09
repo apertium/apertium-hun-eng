@@ -172,7 +172,7 @@ public:
 
     for (vector<Transduction>::const_iterator it = source->transductions.begin();
          it != source->transductions.end(); ++it) {
-      if ((it->type & type) == 0) {
+      if ((it->type & type) != type) {
         continue;  // Not the right type
       }
 
