@@ -17,6 +17,7 @@ dev/hun.rlx -text
 dev/hunmorph_to_apertium.cpp -text
 dev/kr_to_apertium.foma -text
 dev/kr_to_apertium.lexc -text
+dev/kr_to_apertium2.foma -text
 dev/kr_to_apertium_spec.lexc -text
 dev/rasskaz.hun.hunmorph -text
 dev/rasskaz.stream -text
