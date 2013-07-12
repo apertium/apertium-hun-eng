@@ -13,6 +13,8 @@ dev/att_to_ltt/kaz.att -text
 dev/att_to_ltt/repl.py -text
 dev/att_to_ltt/test-att.lexc -text
 dev/att_to_ltt/test.att -text
+dev/fomacg_proc/apertium_to_fomacg.foma -text
+dev/fomacg_proc/fomacg_proc.cpp -text
 dev/hun.rlx -text
 dev/hunmorph_to_apertium.cpp -text
 dev/kr_to_apertium.foma -text

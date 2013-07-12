@@ -1,0 +1,15 @@
+## Conversion script between the Apertium stream format and the format fomacg
+## expects.
+
+define LineSep "| ";
+define WhiteSpace [" " | "	"];
+
+define Begin    %^:"$0$ ";
+define WordForm 0:{"<} ~$"/" 0:[{>"} "#BOC# "];
+define NewLine  "/":LineSep;
+define Reading  ~$"/" .o.
+                [%< -> " ", %> -> 0] 0:" "
+define End      %$:[LineSep "#EOC# "];
+
+define Cohort Begin WordForm [NewLine Reading 0:" "]+ End;
+define Pattern [WhiteSpace* Cohort]+ WhiteSpace*;
