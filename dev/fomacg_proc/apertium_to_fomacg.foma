@@ -5,11 +5,17 @@ define LineSep "| ";
 define WhiteSpace [" " | "	"];
 
 define Begin    %^:"$0$ ";
-define WordForm 0:{"<} ~$"/" 0:[{>"} "#BOC# "];
-define NewLine  "/":LineSep;
+define WordForm 0:{"<} ~$"/" 0:[{>"} " " "#BOC# "];
+define NewLine  "/":[LineSep "\u000a"];
 define Reading  ~$"/" .o.
-                [%< -> " ", %> -> 0] 0:" "
-define End      %$:[LineSep "#EOC# "];
+                0:%" ~$"<" 0:%" "<":" " ~$"/" ">":0 .o.
+                [%> %< -> " "] 0:" ";
+define Middle   ~$[%^ | %$] .o. WordForm [NewLine Reading]+;
+define End      %$:[LineSep "#EOC# " "\u000a"];
 
-define Cohort Begin WordForm [NewLine Reading 0:" "]+ End;
-define Pattern [WhiteSpace* Cohort]+ WhiteSpace*;
+define Cohort Begin Middle End;
+## The code that feeds Pattern should remove all whitespaces between the
+## cohorts. Only in this way can we avoid generation of whitespaces in the
+## inverse direction.
+# define Pattern [[WhiteSpace:0]* Cohort 0:"\u000a"]+ [WhiteSpace:0]*;
+define Pattern [Cohort 0:"\u000a"]+;
