@@ -17,6 +17,7 @@ dev/fomacg_proc/apertium_to_fomacg.foma -text
 dev/fomacg_proc/fomacg_converter.cpp -text
 dev/fomacg_proc/fomacg_converter.h -text
 dev/fomacg_proc/fomacg_proc.cpp -text
+dev/fomacg_proc/fomacg_rule_applier.h -text
 dev/fomacg_proc/fomacg_stream_reader.cpp -text
 dev/fomacg_proc/fomacg_stream_reader.h -text
 dev/hun.rlx -text
