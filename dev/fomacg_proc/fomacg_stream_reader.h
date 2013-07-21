@@ -1,3 +1,6 @@
+#ifndef FOMACG_STREAM_READER_H
+#define FOMACG_STREAM_READER_H
+
 /**
  * Parses the Apertium stream format and returns the cohorts. Also contains
  * methods that convert between the wstring representation used by Apertium and
@@ -5,9 +8,6 @@
  *
  * @author Dávid Márk Nemeskey
  */
-
-#ifndef FOMACG_STREAM_READER_H
-#define FOMACG_STREAM_READER_H
 
 #include <string>
 

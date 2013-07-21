@@ -1,9 +1,13 @@
+#ifndef FOMACG_CONVERTER_H
+#define FOMACG_CONVERTER_H
+
 /**
  * Converts a cohort between the Apertium stream format and fomacg's format via
  * the transducer created by apertium_to_fomacg.foma.
  *
  * @author Dávid Márk Nemeskey
  */
+
 #include <stdbool.h>  // to avoid errors in fomalib.h
 #include <string>
 #include "fomalib.h"
@@ -41,3 +45,5 @@ private:
   struct fsm*          fst;
   struct apply_handle* ah;
 };
+
+#endif
