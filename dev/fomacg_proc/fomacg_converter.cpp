@@ -40,6 +40,7 @@ std::string Converter::apertium_to_fomacg(const std::wstring& str) {
   utf_8_input[clen] = 0;
 
   char* fomacg = apply_down(fst.ah, utf_8_input);
+  //printf("fomacg: >%s<\n", fomacg);
   if (fomacg != NULL) {
     return std::string(fomacg);
   } else {

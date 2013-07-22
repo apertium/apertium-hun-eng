@@ -10,6 +10,10 @@
  * represents a delimiter. The files each have a common prefix: the name of the
  * original grammar file without the extension (.rle or .rlx).
  *
+ * The rule applier does not deal with the Apertium stream format directly; the
+ * input must be converted to the fomacg format via the Converter class before
+ * feeding it to methods in this class.
+ *
  * @author Dávid Márk Nemeskey
  */
 
@@ -40,8 +44,8 @@ public:
                          const std::string& directory=".")
     throw (std::invalid_argument, std::runtime_error, std::length_error);
 
-  /** Reads a cohort from @c ins. */
-  std::wstring read_cohort();
+  /** Tells if the @p cohort is a delimiter. */
+  bool is_delimiter(const std::string cohort) const;
 
 private:
   /** Private constructor. */
@@ -52,7 +56,8 @@ private:
   const std::string& language;
   const std::string& directory;
 
-  /* fomacg stuff. */
+  /* ==== fomacg stuff ==== */
+
   /** The rules by sections. */
   std::vector<FstVector> sections;
   /** The delimiters rule. */

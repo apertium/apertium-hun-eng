@@ -6,9 +6,11 @@
 #include <cstdlib>
 #include <cstdio>
 #include <string>
+#include <sstream>
 #include <iostream>
 #include "fomacg_converter.h"
 #include "fomacg_stream_reader.h"
+#include "fomacg_rule_applier.h"
 
 void test_converter(Converter* conv) {
   std::string fomacg = conv->apertium_to_fomacg(
@@ -22,23 +24,47 @@ void test_converter(Converter* conv) {
   }
 }
 
-void test_reader(StreamReader* reader) {
+void test_reader(StreamReader& reader) {
   while (true) {
-    std::wstring str = reader->read_cohort();
+    std::wstring str = reader.read_cohort();
     if (str == L"") break;
     std::wcout << str << std::endl;
   }
 }
 
+void do_it(StreamReader& reader, Converter& conv, RuleApplier& applier) {
+  std::stringstream sentence;
+  while (true) {
+    std::wstring cohort = reader.read_cohort();
+    std::string cohort_fomacg = conv.apertium_to_fomacg(cohort);
+    // TODO: stop if == FAILED
+    sentence << cohort_fomacg;
+    if (applier.is_delimiter(cohort_fomacg)) {
+      std::wcout << conv.fomacg_to_apertium(sentence.str()) << std::endl;
+      // TODO: run the rules on the sentence
+      sentence.str();
+    }
+  }
+}
+
 int main(int argc, char* argv[]) {
+  // TODO proper CLI parsing
+  if (argc < 3) {
+    std::cerr << "Usage: " << argv[0] << " grammar_file_prefix "
+              << "directory_with_GC_file" << std::endl;
+    exit(1);
+  }
+  char* cg_prefix = argv[1];
+  char* directory = argv[2];
   Converter* conv = Converter::get("apertium_to_fomacg.fst");
   if (conv == NULL) {
     perror("FST file could not be loaded.");
     exit(EXIT_FAILURE);
   }
-  test_converter(conv);
-  StreamReader* reader = new StreamReader(stdin);
-  test_reader(reader);
-  delete reader;
+  //test_converter(conv);
+  StreamReader reader(stdin);
+  //test_reader(reader);
+  RuleApplier applier = RuleApplier::get(cg_prefix, directory);
+  do_it(reader, *conv, applier);
   delete conv;
 }

@@ -27,6 +27,11 @@ RuleApplier RuleApplier::get(const std::string& language,
   return ra;
 }
 
+bool RuleApplier::is_delimiter(const std::string cohort) const {
+  // TODO: get rid of the const_cast once the foma interface becomes sane
+  return apply_down(delimiters.ah, const_cast<char*>(cohort.c_str())) != NULL;
+}
+
 // TODO: logging?
 void RuleApplier::load_files() {
   std::string delimiters_file = language + "_DELIMITERS.fst";
