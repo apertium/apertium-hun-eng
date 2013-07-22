@@ -15,20 +15,22 @@
 
 #include <string>
 
-class StreamReader {
+class RuleApplier {
 public:
   /**
    * Constructor.
-   * @param ins[in] the input stream.
+   * @param[in] language the language -- the prefix of the grammar FSTs (the
+   *                     name of the grammar file without the extension).
+   * @param[in] directory the directory where the FST files are.
    */
-  StreamReader(FILE* ins);
+  RuleApplier(const std::string& language, const std::string& directory=".");
 
   /** Reads a cohort from @c ins. */
   std::wstring read_cohort();
 
 private:
-  /** The input stream. */
-  FILE* ins;
+  /** Loads the FST files. */
+  bool load_files(const std::string& language, const std::string& directory);
 };
 
 #endif
