@@ -5,19 +5,18 @@
  */
 #include <cstdlib>
 #include <cstdio>
+#include <string>
 #include <iostream>
 #include "fomacg_converter.h"
 #include "fomacg_stream_reader.h"
 
 void test_converter(Converter* conv) {
-  char* fomacg = conv->apertium_to_fomacg(
-      "^Volt/van<vbser><past>/volt<n><sg><nom>$^ebed/eb<n><sg><px2ss><nom>$^?/?<sent>$");
-  if (fomacg != NULL) {
-    printf("fomacg: %s\n", fomacg);
-    char* buff = new char[strlen(fomacg) + 1];
-    sprintf(buff, "%s", fomacg);
-    char* apertium = conv->fomacg_to_apertium(fomacg);
-    printf("apertium: %s\n", apertium);
+  std::string fomacg = conv->apertium_to_fomacg(
+      L"^Volt/van<vbser><past>/volt<n><sg><nom>$^ebed/eb<n><sg><px2ss><nom>$^?/?<sent>$");
+  if (fomacg != Converter::FAILED) {
+    printf("fomacg: %s\n", fomacg.c_str());
+    std::wstring apertium = conv->fomacg_to_apertium(fomacg);
+    std::wcout << L"apertium: " << apertium << std::endl;
   } else {
     printf("NULL!\n");
   }
@@ -37,6 +36,7 @@ int main(int argc, char* argv[]) {
     perror("FST file could not be loaded.");
     exit(EXIT_FAILURE);
   }
+  test_converter(conv);
   StreamReader* reader = new StreamReader(stdin);
   test_reader(reader);
   delete reader;

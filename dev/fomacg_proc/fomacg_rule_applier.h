@@ -14,23 +14,49 @@
  */
 
 #include <string>
+#include <vector>
+#include <stdexcept>
+
+#include "fomacg_common.h"
 
 class RuleApplier {
 public:
+  /** Frees the resources assigned to the rule FSTs. */
+  ~RuleApplier();
+
   /**
-   * Constructor.
+   * Static factory method.
    * @param[in] language the language -- the prefix of the grammar FSTs (the
    *                     name of the grammar file without the extension).
    * @param[in] directory the directory where the FST files are.
+   * @throws std::invalid_argument if the directory doesn't exist.
+   * @throws std::length_error if the section numbers are not contiguous.
+   * @throws std::runtime_error if a miscellaneous error occurs. Also see
+   *                            load_fst().
+   * @todo Handle unicode file names!
+   * @todo Decide if it should return a pointer.
    */
-  RuleApplier(const std::string& language, const std::string& directory=".");
+  static RuleApplier get(const std::string& language,
+                         const std::string& directory=".")
+    throw (std::invalid_argument, std::runtime_error, std::length_error);
 
   /** Reads a cohort from @c ins. */
   std::wstring read_cohort();
 
 private:
+  /** Private constructor. */
+  RuleApplier(const std::string& language, const std::string& directory=".");
   /** Loads the FST files. */
-  bool load_files(const std::string& language, const std::string& directory);
+  void load_files();
+
+  const std::string& language;
+  const std::string& directory;
+
+  /* fomacg stuff. */
+  /** The rules by sections. */
+  std::vector<FstVector> sections;
+  /** The delimiters rule. */
+  FstPair delimiters;
 };
 
 #endif
