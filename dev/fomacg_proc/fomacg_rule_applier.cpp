@@ -68,7 +68,7 @@ void RuleApplier::load_files() {
   int ovector[6];
 
   /* The regex that extracts the section number from the file name. */
-  section_regex = pcre_compile(".*_(\\d+)[.]fst", 0, &error, &erroffset, NULL); 
+  section_regex = pcre_compile("^_(\\d+)[.]fst$", 0, &error, &erroffset, NULL); 
   if (section_regex == NULL) {
     throw std::runtime_error(error);
   }
@@ -88,13 +88,14 @@ void RuleApplier::load_files() {
         }
       /* First a string check on the file name ... */
       } else if(!strncmp(ent->d_name, language.c_str(), language.size())) {
+        char* section_part = ent->d_name + language.size();
         /* ... to avoid problems with regex-special characters. */
         int ret = pcre_exec(section_regex, NULL,
-                            ent->d_name, strlen(ent->d_name), 0, 0,
+                            section_part, strlen(section_part), 0, 0,
                             ovector, 6);
         if (ret >= 0) {
           size_t section;
-          std::istringstream(std::string(ent->d_name).substr(
+          std::istringstream(std::string(section_part).substr(
                 ovector[2], ovector[3] - ovector[2])) >> section;
           if (section > sections.size()) sections.resize(section);
           try {
