@@ -42,15 +42,20 @@ public:
   static std::wstring WFAILED;
 
 private:
-  Converter(FstPair fst);
+  /**
+   * We need two transducers, because in the fomacg -> Apertium direction we
+   * also have to remove all filtered readings.
+   */
+  Converter(FstPair a2f, FstPair f2a);
 
   /**
    * Ensures that @c utf_8_input and @c woutput are at least characters long.
    */
   void ensure_buffers(size_t len);
 
-  /** The converter FST. */
-  FstPair fst;
+  /** The converter FSTs. */
+  FstPair a2f;
+  FstPair f2a;
 
   /** Buffer used by fomacg_to_apertium. */
   char* utf_8_input;

@@ -14,7 +14,7 @@ define Reading  ~$Stops .o.
                 0:["#0# " %"] ~$"<" "<":[%" " "] ~$"/" ">":" "; 
 define Middle   ~$[%^ | %$] .o. WordForm [NewLine Reading]+;
 #define End      %$:[LineSep "#EOC# " "\u000a"];
-define End      %$:[LineSep "#EOC# " " "];
+define End      %$:[LineSep "#EOC# "];
 
 define Cohort Begin Middle End;
 ## The code that feeds Pattern should remove all whitespaces between the
@@ -23,5 +23,10 @@ define Cohort Begin Middle End;
 # define Pattern [[WhiteSpace:0]* Cohort 0:"\u000a"]+ [WhiteSpace:0]*;
 define Pattern [Cohort]+;
 
+define DeletedReading 0 -> ["#X# " ~$LineSep LineSep];
+
+# Apertium -> fomacg conversion
 read regex Pattern;
+# fomacg -> Apertium conversion with filtered reading deletion
+read regex Pattern .o. DeletedReading;
 save stack apertium_to_fomacg.fst
