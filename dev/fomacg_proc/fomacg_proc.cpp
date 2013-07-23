@@ -36,12 +36,11 @@ void do_it(StreamReader& reader, Converter& conv, RuleApplier& applier) {
   std::stringstream sentence;
   while (true) {
     std::wstring cohort = reader.read_cohort();
+    if (cohort == L"") break;
     std::string cohort_fomacg = conv.apertium_to_fomacg(cohort);
     // TODO: stop if == FAILED
     sentence << cohort_fomacg;
-    //printf("fomacg: %s\n", cohort_fomacg.c_str());
     if (applier.is_delimiter(cohort_fomacg)) {
-      //std::wcout << conv.fomacg_to_apertium(sentence.str()) << std::endl;
       std::string result;
       applier.apply_rules(result, sentence.str());
       std::wcout << conv.fomacg_to_apertium(result) << std::endl;
@@ -54,6 +53,9 @@ void do_it(StreamReader& reader, Converter& conv, RuleApplier& applier) {
 }
 
 int main(int argc, char* argv[]) {
+  /* Locale. */
+  std::locale::global(std::locale(""));
+
   // TODO proper CLI parsing
   if (argc < 3) {
     std::cerr << "Usage: " << argv[0] << " grammar_file_prefix "
