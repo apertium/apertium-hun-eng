@@ -39,13 +39,25 @@ public:
    *                            load_fst().
    * @todo Handle unicode file names!
    * @todo Decide if it should return a pointer.
+   * @todo max_section
    */
   static RuleApplier get(const std::string& language,
                          const std::string& directory=".")
     throw (std::invalid_argument, std::runtime_error, std::length_error);
 
   /** Tells if the @p cohort is a delimiter. */
-  bool is_delimiter(const std::string cohort) const;
+  bool is_delimiter(const std::string& cohort) const;
+
+  /**
+   * Applies rules.
+   * @param[out] result the transformed sentence that results from the rule
+   *                    application. This is also the work area, so don't expect
+   *                    the referenced variable to remain unchanged even if no
+   *                    rules apply to the sentence.
+   * @param[in] sentence the original sentence.
+   * @return the number of rules applied.
+   */
+  size_t apply_rules(std::string& result, const std::string& sentence) const;
 
 private:
   /** Private constructor. */

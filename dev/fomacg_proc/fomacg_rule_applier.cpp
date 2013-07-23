@@ -27,9 +27,35 @@ RuleApplier RuleApplier::get(const std::string& language,
   return ra;
 }
 
-bool RuleApplier::is_delimiter(const std::string cohort) const {
+bool RuleApplier::is_delimiter(const std::string& cohort) const {
   // TODO: get rid of the const_cast once the foma interface becomes sane
   return apply_down(delimiters.ah, const_cast<char*>(cohort.c_str())) != NULL;
+}
+
+size_t RuleApplier::apply_rules(std::string& result,
+                                const std::string& sentence) const {
+  size_t applied = 0;
+  result = sentence;
+  printf("Input: %s\n", sentence.c_str());
+
+  while (true) {
+Continue:
+    for (size_t section = 0; section < sections.size(); section++) {
+      for (size_t rule = 0; rule < sections[section].size(); rule++) {
+        printf("Trying rule %s...\n", sections[section][rule].fst->name);
+        char* fomacg_result = apply_down(sections[section][rule].ah,
+                                         const_cast<char*>(result.c_str()));
+        if (fomacg_result != NULL && strcmp(fomacg_result, result.c_str())) {
+          result = fomacg_result;
+          applied++;
+          goto Continue;
+        }
+      }  // for rule
+    }  // for section
+    break;
+  }
+  printf("Output: %s\n", result.c_str());
+  return applied;
 }
 
 // TODO: logging?

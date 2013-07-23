@@ -39,10 +39,14 @@ void do_it(StreamReader& reader, Converter& conv, RuleApplier& applier) {
     std::string cohort_fomacg = conv.apertium_to_fomacg(cohort);
     // TODO: stop if == FAILED
     sentence << cohort_fomacg;
+    printf("fomacg: %s\n", cohort_fomacg.c_str());
     if (applier.is_delimiter(cohort_fomacg)) {
       std::wcout << conv.fomacg_to_apertium(sentence.str()) << std::endl;
-      // TODO: run the rules on the sentence
-      sentence.str();
+      std::string result;
+      size_t applied = applier.apply_rules(result, sentence.str());
+      std::wcout << L"Applied " << applied << " rules to get: "
+                 << conv.fomacg_to_apertium(result) << std::endl;
+      sentence.str("");
     }
   }
 }
