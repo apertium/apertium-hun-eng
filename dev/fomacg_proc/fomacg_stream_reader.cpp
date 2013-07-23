@@ -5,6 +5,8 @@
 
 StreamReader::StreamReader(FILE* ins) : ins(ins) {}
 
+// TODO: return bool and use a param[out] for return value
+// TODO: fgetwc_unlocked
 // TODO: escapes: should not drop them.
 std::wstring StreamReader::read_cohort() {
   wchar_t wc;
