@@ -36,7 +36,7 @@ size_t RuleApplier::apply_rules(std::string& result,
                                 const std::string& sentence) const {
   size_t applied = 0;
   result = sentence;
-//  printf("Input: %s\n", sentence.c_str());
+  printf("Input: \n%s\n", sentence.c_str());
 
   while (true) {
 Continue:
@@ -46,6 +46,8 @@ Continue:
         char* fomacg_result = apply_down(sections[section][rule].ah,
                                          const_cast<char*>(result.c_str()));
         if (fomacg_result != NULL && strcmp(fomacg_result, result.c_str())) {
+          printf("Applied rule %s, result:\n%s\n",
+              sections[section][rule].fst->name, fomacg_result);
           result = fomacg_result;
           applied++;
           goto Continue;
@@ -54,7 +56,7 @@ Continue:
     }  // for section
     break;
   }
-//  printf("Output: %s\n", result.c_str());
+  printf("Output: %s\n", result.c_str());
   return applied;
 }
 
