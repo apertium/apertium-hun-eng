@@ -23,6 +23,7 @@ dev/fomacg_proc/fomacg_rule_applier.cpp -text
 dev/fomacg_proc/fomacg_rule_applier.h -text
 dev/fomacg_proc/fomacg_stream_reader.cpp -text
 dev/fomacg_proc/fomacg_stream_reader.h -text
+dev/fomacg_proc/hun_cg2.rlx -text
 dev/hun.rlx -text
 dev/hunmorph_to_apertium.cpp -text
 dev/kr_to_apertium.foma -text
