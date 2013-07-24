@@ -5,13 +5,15 @@ define Stops ["/" | "|" | %" | %^ | %$ ];
 define LineSep "| ";
 define WhiteSpace [" " | "	"];
 
+# TODO: modify Reading so that it works even if there are no non-lemma tags 
+#       (i.e. ^word-form/lemma1/lemma2<tag1>$)
 define Begin    %^:"$0$ ";
 define WordForm 0:{"<} ~$Stops 0:[{>"} " " "#BOC# "];
 #define NewLine  "/":[LineSep "\u000a"];
 define NewLine  "/":[LineSep];
 define Reading  ~$Stops .o.
-                [%> %< <-> " "] .o.
-                0:["#0# " %"] ~$"<" "<":[%" " "] ~$"/" ">":" "; 
+                [%> %< <-> %> " " %<] .o.
+                0:["#0# " %"] ~$"<" "<":[%" " " %<] ~$"/" ">":[%> " "]; 
 define Middle   ~$[%^ | %$] .o. WordForm [NewLine Reading]+;
 #define End      %$:[LineSep "#EOC# " "\u000a"];
 define End      %$:[LineSep "#EOC# "];
