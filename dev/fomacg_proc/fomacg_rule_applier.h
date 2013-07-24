@@ -74,6 +74,8 @@ private:
   std::vector<FstVector> sections;
   /** The delimiters rule. */
   FstPair delimiters;
+  /** The >>> cohort. */
+  static const std::string begin_cohort;
 };
 
 #endif

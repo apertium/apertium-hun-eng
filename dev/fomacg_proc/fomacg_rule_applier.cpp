@@ -16,6 +16,9 @@
  */
 #include "pcre.h"
 
+const std::string RuleApplier::begin_cohort =
+    std::string("$0$ \">>>\" #BOC# | #0# \">>>\" <>>>> | #EOC# ");
+
 RuleApplier::RuleApplier(const std::string& language, const std::string& directory)
     : language(language), directory(directory) {}
 
@@ -35,7 +38,12 @@ bool RuleApplier::is_delimiter(const std::string& cohort) const {
 size_t RuleApplier::apply_rules(std::string& result,
                                 const std::string& sentence) const {
   size_t applied = 0;
-  result = sentence;
+  /* Add the >>> and <<< tags. >>> comes in a separate cohort, while <<< is
+   * appended to the tag list of the last cohort. It comes before the "| #EOC# "
+   * at the end of the sentence (length = 8).
+   */
+  result = begin_cohort + sentence.substr(0, sentence.length() - 8) + "<<<<> " +
+           sentence.substr(sentence.length() - 8);
   fprintf(stderr, "Input: \n%s\n", sentence.c_str());
 
   while (true) {
@@ -62,6 +70,8 @@ Continue:
     }  // for section
     break;
   }
+  /* Return the resulting string without the >>> cohort and <<< tags. */
+  result = result.erase(result.length() - 14, 6).substr(begin_cohort.length());
   fprintf(stderr, "Output: %s\n", result.c_str());
   return applied;
 }
