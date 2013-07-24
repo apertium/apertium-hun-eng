@@ -13,6 +13,7 @@ dev/att_to_ltt/kaz.att -text
 dev/att_to_ltt/repl.py -text
 dev/att_to_ltt/test-att.lexc -text
 dev/att_to_ltt/test.att -text
+dev/fomacg_proc/Makefile -text
 dev/fomacg_proc/apertium_to_fomacg.foma -text
 dev/fomacg_proc/fomacg_common.cpp -text
 dev/fomacg_proc/fomacg_common.h -text
