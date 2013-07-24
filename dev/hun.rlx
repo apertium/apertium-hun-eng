@@ -197,10 +197,6 @@ REMOVE ("de" adv) IF (NOT 1C (adj));
 # "így" needs a verb to be and adverb (might be valid for other cnjadv/adv's?)
 REMOVE ("így" adv) IF (NOT 1C Verb);
 
-# Remove cnjcoo if the word is not at the beginning of a sentence or clause
-# "vagy" is an exception, as is "és", but the latter is not ambiguous
-REMOVE (cnjcoo) IF (NOT 0 ("vagy")) (NOT -1 (>>>) OR (cm) OR (quot) OR (sent));
-
 # "ha" is cnjcoo unless it is by itself (e.g. "ha!")
 SELECT ("ha" cnjcoo) IF (NOT 1 (sent));
 
@@ -237,6 +233,10 @@ LIST OttVerb = "marad" ;
 CONSTRAINTS
 
 REMOVE ("ott" prevb) IF (NEGATE (*2 OttVerb BARRIER Conj) OR (-1* OttVerb BARRIER Conj));
+
+# Remove cnjcoo if the word is not at the beginning of a sentence or clause
+# "vagy" is an exception, as is "és", but the latter is not ambiguous
+REMOVE (cnjcoo) IF (NOT 0 ("vagy")) (NOT -1 (>>>) OR (cm) OR (quot) OR (sent));
 
 CONSTRAINTS
 

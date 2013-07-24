@@ -30,6 +30,8 @@ LIST Conj   = "és" "vagy" cm ;
 LIST MetaVerb = "akar" "szeret" "imád" ;
 LIST Anp = pxs pxp ;
 
+## TODO: add (*) to fomacg, and uncomment rules starting with 6 #'s
+
 CONSTRAINTS
 
 ############
@@ -70,7 +72,7 @@ SELECT ("válasz" n acc) IF (*-1 ("kap") + VerbNotSer BARRIER Verb);
 
 # Disambiguate the <det> at the beginning of an NP (<np> too?)
 #SELECT (det) IF (*1 NOUN BARRIER (*) - AdjOrNum)
-SELECT (det) IF (*1 Noun BARRIER (*) - (adj) - (num));
+######SELECT (det) IF (*1 Noun BARRIER (*) - (adj) - (num));
 
 ## Non-proper nouns need a <det> before them, except if they are a possession
 ## (e.g. János és kutyája)
@@ -85,7 +87,7 @@ REMOVE (n) IF (-1C (adv));
 SELECT (np) IF (NOT -1 (>>>));
 
 # <plfam> cannot stand with "egy"
-REMOVE (plfam) IF (*-1 IndArt BARRIER (*) - (adj) - (num) - (adv));
+######REMOVE (plfam) IF (*-1 IndArt BARRIER (*) - (adj) - (num) - (adv));
 
 # Note: the rules from this point are based on the rules of the Hungarian NP
 # grammar. Unfortunately, there are some points, where different analyses are
@@ -115,7 +117,7 @@ REMOVE (adj) + Poss IF (0 Noun + Poss);
 # adj/nouns are adjs if they are in the same NP with a noun, which does not have
 # a possession marker on it
 # TODO Poss?
-REMOVE (n) IF (*1C Noun BARRIER (*) - NpPartFromAdj - NpConj);
+######REMOVE (n) IF (*1C Noun BARRIER (*) - NpPartFromAdj - NpConj);
 
 # There cannot be regular, non-possessive nouns in an NP
 REMOVE (n) IF (-1C Noun) (NOT 0 Poss);
@@ -198,10 +200,6 @@ REMOVE ("de" adv) IF (NOT 1C (adj));
 # "így" needs a verb to be and adverb (might be valid for other cnjadv/adv's?)
 REMOVE ("így" adv) IF (NOT 1C Verb);
 
-# Remove cnjcoo if the word is not at the beginning of a sentence or clause
-# "vagy" is an exception, as is "és", but the latter is not ambiguous
-REMOVE (cnjcoo) IF (NOT 0 ("vagy")) (NOT -1 (>>>) OR (cm) OR (quot) OR (sent));
-
 # "ha" is cnjcoo unless it is by itself (e.g. "ha!")
 SELECT ("ha" cnjcoo) IF (NOT 1 (sent));
 
@@ -230,14 +228,18 @@ SELECT Noun + (acc) IF (-1 (cnjcoo) LINK -1 Noun + (acc));
 #######
 
 # "más" is a special <adj>/<n>
-SELECT ("más" adj) IF (*1 (n) BARRIER (*) - NpPartFromAdj);
+######SELECT ("más" adj) IF (*1 (n) BARRIER (*) - NpPartFromAdj);
 
 # Verbs that can take "ott" as <prevb>
 LIST OttVerb = "marad" ;
 
-###CONSTRAINTS
+CONSTRAINTS
 
 ###REMOVE ("ott" prevb) IF (NEGATE (*2 OttVerb BARRIER Conj) OR (-1* OttVerb BARRIER Conj));
+
+# Remove cnjcoo if the word is not at the beginning of a sentence or clause
+# "vagy" is an exception, as is "és", but the latter is not ambiguous
+REMOVE (cnjcoo) IF (NOT 0 ("vagy")) (NOT -1 (>>>) OR (cm) OR (quot) OR (sent));
 
 ###CONSTRAINTS
 
