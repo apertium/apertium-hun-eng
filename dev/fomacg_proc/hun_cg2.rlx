@@ -127,8 +127,9 @@ REMOVE (n) + Anp IF (1 ("is")) (NOT *-1C (n) + Anp OR Poss);
 
 # Handle the last noun in a conjunctive NP -- one rule per case...
 # Note: could be Noun OR (adj) + (nom) -- but in that case 0 could also be adj; I don't know
-SELECT (n nom) IF (NOT *1 (n) BARRIER (np) OR Art) (*-1 NpConj BARRIER (*) - NpPart LINK -1 Noun + (nom));
-SELECT (n acc) IF (NOT *1 (n) BARRIER (np) OR Art) (*-1 NpConj BARRIER (*) - NpPart LINK -1 Noun + (acc));
+# Warning: these rules simply don't work
+#####SELECT (n nom) IF (NOT *1 (n) BARRIER (np) OR Art) (*-1 NpConj BARRIER (*) - NpPart LINK -1 Noun + (nom));
+#####SELECT (n acc) IF (NOT *1 (n) BARRIER (np) OR Art) (*-1 NpConj BARRIER (*) - NpPart LINK -1 Noun + (acc));
 
 #########
 # Verbs #
