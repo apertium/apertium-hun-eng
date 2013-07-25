@@ -44,18 +44,19 @@ size_t RuleApplier::apply_rules(std::string& result,
    */
   result = begin_cohort + sentence.substr(0, sentence.length() - 8) + "<<<<> " +
            sentence.substr(sentence.length() - 8);
-  fprintf(stderr, "Input: \n%s\n", sentence.c_str());
+//  fprintf(stderr, "Input: \n%s\n", sentence.c_str());
 
   while (true) {
 Continue:
     for (size_t section = 0; section < sections.size(); section++) {
       for (size_t rule = 0; rule < sections[section].size(); rule++) {
-//        printf("Trying rule %s...\n", sections[section][rule].fst->name);
+//        fprintf(stderr, "Trying rule %s...\n", sections[section][rule].fst->name);
         char* fomacg_result = apply_down(sections[section][rule].ah,
                                          const_cast<char*>(result.c_str()));
         if (fomacg_result != NULL && strcmp(fomacg_result, result.c_str())) {
-          fprintf(stderr, "Applied rule %s, result:\n%s\n",
-              sections[section][rule].fst->name, fomacg_result);
+        //if (fomacg_result != NULL) {
+//          fprintf(stderr, "Applied rule %s, result:\n%s\n",
+//              sections[section][rule].fst->name, fomacg_result);
           result = fomacg_result;
           applied++;
           goto Continue;
@@ -72,7 +73,7 @@ Continue:
   }
   /* Return the resulting string without the >>> cohort and <<< tags. */
   result = result.erase(result.length() - 14, 6).substr(begin_cohort.length());
-  fprintf(stderr, "Output: %s\n", result.c_str());
+//  fprintf(stderr, "Output: %s\n", result.c_str());
   return applied;
 }
 
