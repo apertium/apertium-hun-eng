@@ -65,8 +65,8 @@ std::wstring Converter::fomacg_to_apertium(const std::string& str) {
   }
 }
 
-struct fsm* fomacg_to_fsa(const std::string& str) {
-  struct fsm* ret = fsm_empty_set();
+struct fsm* Converter::fomacg_to_fsa(const std::string& str) {
+  struct fsm* ret = NULL;
   size_t start = 0;
   size_t end;
   while (start != std::string::npos) {
@@ -76,11 +76,15 @@ struct fsm* fomacg_to_fsa(const std::string& str) {
       substr = str.substr(start).c_str();
       start = std::string::npos;
     } else {
-      substr = str.substr(start, end - start).c_str();
-      start = end + 1;
+      substr = str.substr(start, end - start + 1).c_str();
+      start = (end + 1 >= str.length()) ? std::string::npos : end + 1;
     }
-    struct fsm* symbol = fsm_symbol(substr);
-    ret = fsm_concat(ret, symbol);
+    struct fsm* symbol = fsm_symbol(const_cast<char*>(substr));
+    if (ret == NULL) {
+      ret = symbol;
+    } else {
+      ret = fsm_concat(ret, symbol);
+    }
   }
   return fsm_minimize(ret);
 }
@@ -90,10 +94,10 @@ std::string Converter::fsa_to_fomacg(struct fsm* fsa) {
   if (ah == NULL) {
     // TODO: error handling
     fsm_destroy(fsa);
-    return "";
+    return Converter::FAILED;
   }
 
-  char* sentence = apply_lower_words(h);
+  char* sentence = apply_lower_words(ah);
   if (sentence == NULL) {
     // TODO: assert
   }
