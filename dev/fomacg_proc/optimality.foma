@@ -18,7 +18,14 @@ define Coda     "D[" (C) "]" ;
 define Unparsed "X[" [C | V] "]" ;
 define SyllableStructure [[(Onset) Nucleus (Coda)] / Unparsed]* ;
 
-define GEN Input .o. OverParse .o. Parse .o. SyllableStructure ;
+# Redefinition of Parse so that it allows a certain number of unparsed elements.
+define Parse0   ~$"X[" ;
+define Parse1 ~[[$"X["]^>1] ;
+define Parse2 ~[[$"X["]^>2] ;
+define Parse3 ~[[$"X["]^>3] ;
+define ParseX [Parse .O. Parse0 .O. Parse1 .O. Parse2 .O. Parse3] ;
+
+define GEN Input .o. OverParse .o. ParseX .o. SyllableStructure ;
 
 # Constraints
 define HaveOns "N[" => "O[" (C) "]" _ ;  # must have onsets
@@ -32,3 +39,4 @@ define Full2 Full1 .O. NoCoda;
 define Full3 Full2 .O. Parsed;
 define Full4 Full3 .O. FillNuc;
 define Full5 Full4 .O. FillOns;
+
