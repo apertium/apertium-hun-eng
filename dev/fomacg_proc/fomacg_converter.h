@@ -34,6 +34,15 @@ public:
    */
   std::wstring fomacg_to_apertium(const std::string& str);
 
+  /** Converts @p str (a sentence) from fomacg format to an FSA. */
+  struct fsm* fomacg_to_fsa(const std::string& str);
+
+  /**
+   * Converts a sentence fsa back to fomacg format. The @c fsm object is
+   * deleted.
+   */
+  std::string fsa_to_fomacg(struct fsm* fsa);
+
   ~Converter();
 
   /** Returned by apertium_to_fomacg, if the conversion fails. */

@@ -65,6 +65,45 @@ std::wstring Converter::fomacg_to_apertium(const std::string& str) {
   }
 }
 
+struct fsm* fomacg_to_fsa(const std::string& str) {
+  struct fsm* ret = fsm_empty_set();
+  size_t start = 0;
+  size_t end;
+  while (start != std::string::npos) {
+    const char* substr;
+    end = str.find(' ', start + 1);
+    if (end == std::string::npos) {
+      substr = str.substr(start).c_str();
+      start = std::string::npos;
+    } else {
+      substr = str.substr(start, end - start).c_str();
+      start = end + 1;
+    }
+    struct fsm* symbol = fsm_symbol(substr);
+    ret = fsm_concat(ret, symbol);
+  }
+  return fsm_minimize(ret);
+}
+
+std::string Converter::fsa_to_fomacg(struct fsm* fsa) {
+  struct apply_handle* ah = apply_init(fsa);
+  if (ah == NULL) {
+    // TODO: error handling
+    fsm_destroy(fsa);
+    return "";
+  }
+
+  char* sentence = apply_lower_words(h);
+  if (sentence == NULL) {
+    // TODO: assert
+  }
+
+  std::string ret(sentence);
+  apply_clear(ah);
+  fsm_destroy(fsa);
+  return ret;
+}
+
 Converter::~Converter() {
   a2f.cleanup();
   f2a.cleanup();
