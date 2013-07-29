@@ -1,0 +1,34 @@
+## The FSTs are copied from Karttunen's optimality paper. For experimental
+## purposes: it is instructive to compare the complexity of OT and CG, to see
+## whether his solution can be applied to our problem.
+
+# Basic definitions
+define C [b | c | d | f | g | h | j | k | l | m | n | p | q | r | s | t | v | w | x | y | z] ;
+define V [a | e | i | o | u] ;
+
+# The definition of GEN
+define Input     [C | V]* ;
+define Parse     C -> ["O[" | "D[" | "X["] ... "]" .o.
+                 V -> ["N[" | "X["] ... "]" ;
+define OverParse [. .] (->) ["O[" | "N[" | "D["] "]" ;
+
+define Onset    "O[" (C) "]" ;
+define Nucleus  "N[" (V) "]" ;
+define Coda     "D[" (C) "]" ;
+define Unparsed "X[" [C | V] "]" ;
+define SyllableStructure [[(Onset) Nucleus (Coda)] / Unparsed]* ;
+
+define GEN Input .o. OverParse .o. Parse .o. SyllableStructure ;
+
+# Constraints
+define HaveOns "N[" => "O[" (C) "]" _ ;  # must have onsets
+define NoCoda  ~$"D[" ;                  # must have no codas
+define Parsed  ~$"X[" ;                  # must be parsed
+define FillNuc ~$"N[" "]" ;              # nucleus positions must be filled
+define FillOns ~$"O[" "]" ;              # onset positions must be filled
+
+define Full1 GEN   .O. HaveOns;
+define Full2 Full1 .O. NoCoda;
+define Full3 Full2 .O. Parsed;
+define Full4 Full3 .O. FillNuc;
+define Full5 Full4 .O. FillOns;
