@@ -22,6 +22,7 @@ public:
    * transducer created by apertium_to_fomacg.foma.
    *
    * @return the converted string. Not persistent, make a copy if needed.
+   * @todo get rid of this if fomacg_to_fsa works and is fast
    */
   std::string apertium_to_fomacg(const std::wstring& str);
 
@@ -31,6 +32,7 @@ public:
    * inversely applying the transducer created by apertium_to_fomacg.foma.
    *
    * @return the converted string. Not persistent, make a copy if needed.
+   * @todo get rid of this if fomacg_to_fsa works and is fast
    */
   std::wstring fomacg_to_apertium(const std::string& str);
 

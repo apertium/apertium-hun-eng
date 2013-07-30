@@ -14,9 +14,12 @@
 
 void test_converter(Converter* conv) {
   std::string fomacg = conv->apertium_to_fomacg(
-      L"^Volt/van<vbser><past>/volt<n><sg><nom>$^ebed/eb<n><sg><px2ss><nom>$^?/?<sent>$");
+//      L"^Volt/van<vbser><past>/volt<n><sg><nom>$^ebed/eb<n><sg><px2ss><nom>$^?/?<sent>$");
+      L"^Volt/van<vbser><past>/volt<n><sg><nom>$^kutyad/kutya<n><sg><px2ss><nom>/kutya<adj><sg><px2ss><nom>$^?/?<sent>$");
   if (fomacg != Converter::FAILED) {
     printf("fomacg: %s\n", fomacg.c_str());
+//    struct fsm* fsa = conv->fomacg_to_fsa(fomacg);
+//    fsm_write_binary_file(fsa, "AHA.fst");
     std::wstring apertium = conv->fomacg_to_apertium(fomacg);
     std::wcout << L"apertium: " << apertium << std::endl;
   } else {
@@ -72,7 +75,7 @@ int main(int argc, char* argv[]) {
   //test_converter(conv);
   StreamReader reader(stdin);
   //test_reader(reader);
-  RuleApplier applier = RuleApplier::get(cg_prefix, directory);
+  RuleApplier applier = RuleApplier::get(*conv, cg_prefix, directory);
   do_it(reader, *conv, applier);
   delete conv;
 }

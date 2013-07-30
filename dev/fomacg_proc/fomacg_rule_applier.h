@@ -23,6 +23,8 @@
 
 #include "fomacg_common.h"
 
+class Converter;
+
 class RuleApplier {
 public:
   /** Frees the resources assigned to the rule FSTs. */
@@ -41,7 +43,8 @@ public:
    * @todo Decide if it should return a pointer.
    * @todo max_section
    */
-  static RuleApplier get(const std::string& language,
+  static RuleApplier get(Converter& converter,
+                         const std::string& language,
                          const std::string& directory=".")
     throw (std::invalid_argument, std::runtime_error, std::length_error);
 
@@ -58,13 +61,15 @@ public:
    * @return the number of rules applied.
    */
   size_t apply_rules(std::string& result, const std::string& sentence) const;
+  size_t apply_rules2(std::string& result, const std::string& sentence) const;
 
 private:
   /** Private constructor. */
-  RuleApplier(const std::string& language, const std::string& directory=".");
+  RuleApplier(Converter& converter, const std::string& language, const std::string& directory=".");
   /** Loads the FST files. */
   void load_files();
 
+  Converter& converter;
   const std::string& language;
   const std::string& directory;
 

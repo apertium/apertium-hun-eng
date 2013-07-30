@@ -16,16 +16,19 @@
  */
 #include "pcre.h"
 
+#include "fomacg_converter.h"
+
 const std::string RuleApplier::begin_cohort =
     std::string("$0$ \">>>\" #BOC# | #0# \">>>\" <>>>> | #EOC# ");
 
-RuleApplier::RuleApplier(const std::string& language, const std::string& directory)
-    : language(language), directory(directory) {}
+RuleApplier::RuleApplier(Converter& converter, const std::string& language, const std::string& directory)
+    : converter(converter), language(language), directory(directory) {}
 
-RuleApplier RuleApplier::get(const std::string& language,
+RuleApplier RuleApplier::get(Converter& converter,
+                             const std::string& language,
                              const std::string& directory)
     throw (std::invalid_argument, std::runtime_error, std::length_error) {
-  RuleApplier ra(language, directory);
+  RuleApplier ra(converter, language, directory);
   ra.load_files();
   return ra;
 }
@@ -33,6 +36,55 @@ RuleApplier RuleApplier::get(const std::string& language,
 bool RuleApplier::is_delimiter(const std::string& cohort) const {
   // TODO: get rid of the const_cast once the foma interface becomes sane
   return apply_down(delimiters.ah, const_cast<char*>(cohort.c_str())) != NULL;
+}
+
+size_t RuleApplier::apply_rules2(std::string& result,
+                                 const std::string& sentence) const {
+  size_t applied = 0;
+  /* Add the >>> and <<< tags. >>> comes in a separate cohort, while <<< is
+   * appended to the tag list of the last cohort. It comes before the "| #EOC# "
+   * at the end of the sentence (length = 8).
+   */
+  result = begin_cohort + sentence.substr(0, sentence.length() - 8) + "<<<<> " +
+           sentence.substr(sentence.length() - 8);
+//  fprintf(stderr, "Input: \n%s\n", sentence.c_str());
+  struct fsm* sentence_fsa = converter.fomacg_to_fsa(result);
+  if (sentence_fsa == NULL) {
+    fprintf(stderr, "Could not convert.\n");
+    result = sentence;
+    return 0;
+  }
+//  fsm_write_binary_file(sentence_fsa, "AHA.fst");
+
+  while (true) {
+Continue:
+    for (size_t section = 0; section < sections.size(); section++) {
+      for (size_t rule = 0; rule < sections[section].size(); rule++) {
+//        fprintf(stderr, "Trying rule %s...\n", sections[section][rule].fst->name);
+        struct fsm* result_fsa = fsm_compose(fsm_copy(sentence_fsa),
+                                             fsm_copy(sections[section][rule].fst));
+        /* Strange; in foma, a & b results in 1 state; in fomalib, fsm_intersect
+         * results in 0. */
+        if (fsm_intersect(fsm_copy(sentence_fsa), fsm_copy(result_fsa))->statecount <= 1) {
+//          fprintf(stderr, "Applied rule %s, result:\n%s\n",
+//              sections[section][rule].fst->name, converter.fsa_to_fomacg(fsm_copy(result_fsa)).c_str());
+          fsm_destroy(sentence_fsa);
+          sentence_fsa = result_fsa;
+          applied++;
+          goto Continue;
+        } else {
+//          fprintf(stderr, "Couldn't do anything, result:\n%s\n",
+//              converter.fsa_to_fomacg(fsm_copy(result_fsa)).c_str());
+        }
+      }  // for rule
+    }  // for section
+    break;
+  }
+  result = converter.fsa_to_fomacg(sentence_fsa);
+  /* Return the resulting string without the >>> cohort and <<< tags. */
+  result = result.erase(result.length() - 14, 6).substr(begin_cohort.length());
+//  fprintf(stderr, "Output: %s\n", result.c_str());
+  return applied;
 }
 
 size_t RuleApplier::apply_rules(std::string& result,
