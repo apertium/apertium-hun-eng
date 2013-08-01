@@ -47,32 +47,33 @@ size_t RuleApplier::apply_rules2(std::string& result,
    */
   result = begin_cohort + sentence.substr(0, sentence.length() - 8) + "<<<<> " +
            sentence.substr(sentence.length() - 8);
-//  fprintf(stderr, "Input: \n%s\n", sentence.c_str());
+//  fprintf(stderr, "Input: \n[%s]\n", sentence.c_str());
   struct fsm* sentence_fsa = converter.fomacg_to_fsa(result);
   if (sentence_fsa == NULL) {
     fprintf(stderr, "Could not convert.\n");
     result = sentence;
     return 0;
   }
-//  fsm_write_binary_file(sentence_fsa, "AHA.fst");
+//  fsm_write_binary_file(sentence_fsa, "sentence.fst");
 
   while (true) {
 Continue:
     for (size_t section = 0; section < sections.size(); section++) {
       for (size_t rule = 0; rule < sections[section].size(); rule++) {
 //        fprintf(stderr, "Trying rule %s...\n", sections[section][rule].fst->name);
-        struct fsm* result_fsa = fsm_compose(fsm_copy(sentence_fsa),
-                                             fsm_copy(sections[section][rule].fst));
-        /* Strange; in foma, a & b results in 1 state; in fomalib, fsm_intersect
-         * results in 0. */
-        if (fsm_intersect(fsm_copy(sentence_fsa), fsm_copy(result_fsa))->statecount <= 1) {
-//          fprintf(stderr, "Applied rule %s, result:\n%s\n",
+        struct fsm* result_fsa = fsm_epsilon_remove(fsm_lower(fsm_compose(
+                                     fsm_copy(sentence_fsa),
+                                     fsm_copy(sections[section][rule].fst))));
+        if (sentence_fsa->statecount != result_fsa->statecount) {
+//          fprintf(stderr, "Applied rule %s, result:\n[%s]\n",
 //              sections[section][rule].fst->name, converter.fsa_to_fomacg(fsm_copy(result_fsa)).c_str());
+//          fsm_write_binary_file(result_fsa, "result.fst");
           fsm_destroy(sentence_fsa);
           sentence_fsa = result_fsa;
           applied++;
           goto Continue;
         } else {
+          fsm_destroy(result_fsa);
 //          fprintf(stderr, "Couldn't do anything, result:\n%s\n",
 //              converter.fsa_to_fomacg(fsm_copy(result_fsa)).c_str());
         }
@@ -83,7 +84,7 @@ Continue:
   result = converter.fsa_to_fomacg(sentence_fsa);
   /* Return the resulting string without the >>> cohort and <<< tags. */
   result = result.erase(result.length() - 14, 6).substr(begin_cohort.length());
-//  fprintf(stderr, "Output: %s\n", result.c_str());
+//  fprintf(stderr, "Output: \n[%s]\n", result.c_str());
   return applied;
 }
 
@@ -97,6 +98,7 @@ size_t RuleApplier::apply_rules(std::string& result,
   result = begin_cohort + sentence.substr(0, sentence.length() - 8) + "<<<<> " +
            sentence.substr(sentence.length() - 8);
 //  fprintf(stderr, "Input: \n%s\n", sentence.c_str());
+  size_t old_length = result.length();
 
   while (true) {
 Continue:
@@ -105,19 +107,20 @@ Continue:
 //        fprintf(stderr, "Trying rule %s...\n", sections[section][rule].fst->name);
         char* fomacg_result = apply_down(sections[section][rule].ah,
                                          const_cast<char*>(result.c_str()));
-        if (fomacg_result != NULL && strcmp(fomacg_result, result.c_str())) {
-        //if (fomacg_result != NULL) {
+        if (fomacg_result != NULL) {
+          size_t new_length = strlen(fomacg_result);
+          if (old_length != new_length) {
 //          fprintf(stderr, "Applied rule %s, result:\n%s\n",
 //              sections[section][rule].fst->name, fomacg_result);
-          result = fomacg_result;
-          applied++;
-          goto Continue;
-        } else {
-          if (fomacg_result == NULL) {
-//            fprintf(stderr, "Couldn't do anything for >>>%s<<<\n", sentence.c_str());
+            result = fomacg_result;
+            old_length = new_length;
+            applied++;
+            goto Continue;
           } else {
 //            fprintf(stderr, "Same: >>>%s<<<\n", sentence.c_str());
           }
+        } else {
+//          fprintf(stderr, "Couldn't do anything for >>>%s<<<\n", sentence.c_str());
         }
       }  // for rule
     }  // for section
