@@ -84,6 +84,7 @@ struct fsm* Converter::fomacg_to_fsa(const std::string& str) {
     if (ret == NULL) {
       ret = symbol;
     } else {
+      //ret = fsm_concat(ret, symbol);
       ret = fsm_concat_custom(ret, symbol);
     }
   }
