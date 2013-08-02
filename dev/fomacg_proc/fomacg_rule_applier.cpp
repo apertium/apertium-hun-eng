@@ -132,6 +132,45 @@ Continue:
   return applied;
 }
 
+size_t RuleApplier::apply_rules3(std::string& result,
+                                 const std::string& sentence) const {
+  size_t applied = 0;
+  /* Add the >>> and <<< tags. >>> comes in a separate cohort, while <<< is
+   * appended to the tag list of the last cohort. It comes before the "| #EOC# "
+   * at the end of the sentence (length = 8).
+   */
+  result = begin_cohort + sentence.substr(0, sentence.length() - 8) + "<<<<> " +
+           sentence.substr(sentence.length() - 8);
+//  fprintf(stderr, "Input: \n%s\n", sentence.c_str());
+
+  while (true) {
+Continue:
+    for (size_t section = 0; section < sections.size(); section++) {
+      for (size_t rule = 0; rule < sections[section].size(); rule +=2) {
+//        fprintf(stderr, "Trying rule %s...\n", sections[section][rule].fst->name);
+        char* fomacg_result = apply_down(sections[section][rule + 1].ah,
+                                         const_cast<char*>(result.c_str()));
+        if (fomacg_result != NULL) {
+          fomacg_result = apply_down(sections[section][rule].ah,
+                                     const_cast<char*>(result.c_str()));
+//          fprintf(stderr, "Applied rule %s, result:\n%s\n",
+//              sections[section][rule].fst->name, fomacg_result);
+          result = fomacg_result;
+          applied++;
+          goto Continue;
+        } else {
+//          fprintf(stderr, "Couldn't do anything for >>>%s<<<\n", sentence.c_str());
+        }
+      }  // for rule
+    }  // for section
+    break;
+  }
+  /* Return the resulting string without the >>> cohort and <<< tags. */
+  result = result.erase(result.length() - 14, 6).substr(begin_cohort.length());
+//  fprintf(stderr, "Output: %s\n", result.c_str());
+  return applied;
+}
+
 // TODO: logging?
 void RuleApplier::load_files() {
   std::string delimiters_file = language + "_DELIMITERS.fst";

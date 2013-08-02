@@ -62,6 +62,7 @@ public:
    */
   size_t apply_rules(std::string& result, const std::string& sentence) const;
   size_t apply_rules2(std::string& result, const std::string& sentence) const;
+  size_t apply_rules3(std::string& result, const std::string& sentence) const;
 
 private:
   /** Private constructor. */
