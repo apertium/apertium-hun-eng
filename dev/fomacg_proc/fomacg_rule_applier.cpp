@@ -27,56 +27,6 @@ bool RuleApplier::is_delimiter(const std::string& cohort) const {
   //return apply_detmin_fsa(delimiters.ah, const_cast<char*>(cohort.c_str()));
 }
 
-//size_t RuleApplier::apply_rules2(std::string& result,
-//                                 const std::string& sentence) const {
-//  size_t applied = 0;
-//  /* Add the >>> and <<< tags. >>> comes in a separate cohort, while <<< is
-//   * appended to the tag list of the last cohort. It comes before the "| #EOC# "
-//   * at the end of the sentence (length = 8).
-//   */
-//  result = begin_cohort + sentence.substr(0, sentence.length() - 8) + "<<<<> " +
-//           sentence.substr(sentence.length() - 8);
-////  fprintf(stderr, "Input: \n[%s]\n", sentence.c_str());
-//  struct fsm* sentence_fsa = converter.fomacg_to_fsa(result);
-//  if (sentence_fsa == NULL) {
-//    fprintf(stderr, "Could not convert.\n");
-//    result = sentence;
-//    return 0;
-//  }
-////  fsm_write_binary_file(sentence_fsa, "sentence.fst");
-//
-//  while (true) {
-//Continue:
-//    for (size_t section = 0; section < sections.size(); section++) {
-//      for (size_t rule = 0; rule < sections[section].size(); rule++) {
-////        fprintf(stderr, "Trying rule %s...\n", sections[section][rule].fst->name);
-//        struct fsm* result_fsa = fsm_epsilon_remove(fsm_lower(fsm_compose(
-//                                     fsm_copy(sentence_fsa),
-//                                     fsm_copy(sections[section][rule].fst))));
-//        if (sentence_fsa->statecount != result_fsa->statecount) {
-////          fprintf(stderr, "Applied rule %s, result:\n[%s]\n",
-////              sections[section][rule].fst->name, converter.fsa_to_fomacg(fsm_copy(result_fsa)).c_str());
-////          fsm_write_binary_file(result_fsa, "result.fst");
-//          fsm_destroy(sentence_fsa);
-//          sentence_fsa = result_fsa;
-//          applied++;
-//          goto Continue;
-//        } else {
-//          fsm_destroy(result_fsa);
-////          fprintf(stderr, "Couldn't do anything, result:\n%s\n",
-////              converter.fsa_to_fomacg(fsm_copy(result_fsa)).c_str());
-//        }
-//      }  // for rule
-//    }  // for section
-//    break;
-//  }
-//  result = converter.fsa_to_fomacg(sentence_fsa);
-//  /* Return the resulting string without the >>> cohort and <<< tags. */
-//  result = result.erase(result.length() - 14, 6).substr(begin_cohort.length());
-////  fprintf(stderr, "Output: \n[%s]\n", result.c_str());
-//  return applied;
-//}
-
 size_t RuleApplier::apply_rules(std::string& result,
                                 const std::string& sentence) const {
   size_t applied = 0;
