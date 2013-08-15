@@ -15,8 +15,6 @@ dev/att_to_ltt/test-att.lexc -text
 dev/att_to_ltt/test.att -text
 dev/fomacg_proc/Makefile -text
 dev/fomacg_proc/apertium_to_fomacg.foma -text
-dev/fomacg_proc/custom_foma.cpp -text
-dev/fomacg_proc/custom_foma.h -text
 dev/fomacg_proc/fomacg_common.cpp -text
 dev/fomacg_proc/fomacg_common.h -text
 dev/fomacg_proc/fomacg_converter.cpp -text

@@ -61,12 +61,10 @@ int main(int argc, char* argv[]) {
 
   // TODO proper CLI parsing
   if (argc < 3) {
-    std::cerr << "Usage: " << argv[0] << " grammar_file_prefix "
-              << "directory_with_GC_file" << std::endl;
+    std::cerr << "Usage: " << argv[0] << " grammar_file " << std::endl;
     exit(1);
   }
-  char* cg_prefix = argv[1];
-  char* directory = argv[2];
+  char* grammar_file = argv[1];
   Converter* conv = Converter::get("apertium_to_fomacg.fst");
   if (conv == NULL) {
     perror("FST file could not be loaded.");
@@ -75,7 +73,7 @@ int main(int argc, char* argv[]) {
   //test_converter(conv);
   StreamReader reader(stdin);
   //test_reader(reader);
-  RuleApplier applier = RuleApplier::get(*conv, cg_prefix, directory);
+  RuleApplier applier = RuleApplier::get(*conv, grammar_file);
   do_it(reader, *conv, applier);
   delete conv;
 }

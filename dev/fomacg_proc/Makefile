@@ -2,7 +2,7 @@ INCFLAGS = -I/usr/local/include/ -I../../src/ -I.
 CPPFLAGS = -g -ggdb $(INCFLAGS) -Wall -O3
 CPP = g++
 CXX = g++
-LINKFLAGS = -lfoma -lpcre
+LINKFLAGS = -lfoma
 all: fomacg_proc
 
 fomacg_proc: *.cpp

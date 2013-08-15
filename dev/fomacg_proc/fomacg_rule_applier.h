@@ -32,10 +32,7 @@ public:
 
   /**
    * Static factory method.
-   * @param[in] language the language -- the prefix of the grammar FSTs (the
-   *                     name of the grammar file without the extension).
-   * @param[in] directory the directory where the FST files are.
-   * @throws std::invalid_argument if the directory doesn't exist.
+   * @param[in] fst_file the name of the file that contains the grammar FSTs.
    * @throws std::length_error if the section numbers are not contiguous.
    * @throws std::runtime_error if a miscellaneous error occurs. Also see
    *                            load_fst().
@@ -43,10 +40,8 @@ public:
    * @todo Decide if it should return a pointer.
    * @todo max_section
    */
-  static RuleApplier get(Converter& converter,
-                         const std::string& language,
-                         const std::string& directory=".")
-    throw (std::invalid_argument, std::runtime_error, std::length_error);
+  static RuleApplier get(Converter& converter, const std::string& fst_file)
+    throw (std::invalid_argument, std::length_error);
 
   /** Tells if the @p cohort is a delimiter. */
   bool is_delimiter(const std::string& cohort) const;
@@ -61,18 +56,17 @@ public:
    * @return the number of rules applied.
    */
   size_t apply_rules(std::string& result, const std::string& sentence) const;
-  size_t apply_rules2(std::string& result, const std::string& sentence) const;
+//  size_t apply_rules2(std::string& result, const std::string& sentence) const;
   size_t apply_rules3(std::string& result, const std::string& sentence) const;
 
 private:
   /** Private constructor. */
-  RuleApplier(Converter& converter, const std::string& language, const std::string& directory=".");
-  /** Loads the FST files. */
-  void load_files();
+  RuleApplier(Converter& converter, const std::string& fst_file);
+  /** Loads the FST file. */
+  void load_file();
 
   Converter& converter;
-  const std::string& language;
-  const std::string& directory;
+  std::string fst_file;
 
   /* ==== fomacg stuff ==== */
 
