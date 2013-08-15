@@ -22,9 +22,7 @@ RuleApplier RuleApplier::get(Converter& converter, const std::string& fst_file)
 
 bool RuleApplier::is_delimiter(const std::string& cohort) const {
   // TODO: get rid of the const_cast once the foma interface becomes sane
-  return apply_down(delimiters.ah, const_cast<char*>(cohort.c_str())) != NULL;
-  // TODO: test
-  //return apply_detmin_fsa(delimiters.ah, const_cast<char*>(cohort.c_str()));
+  return apply_detmin_fsa(delimiters.ah, const_cast<char*>(cohort.c_str()));
 }
 
 size_t RuleApplier::apply_rules(std::string& result,

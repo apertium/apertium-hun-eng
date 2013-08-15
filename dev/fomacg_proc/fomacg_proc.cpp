@@ -60,7 +60,7 @@ int main(int argc, char* argv[]) {
   std::locale::global(std::locale(""));
 
   // TODO proper CLI parsing
-  if (argc < 3) {
+  if (argc < 2) {
     std::cerr << "Usage: " << argv[0] << " grammar_file " << std::endl;
     exit(1);
   }
