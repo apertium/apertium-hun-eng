@@ -6,8 +6,7 @@
 <dictionary>
   <alphabet/>
   <sdefs>
-    <sdef n="n"    c="Noun"/>
-
+    <sdef n="n" 	c="Noun"/> 
 		<sdef n="np" />
 		<sdef n="det" />
 		<sdef n="cnjcoo" />
@@ -24,8 +23,6 @@
 		<sdef n="pers"/>
 		<sdef n="adv"/>
 		<sdef n="adj"/>
-    <sdef n="sg"   c="Singular"/>
-    <sdef n="pl"   c="Plural"/>
     <sdef n="ND"   c="Number to be determined"/>
   </sdefs>
   <section id="main" type="standard">
@@ -1162,8 +1159,10 @@
 		<e><p><l>Mari<s n="np"/></l><r>Mary<s n="np"/></r></p></e>
 		<e><p><l>Jancsi<s n="np"/></l><r>James<s n="np"/></r></p></e>
 		<e><p><l>számolás<s n="n"/></l><r>calculation<s n="n"/></r></p></e>
+		<e><p><l>alma<s n="n"/></l><r>apple<s n="n"/></r></p></e>
 		<e><p><l>kutya<s n="n"/></l><r>dog<s n="n"/></r></p></e>
 		<e><p><l>macska<s n="n"/></l><r>cat<s n="n"/></r></p></e>
+		<e><p><l>otthon<s n="n"/></l><r>home<s n="n"/></r></p></e>
 		<e><p><l>madár<s n="n"/></l><r>bird<s n="n"/></r></p></e>
 		<e><p><l>állat<s n="n"/></l><r>animal<s n="n"/></r></p></e>
 		<e><p><l>asztal<s n="n"/></l><r>table<s n="n"/></r></p></e>
@@ -1240,6 +1239,7 @@
 		<e><p><l>ha<s n="int"/></l><r>if<s n="int"/></r></p></e>
 		<e><p><l>ő<s n="prn"/><s n="pers"/></l><r>he<s n="prn"/><s n="pers"/></r></p></e><!-- fixme: gender? -->
 		<e><p><l>hol<s n="prn"/></l><r>where<s n="prn"/></r></p></e>
+		<e><p><l>hogyan<s n="prn"/></l><r>how<s n="prn"/></r></p></e>
 		<e><p><l>ez<s n="prn"/></l><r>this<s n="prn"/></r></p></e>
 		<e><p><l>az<s n="prn"/></l><r>that<s n="prn"/></r></p></e>
 		<e><p><l>mi<s n="prn"/></l><r>what<s n="prn"/></r></p></e>
@@ -1252,6 +1252,7 @@
 		<e><p><l>merre<s n="prn"/></l><r>which direction<s n="prn"/></r></p></e>
 		<e><p><l>így<s n="prn"/></l><r>how<s n="prn"/></r></p></e>
 		<e><p><l>hol<s n="prn"/></l><r>where<s n="prn"/></r></p></e>
+		<e><p><l>hol<s n="adv"/></l><r>where<s n="adv"/></r></p></e>
 		<e><p><l>valami<s n="prn"/></l><r>something<s n="prn"/></r></p></e>
 		<e><p><l>mindketten<s n="prn"/></l><r>both<s n="prn"/></r></p></e>
 		<e><p><l>nagyon<s n="adv"/></l><r>very<s n="adv"/></r></p></e>
@@ -1288,7 +1289,264 @@
 		<e><p><l>boldog<s n="adj"/></l><r>happy<s n="adj"/></r></p></e>
 		<e><p><l>más<s n="adj"/></l><r>different<s n="adj"/></r></p></e>
 		<e><p><l>kettő<s n="adj"/></l><r>two<s n="adj"/></r></p></e>
-
+		
+		<e><p><l>ábra<s n="n"/></l><r>figure<s n="n"/></r></p></e>
+		<e><p><l>acél<s n="n"/></l><r>steel<s n="n"/></r></p></e>
+		<e><p><l>ács<s n="n"/></l><r>carpenter<s n="n"/></r></p></e>
+		<e><p><l>adapter<s n="n"/></l><r>adapter<s n="n"/></r></p></e>
+		<e><p><l>adat<s n="n"/></l><r>data<s n="n"/></r></p></e>
+		<e><p><l>adó<s n="n"/></l><r>tax<s n="n"/></r></p></e>
+		<e><p><l>adomány<s n="n"/></l><r>donation<s n="n"/></r></p></e>
+		<e><p><l>adományozó<s n="n"/></l><r>donor<s n="n"/></r></p></e>
+		<e><p><l>ág<s n="n"/></l><r>branch<s n="n"/></r></p></e>
+		<e><p><l>agancs<s n="n"/></l><r>antler<s n="n"/></r></p></e>
+		<e><p><l>aggodalom<s n="n"/></l><r>worry<s n="n"/></r></p></e>
+		<e><p><l>agy<s n="n"/></l><r>brain<s n="n"/></r></p></e>
+		<e><p><l>ágy<s n="n"/></l><r>bed<s n="n"/></r></p></e>
+		<e><p><l>agyag<s n="n"/></l><r>clay<s n="n"/></r></p></e>
+		<e><p><l>agymosás<s n="n"/></l><r>brainwashing<s n="n"/></r></p></e>
+		<e><p><l>agyrázkódás<s n="n"/></l><r>concussion<s n="n"/></r></p></e>
+		<e><p><l>ajándék<s n="n"/></l><r>present<s n="n"/></r></p></e>
+		<e><p><l>ajánlat<s n="n"/></l><r>offer<s n="n"/></r></p></e>
+		<e><p><l>ajtó<s n="n"/></l><r>door<s n="n"/></r></p></e>
+		<e><p><l>akadály<s n="n"/></l><r>obstacle<s n="n"/></r></p></e>
+		<e><p><l>akadémia<s n="n"/></l><r>academy<s n="n"/></r></p></e>
+		<e><p><l>akarat<s n="n"/></l><r>will<s n="n"/></r></p></e>
+		<e><p><l>akaraterő<s n="n"/></l><r>willpower<s n="n"/></r></p></e>
+		<e><p><l>akcentus<s n="n"/></l><r>accent<s n="n"/></r></p></e>
+		<e><p><l>akció<s n="n"/></l><r>action<s n="n"/></r></p></e>
+		<e><p><l>aláírás<s n="n"/></l><r>signature<s n="n"/></r></p></e>
+		<e><p><l>alany<s n="n"/></l><r>subject<s n="n"/></r></p></e>
+		<e><p><l>alap<s n="n"/></l><r>base<s n="n"/></r></p></e>
+		<e><p><l>alkalmazott<s n="n"/></l><r>employee<s n="n"/></r></p></e>
+		<e><p><l>alku<s n="n"/></l><r>deal<s n="n"/></r></p></e>
+		<e><p><l>alkony<s n="n"/></l><r>twilight<s n="n"/></r></p></e>
+		<e><p><l>állam<s n="n"/></l><r>state<s n="n"/></r></p></e>
+		<e><p><l>állapot<s n="n"/></l><r>state<s n="n"/></r></p></e>
+		<e><p><l>állás<s n="n"/></l><r>job<s n="n"/></r></p></e>
+		<e><p><l>állatkert<s n="n"/></l><r>zoo<s n="n"/></r></p></e>
+		<e><p><l>allergia<s n="n"/></l><r>allergy<s n="n"/></r></p></e>
+		<e><p><l>angyal<s n="n"/></l><r>angel<s n="n"/></r></p></e>
+		<e><p><l>animáció<s n="n"/></l><r>animation<s n="n"/></r></p></e>
+		<e><p><l>anyag<s n="n"/></l><r>material<s n="n"/></r></p></e>
+		<e><p><l>apa<s n="n"/></l><r>father<s n="n"/></r></p></e>
+		<e><p><l>apu<s n="n"/></l><r>daddy<s n="n"/></r></p></e>
+		<e><p><l>arany<s n="n"/></l><r>gold<s n="n"/></r></p></e>
+		<e><p><l>arc<s n="n"/></l><r>face<s n="n"/></r></p></e>
+		<e><p><l>árnyék<s n="n"/></l><r>shadow<s n="n"/></r></p></e>
+		<e><p><l>átlag<s n="n"/></l><r>average<s n="n"/></r></p></e>
+		<e><p><l>autó<s n="n"/></l><r>car<s n="n"/></r></p></e>
+		<e><p><l>bab<s n="n"/></l><r>bean<s n="n"/></r></p></e>
+		<e><p><l>baba<s n="n"/></l><r>baby<s n="n"/></r></p></e>
+		<e><p><l>bal<s n="n"/></l><r>left<s n="n"/></r></p></e>
+		<e><p><l>balta<s n="n"/></l><r>axe<s n="n"/></r></p></e>
+		<e><p><l>bambusz<s n="n"/></l><r>bamboo<s n="n"/></r></p></e>
+		<e><p><l>banda<s n="n"/></l><r>band<s n="n"/></r></p></e>
+		<e><p><l>bank<s n="n"/></l><r>bank<s n="n"/></r></p></e>
+		<e><p><l>barlang<s n="n"/></l><r>cave<s n="n"/></r></p></e>
+		<e><p><l>basszus<s n="n"/></l><r>bass<s n="n"/></r></p></e>
+		<e><p><l>bátty<s n="n"/></l><r>brother<s n="n"/></r></p></e>
+		<e><p><l>befejezés<s n="n"/></l><r>ending<s n="n"/></r></p></e>
+		<e><p><l>bejárat<s n="n"/></l><r>entrance<s n="n"/></r></p></e>
+		<e><p><l>béka<s n="n"/></l><r>frog<s n="n"/></r></p></e>
+		<e><p><l>beszéd<s n="n"/></l><r>speech<s n="n"/></r></p></e>
+		<e><p><l>Biblia<s n="n"/></l><r>Bible<s n="n"/></r></p></e>
+		<e><p><l>bicikli<s n="n"/></l><r>bicicle<s n="n"/></r></p></e>
+		<e><p><l>billentyűzet<s n="n"/></l><r>keyboard<s n="n"/></r></p></e>
+		<e><p><l>bíró<s n="n"/></l><r>judge<s n="n"/></r></p></e>
+		<e><p><l>biztonság<s n="n"/></l><r>security<s n="n"/></r></p></e>
+		<e><p><l>bohóc<s n="n"/></l><r>clown<s n="n"/></r></p></e>
+		<e><p><l>bokor<s n="n"/></l><r>bush<s n="n"/></r></p></e>
+		<e><p><l>boksz<s n="n"/></l><r>boxing<s n="n"/></r></p></e>
+		<e><p><l>bolt<s n="n"/></l><r>shop<s n="n"/></r></p></e>
+		<e><p><l>bolygó<s n="n"/></l><r>planet<s n="n"/></r></p></e>
+		<e><p><l>bomba<s n="n"/></l><r>bomb<s n="n"/></r></p></e>
+		<e><p><l>boríték<s n="n"/></l><r>envelope<s n="n"/></r></p></e>
+		<e><p><l>borotva<s n="n"/></l><r>razor<s n="n"/></r></p></e>
+		<e><p><l>bors<s n="n"/></l><r>pepper<s n="n"/></r></p></e>
+		<e><p><l>borsó<s n="n"/></l><r>pea<s n="n"/></r></p></e>
+		<e><p><l>borsmenta<s n="n"/></l><r>peppermint<s n="n"/></r></p></e>
+		<e><p><l>borz<s n="n"/></l><r>badger<s n="n"/></r></p></e>
+		<e><p><l>bot<s n="n"/></l><r>stick<s n="n"/></r></p></e>
+		<e><p><l>bögre<s n="n"/></l><r>mug<s n="n"/></r></p></e>
+		<e><p><l>böjt<s n="n"/></l><r>fast<s n="n"/></r></p></e>
+		<e><p><l>bölcső<s n="n"/></l><r>cradle<s n="n"/></r></p></e>
+		<e><p><l>böngésző<s n="n"/></l><r>browser<s n="n"/></r></p></e>
+		<e><p><l>bőr<s n="n"/></l><r>skin<s n="n"/></r></p></e>
+		<e><p><l>börtön<s n="n"/></l><r>prison<s n="n"/></r></p></e>
+		<e><p><l>brokkoli<s n="n"/></l><r>broccoli<s n="n"/></r></p></e>
+		<e><p><l>bronz<s n="n"/></l><r>bronze<s n="n"/></r></p></e>
+		<e><p><l>buborék<s n="n"/></l><r>bubble<s n="n"/></r></p></e>
+		<e><p><l>bútor<s n="n"/></l><r>furniture<s n="n"/></r></p></e>
+		<e><p><l>búvár<s n="n"/></l><r>diver<s n="n"/></r></p></e>
+		<e><p><l>buzi<s n="n"/></l><r>gay<s n="n"/></r></p></e>
+		<e><p><l>bűn<s n="n"/></l><r>sin<s n="n"/></r></p></e>
+		<e><p><l>büntetés<s n="n"/></l><r>punishment<s n="n"/></r></p></e>
+		<e><p><l>büszkeség<s n="n"/></l><r>pride<s n="n"/></r></p></e>
+		<e><p><l>bűz<s n="n"/></l><r>stink<s n="n"/></r></p></e>
+		<e><p><l>cápa<s n="n"/></l><r>shark<s n="n"/></r></p></e>
+		<e><p><l>cédrus<s n="n"/></l><r>cedar<s n="n"/></r></p></e>
+		<e><p><l>céh<s n="n"/></l><r>guild<s n="n"/></r></p></e>
+		<e><p><l>cél<s n="n"/></l><r>goal<s n="n"/></r></p></e>
+		<e><p><l>célpont<s n="n"/></l><r>target<s n="n"/></r></p></e>
+		<e><p><l>cica<s n="n"/></l><r>kitten<s n="n"/></r></p></e>
+		<e><p><l>cici<s n="n"/></l><r>boob<s n="n"/></r></p></e>
+		<e><p><l>cikk<s n="n"/></l><r>article<s n="n"/></r></p></e>
+		<e><p><l>cím<s n="n"/></l><r>address<s n="n"/></r></p></e>
+		<e><p><l>cipő<s n="n"/></l><r>shoe<s n="n"/></r></p></e>
+		<e><p><l>cirkusz<s n="n"/></l><r>circus<s n="n"/></r></p></e>
+		<e><p><l>citrom<s n="n"/></l><r>lemon<s n="n"/></r></p></e>
+		<e><p><l>cukor<s n="n"/></l><r>sugar<s n="n"/></r></p></e>
+		<e><p><l>cukorka<s n="n"/></l><r>sweet<s n="n"/></r></p></e>
+		<e><p><l>család<s n="n"/></l><r>family<s n="n"/></r></p></e>
+		<e><p><l>csapadék<s n="n"/></l><r>precipitation<s n="n"/></r></p></e>
+		<e><p><l>csapat<s n="n"/></l><r>troop<s n="n"/></r></p></e>
+		<e><p><l>csapda<s n="n"/></l><r>trap<s n="n"/></r></p></e>
+		<e><p><l>csata<s n="n"/></l><r>battle<s n="n"/></r></p></e>
+		<e><p><l>csatorna<s n="n"/></l><r>channel<s n="n"/></r></p></e>
+		<e><p><l>cselekedet<s n="n"/></l><r>act<s n="n"/></r></p></e>
+		<e><p><l>csend<s n="n"/></l><r>silence<s n="n"/></r></p></e>
+		<e><p><l>csengő<s n="n"/></l><r>bell<s n="n"/></r></p></e>
+		<e><p><l>cselló<s n="n"/></l><r>cello<s n="n"/></r></p></e>
+		<e><p><l>csere<s n="n"/></l><r>change<s n="n"/></r></p></e>
+		<e><p><l>csiga<s n="n"/></l><r>snail<s n="n"/></r></p></e>
+		<e><p><l>csillag<s n="n"/></l><r>star<s n="n"/></r></p></e>
+		<e><p><l>csirke<s n="n"/></l><r>chicken<s n="n"/></r></p></e>
+		<e><p><l>csizma<s n="n"/></l><r>boot<s n="n"/></r></p></e>
+		<e><p><l>csók<s n="n"/></l><r>kiss<s n="n"/></r></p></e>
+		<e><p><l>csomag<s n="n"/></l><r>package<s n="n"/></r></p></e>
+		<e><p><l>csónak<s n="n"/></l><r>boat<s n="n"/></r></p></e>
+		<e><p><l>csont<s n="n"/></l><r>bone<s n="n"/></r></p></e>
+		<e><p><l>csontváz<s n="n"/></l><r>skeleton<s n="n"/></r></p></e>
+		<e><p><l>csoport<s n="n"/></l><r>group<s n="n"/></r></p></e>
+		<e><p><l>csuklya<s n="n"/></l><r>hood<s n="n"/></r></p></e>
+		<e><p><l>csúszda<s n="n"/></l><r>slide<s n="n"/></r></p></e>
+		<e><p><l>dal<s n="n"/></l><r>song<s n="n"/></r></p></e>
+		<e><p><l>dallam<s n="n"/></l><r>melody<s n="n"/></r></p></e>
+		<e><p><l>darab<s n="n"/></l><r>piece<s n="n"/></r></p></e>
+		<e><p><l>dátum<s n="n"/></l><r>date<s n="n"/></r></p></e>
+		<e><p><l>dél<s n="n"/></l><r>noon<s n="n"/></r></p></e>
+		<e><p><l>dél<s n="n"/></l><r>south<s n="n"/></r></p></e>
+		<e><p><l>denevér<s n="n"/></l><r>bat<s n="n"/></r></p></e>
+		<e><p><l>demokrácia<s n="n"/></l><r>democracy<s n="n"/></r></p></e>
+		<e><p><l>démon<s n="n"/></l><r>demon<s n="n"/></r></p></e>
+		<e><p><l>denevér<s n="n"/></l><r>bat<s n="n"/></r></p></e>
+		<e><p><l>depresszió<s n="n"/></l><r>depression<s n="n"/></r></p></e>
+		<e><p><l>derék<s n="n"/></l><r>waist<s n="n"/></r></p></e>
+		<e><p><l>detektív<s n="n"/></l><r>detective<s n="n"/></r></p></e>
+		<e><p><l>díj<s n="n"/></l><r>award<s n="n"/></r></p></e>
+		<e><p><l>dinnye<s n="n"/></l><r>melon<s n="n"/></r></p></e>
+		<e><p><l>dió<s n="n"/></l><r>nut<s n="n"/></r></p></e>
+		<e><p><l>divat<s n="n"/></l><r>fashion<s n="n"/></r></p></e>
+		<e><p><l>dob<s n="n"/></l><r>drum<s n="n"/></r></p></e>
+		<e><p><l>doboz<s n="n"/></l><r>box<s n="n"/></r></p></e>
+		<e><p><l>dohány<s n="n"/></l><r>tobacco<s n="n"/></r></p></e>
+		<e><p><l>doktor<s n="n"/></l><r>doctor<s n="n"/></r></p></e>
+		<e><p><l>dokumentum<s n="n"/></l><r>document<s n="n"/></r></p></e>
+		<e><p><l>domb<s n="n"/></l><r>hill<s n="n"/></r></p></e>
+		<e><p><l>dózis<s n="n"/></l><r>dose<s n="n"/></r></p></e>
+		<e><p><l>dráma<s n="n"/></l><r>drama<s n="n"/></r></p></e>
+		<e><p><l>duda<s n="n"/></l><r>bagpipes<s n="n"/></r></p></e>
+		<e><p><l>dugóhúzó<s n="n"/></l><r>corkscrew<s n="n"/></r></p></e>
+		<e><p><l>düh<s n="n"/></l><r>rage<s n="n"/></r></p></e>
+		<e><p><l>egér<s n="n"/></l><r>mouse<s n="n"/></r></p></e>
+		<e><p><l>elem<s n="n"/></l><r>battery<s n="n"/></r></p></e>
+		<e><p><l>egészség<s n="n"/></l><r>health<s n="n"/></r></p></e>
+		<e><p><l>eső<s n="n"/></l><r>rain<s n="n"/></r></p></e>
+		<e><p><l>élet<s n="n"/></l><r>life<s n="n"/></r></p></e>
+		<e><p><l>emlék<s n="n"/></l><r>memory<s n="n"/></r></p></e>
+		<e><p><l>fog<s n="n"/></l><r>tooth<s n="n"/></r></p></e>
+		<e><p><l>fej<s n="n"/></l><r>head<s n="n"/></r></p></e>
+		<e><p><l>fal<s n="n"/></l><r>wall<s n="n"/></r></p></e>
+		<e><p><l>folyosó<s n="n"/></l><r>corridor<s n="n"/></r></p></e>
+		<e><p><l>folyó<s n="n"/></l><r>river<s n="n"/></r></p></e>
+		<e><p><l>fóka<s n="n"/></l><r>seal<s n="n"/></r></p></e>
+		<e><p><l>favágó<s n="n"/></l><r>lumberjack<s n="n"/></r></p></e>
+		<e><p><l>gondolat<s n="n"/></l><r>thought<s n="n"/></r></p></e>
+		<e><p><l>galamb<s n="n"/></l><r>pigeon<s n="n"/></r></p></e>
+		<e><p><l>gomb<s n="n"/></l><r>button<s n="n"/></r></p></e>
+		<e><p><l>gyógyszer<s n="n"/></l><r>medicine<s n="n"/></r></p></e>
+		<e><p><l>gyógyszertár<s n="n"/></l><r>pharmacy<s n="n"/></r></p></e>
+		<e><p><l>haj<s n="n"/></l><r>hair<s n="n"/></r></p></e>
+		<e><p><l>hal<s n="n"/></l><r>fish<s n="n"/></r></p></e>
+		<e><p><l>halál<s n="n"/></l><r>death<s n="n"/></r></p></e>
+		<e><p><l>halász<s n="n"/></l><r>fisherman<s n="n"/></r></p></e>
+		<e><p><l>hold<s n="n"/></l><r>moon<s n="n"/></r></p></e>
+		<e><p><l>hűtő<s n="n"/></l><r>fridge<s n="n"/></r></p></e>
+		<e><p><l>igazság<s n="n"/></l><r>truth<s n="n"/></r></p></e>
+		<e><p><l>idegen<s n="n"/></l><r>stranger<s n="n"/></r></p></e>
+		<e><p><l>ima<s n="n"/></l><r>prayer<s n="n"/></r></p></e>
+		<e><p><l>illat<s n="n"/></l><r>smell<s n="n"/></r></p></e>
+		<e><p><l>indián<s n="n"/></l><r>indian<s n="n"/></r></p></e>
+		<e><p><l>ital<s n="n"/></l><r>drink<s n="n"/></r></p></e>
+		<e><p><l>íróasztal<s n="n"/></l><r>desk<s n="n"/></r></p></e>
+		<e><p><l>iskola<s n="n"/></l><r>school<s n="n"/></r></p></e>
+		<e><p><l>kalap<s n="n"/></l><r>hat<s n="n"/></r></p></e>
+		<e><p><l>kalapács<s n="n"/></l><r>hammer<s n="n"/></r></p></e>
+		<e><p><l>könyv<s n="n"/></l><r>book<s n="n"/></r></p></e>
+		<e><p><l>krumpli<s n="n"/></l><r>potato<s n="n"/></r></p></e>
+		<e><p><l>kép<s n="n"/></l><r>picture<s n="n"/></r></p></e>
+		<e><p><l>köd<s n="n"/></l><r>fog<s n="n"/></r></p></e>
+		<e><p><l>kéz<s n="n"/></l><r>hand<s n="n"/></r></p></e>
+		<e><p><l>kulcs<s n="n"/></l><r>key<s n="n"/></r></p></e>
+		<e><p><l>láb<s n="n"/></l><r>foot<s n="n"/></r></p></e>
+		<e><p><l>lámpa<s n="n"/></l><r>lamp<s n="n"/></r></p></e>
+		<e><p><l>lapát<s n="n"/></l><r>shovel<s n="n"/></r></p></e>
+		<e><p><l>luk<s n="n"/></l><r>hole<s n="n"/></r></p></e>
+		<e><p><l>lemez<s n="n"/></l><r>disc<s n="n"/></r></p></e>
+		<e><p><l>ló<s n="n"/></l><r>horse<s n="n"/></r></p></e>
+		<e><p><l>lista<s n="n"/></l><r>list<s n="n"/></r></p></e>
+		<e><p><l>labda<s n="n"/></l><r>ball<s n="n"/></r></p></e>
+		<e><p><l>medve<s n="n"/></l><r>bear<s n="n"/></r></p></e>
+		<e><p><l>mosoly<s n="n"/></l><r>smile<s n="n"/></r></p></e>
+		<e><p><l>manó<s n="n"/></l><r>elf<s n="n"/></r></p></e>
+		<e><p><l>mosdó<s n="n"/></l><r>bathroom<s n="n"/></r></p></e>
+		<e><p><l>majom<s n="n"/></l><r>monkey<s n="n"/></r></p></e>
+		<e><p><l>nap<s n="n"/></l><r>sun<s n="n"/></r></p></e>
+		<e><p><l>nyak<s n="n"/></l><r>neck<s n="n"/></r></p></e>
+		<e><p><l>nyalóka<s n="n"/></l><r>lollipop<s n="n"/></r></p></e>
+		<e><p><l>nyelv<s n="n"/></l><r>tongue<s n="n"/></r></p></e>
+		<e><p><l>nyár<s n="n"/></l><r>summer<s n="n"/></r></p></e>
+		<e><p><l>nyomtató<s n="n"/></l><r>printer<s n="n"/></r></p></e>
+		<e><p><l>olaj<s n="n"/></l><r>oil<s n="n"/></r></p></e>
+		<e><p><l>óra<s n="n"/></l><r>clock<s n="n"/></r></p></e>
+		<e><p><l>óriás<s n="n"/></l><r>giant<s n="n"/></r></p></e>
+		<e><p><l>öröm<s n="n"/></l><r>joy<s n="n"/></r></p></e>
+		<e><p><l>ökör<s n="n"/></l><r>ox<s n="n"/></r></p></e>
+		<e><p><l>öröklét<s n="n"/></l><r>eternity<s n="n"/></r></p></e>
+		<e><p><l>örökség<s n="n"/></l><r>heritage<s n="n"/></r></p></e>
+		<e><p><l>özvegy<s n="n"/></l><r>widow<s n="n"/></r></p></e>
+		<e><p><l>ősz<s n="n"/></l><r>autumn<s n="n"/></r></p></e>
+		<e><p><l>parancs<s n="n"/></l><r>order<s n="n"/></r></p></e>
+		<e><p><l>pók<s n="n"/></l><r>spider<s n="n"/></r></p></e>
+		<e><p><l>paprika<s n="n"/></l><r>paprika<s n="n"/></r></p></e>
+		<e><p><l>pap<s n="n"/></l><r>priest<s n="n"/></r></p></e>
+		<e><p><l>palacsinta<s n="n"/></l><r>pancake<s n="n"/></r></p></e>
+		<e><p><l>póló<s n="n"/></l><r>t-shirt<s n="n"/></r></p></e>
+		<e><p><l>pulóver<s n="n"/></l><r>pullover<s n="n"/></r></p></e>
+		<e><p><l>parkolóhely<s n="n"/></l><r>parking space<s n="n"/></r></p></e>
+		<e><p><l>reptér<s n="n"/></l><r>airport<s n="n"/></r></p></e>
+		<e><p><l>róka<s n="n"/></l><r>fox<s n="n"/></r></p></e>
+		<e><p><l>rádió<s n="n"/></l><r>radio<s n="n"/></r></p></e>
+		<e><p><l>rágógumi<s n="n"/></l><r>chewing gum<s n="n"/></r></p></e>
+		<e><p><l>só<s n="n"/></l><r>salt<s n="n"/></r></p></e>
+		<e><p><l>sajt<s n="n"/></l><r>cheese<s n="n"/></r></p></e>
+		<e><p><l>sár<s n="n"/></l><r>mud<s n="n"/></r></p></e>
+		<e><p><l>sport<s n="n"/></l><r>sport<s n="n"/></r></p></e>
+		<e><p><l>vaj<s n="n"/></l><r>butter<s n="n"/></r></p></e>
+		<e><p><l>vasút<s n="n"/></l><r>railroad<s n="n"/></r></p></e>
+		<e><p><l>vonat<s n="n"/></l><r>train<s n="n"/></r></p></e>
+		<e><p><l>vakság<s n="n"/></l><r>blindness<s n="n"/></r></p></e>
+		<e><p><l>virág<s n="n"/></l><r>flower<s n="n"/></r></p></e>
+		<e><p><l>vallás<s n="n"/></l><r>religion<s n="n"/></r></p></e>
+		<e><p><l>vállalkozás<s n="n"/></l><r>enterprise<s n="n"/></r></p></e>
+		<e><p><l>vállalkozó<s n="n"/></l><r>entrepreneur<s n="n"/></r></p></e>
+		<e><p><l>sapka<s n="n"/></l><r>cap<s n="n"/></r></p></e>
+		<e><p><l>tavasz<s n="n"/></l><r>spring<s n="n"/></r></p></e>
+		<e><p><l>tél<s n="n"/></l><r>winter<s n="n"/></r></p></e>
+		<e><p><l>testvér<s n="n"/></l><r>sibling<s n="n"/></r></p></e>
+		<e><p><l>tükör<s n="n"/></l><r>mirror<s n="n"/></r></p></e>
+		
 
   </section>
 </dictionary>
